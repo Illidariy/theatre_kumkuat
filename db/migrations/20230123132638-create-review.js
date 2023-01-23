@@ -24,6 +24,16 @@ module.exports = {
           key: 'id',
         },
       },
+      title: {
+        allowNull: false,
+        unique: true,
+        type: Sequelize.TEXT,
+      },
+      body: {
+        allowNull: false,
+        unique: true,
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

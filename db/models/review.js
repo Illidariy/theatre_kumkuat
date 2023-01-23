@@ -39,6 +39,16 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
+    title: {
+      allowNull: false,
+      unique: true,
+      type: DataTypes.TEXT,
+    },
+    body: {
+      allowNull: false,
+      unique: true,
+      type: DataTypes.TEXT,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
