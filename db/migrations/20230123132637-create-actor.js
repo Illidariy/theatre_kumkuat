@@ -8,6 +8,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      firstName: {
+        allowNull: false,
+        unique: true,
+        type: Sequelize.TEXT,
+      },
+      secondName: {
+        allowNull: false,
+        unique: true,
+        type: Sequelize.TEXT,
+      },
+      photo: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
       title: {
         allowNull: false,
         unique: true,
@@ -18,18 +32,12 @@ module.exports = {
         unique: true,
         type: Sequelize.TEXT,
       },
-      photo: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      actorId: {
-        allowNull: false,
+      spectacleId: {
         type: Sequelize.INTEGER,
-      },
-      directorId: {
-        allowNull: false,
-        unique: true,
-        type: Sequelize.INTEGER,
+        references: {
+          model: 'Spectacles',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -40,9 +48,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
     };
-    await queryInterface.createTable('Spectacles', attributes);
+    await queryInterface.createTable('Actors', attributes);
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Spectacles');
+    await queryInterface.dropTable('Actors');
   },
 };

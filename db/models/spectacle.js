@@ -7,8 +7,16 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate({ Actor, Director, Review }) {
+      Spectacle.Actor = Spectacle.hasMany(Actor, {
+        foreignKey: 'spectacleId',
+      });
+      Spectacle.Director = Spectacle.belongsTo(Director, {
+        foreignKey: 'directorId',
+      });
+      Spectacle.Review = Spectacle.hasMany(Review, {
+        foreignKey: 'spectacleIdId',
+      });
     }
   }
   const attributes = {
@@ -21,21 +29,21 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       allowNull: false,
       unique: true,
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
     },
     body: {
       allowNull: false,
       unique: true,
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
     },
     photo: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    actorId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-    },
+    // actorId: {
+    //   allowNull: false,
+    //   type: DataTypes.INTEGER,
+    // },
     directorId: {
       allowNull: false,
       unique: true,

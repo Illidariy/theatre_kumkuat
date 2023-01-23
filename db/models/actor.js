@@ -7,8 +7,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate({ Spectacle }) {
+      Actor.Spectacle = Actor.belongsTo(Spectacle, {
+        foreignKey: 'spectacleId',
+      });
     }
   }
   const attributes = {
@@ -44,6 +46,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     spectacleId: {
       type: DataTypes.INTEGER,
+      references: {
+        model: 'Spectacles',
+        key: 'id',
+      },
     },
     createdAt: {
       allowNull: false,
