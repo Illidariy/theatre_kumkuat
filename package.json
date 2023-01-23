@@ -1,0 +1,37 @@
+{
+  "name": "theatre_kumkuat",
+  "version": "1.0.0",
+  "description": "Future web site of Theatre studio \"Kumkuat\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js --ext js,json,jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nickolay-Klimentov/theatre_kumkuat.git"
+  },
+  "keywords": [
+    "theatre",
+    "studio",
+    "kukmuat"
+  ],
+  "author": "Moody Nick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nickolay-Klimentov/theatre_kumkuat/issues"
+  },
+  "homepage": "https://github.com/Nickolay-Klimentov/theatre_kumkuat#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "2.8.3"
+  }
+}
