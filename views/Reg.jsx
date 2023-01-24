@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 function Reg({ title }) {
   return (
     <Layout title={title}>
-      <form>
+      <form method="POST" action="/auth/reg" id="form-reg">
         <div className="form-text">Please fill out the form</div>
         <div className="containeer">
           <div className="mb-3">
