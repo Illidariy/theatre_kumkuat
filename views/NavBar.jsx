@@ -21,7 +21,7 @@ function NavBar({ user }) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home Page
               </a>
             </li>
@@ -31,18 +31,18 @@ function NavBar({ user }) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/spectacles">
                 Spectacles
               </a>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                For Students
+              <a className="nav-link" href="/students">
+                Students
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/auth">
+                Login
               </a>
             </li>
           </ul>

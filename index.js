@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const express = require('express');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const path = require('path');
@@ -36,9 +37,15 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
+app.use('/spectacle', spectaclesRouter);
+app.use('/actors', actorsRouter);
+app.use('/auth', authRouter);
+app.use('/directors', directorsRouter);
+app.use('/students', studentsRouter);
 
 app
   .listen(PORT)
