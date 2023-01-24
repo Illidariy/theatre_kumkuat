@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Login() {
+function Login({ title }) {
   return (
-    <Layout>
+    <Layout title={title}>
       <form>
         <div className="containeer">
           <div className="mb-3">

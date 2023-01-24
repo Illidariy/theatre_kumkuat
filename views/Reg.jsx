@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Reg() {
+function Reg({ title }) {
   return (
-    <Layout>
+    <Layout title={title}>
       <form>
         <div className="form-text">Please fill out the form</div>
         <div className="containeer">

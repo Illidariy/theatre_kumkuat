@@ -41,7 +41,7 @@ app.use(cookieParser());
 app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
-app.use('/spectacle', spectaclesRouter);
+app.use('/spectacles', spectaclesRouter);
 app.use('/actors', actorsRouter);
 app.use('/auth', authRouter);
 app.use('/directors', directorsRouter);
