@@ -8,6 +8,13 @@ const FileStore = require('session-file-store')(session);
 const path = require('path');
 const ssr = require('./middleware/ssr');
 
+const indexRouter = require('./routes/index.routes');
+const actorsRouter = require('./routes/actors.routes');
+const spectaclesRouter = require('./routes/spectacles.routes');
+const authRouter = require('./routes/auth.routes');
+const directorsRouter = require('./routes/directors.routes');
+const studentsRouter = require('./routes/students.routes');
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -30,6 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session(sessionConfig));
+
+app.use('/', indexRouter);
 
 app
   .listen(PORT)
