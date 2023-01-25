@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 function Login({ title }) {
   return (
     <Layout title={title}>
-      <form>
+      <form method="POST" action="/auth/login" id="form-login">
         <div className="containeer">
           <div className="mb-3">
             <input
@@ -27,6 +27,7 @@ function Login({ title }) {
               required
             />
           </div>
+          <div id="feedback" className="feedback" />
           <button type="submit" className="btn btn-primary">
             Log In
           </button>

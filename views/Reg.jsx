@@ -19,12 +19,11 @@ function Reg({ title }) {
           </div>
           <div className="mb-3">
             <input
-              type="password"
-              name="password"
-              placeholder="password and"
-              minLength="8"
+              type="text"
+              name="userName"
+              placeholder="your name"
               className="form-control"
-              id="input-password"
+              id="input-userName"
               required
             />
           </div>
@@ -32,13 +31,25 @@ function Reg({ title }) {
             <input
               type="password"
               name="password"
-              placeholder="password again"
+              placeholder="and password"
               minLength="8"
               className="form-control"
-              id="input-password"
+              id="input-regPass"
               required
             />
           </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              name="password"
+              placeholder="Confirm your password"
+              minLength="8"
+              className="form-control"
+              id="input-regPassConf"
+              required
+            />
+          </div>
+          <div id="feedback" className="feedback" />
           <button type="submit" className="btn btn-primary">
             Sign Up
           </button>

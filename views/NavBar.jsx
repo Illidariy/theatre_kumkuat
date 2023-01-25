@@ -41,7 +41,7 @@ function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/auth">
+              <a className="nav-link" href="/auth/login">
                 Login
               </a>
             </li>
