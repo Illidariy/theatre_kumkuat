@@ -10,9 +10,9 @@ const path = require('path');
 const ssr = require('./middleware/ssr');
 
 const indexRouter = require('./routes/index.routes');
+const authRouter = require('./routes/auth.routes');
 const actorsRouter = require('./routes/actors.routes');
 const spectaclesRouter = require('./routes/spectacles.routes');
-const authRouter = require('./routes/auth.routes');
 const directorsRouter = require('./routes/directors.routes');
 const studentsRouter = require('./routes/students.routes');
 
@@ -32,18 +32,18 @@ const sessionConfig = {
   },
 };
 
-app.use(ssr);
-app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 app.use(cookieParser());
 app.use(session(sessionConfig));
+app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static('public'));
+app.use(ssr);
 
 app.use('/', indexRouter);
-app.use('/spectacles', spectaclesRouter);
-app.use('/actors', actorsRouter);
 app.use('/auth', authRouter);
+app.use('/actors', actorsRouter);
+app.use('/spectacles', spectaclesRouter);
 app.use('/directors', directorsRouter);
 app.use('/students', studentsRouter);
 

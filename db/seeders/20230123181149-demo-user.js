@@ -9,6 +9,7 @@ module.exports = {
       {
         login: process.env.DEMO_USER,
         password: await bcrypt.hash(process.env.DEMO_PASSWORD, saltRounds),
+        userName: 'Creator',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

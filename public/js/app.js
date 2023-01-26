@@ -21,7 +21,7 @@ function isSamePass() {
 }
 
 // reg fetch
-formReg.addEventListener('submit', async (event) => {
+formReg?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const { login, password, method, action } = event.target;
   if (isSamePass()) {
@@ -37,7 +37,7 @@ formReg.addEventListener('submit', async (event) => {
     });
     const data = await res.json();
     if (data.reg) {
-      window.location.href = data.url;
+      window.location.assign(data.url);
     } else {
       feedback.style.display = 'block';
       feedback.textContent = data.message;
@@ -46,7 +46,7 @@ formReg.addEventListener('submit', async (event) => {
 });
 
 // login form
-formLogin.addEventListener('submit', async (event) => {
+formLogin?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const { login, password, method, action } = event.target;
   const res = await fetch(action, {
@@ -61,7 +61,7 @@ formLogin.addEventListener('submit', async (event) => {
   });
   const data = await res.json();
   if (data.login) {
-    window.location.href = data.url;
+    window.location.assign(data.url);
   } else {
     feedback.style.display = 'block';
     feedback.textContent = data.message;

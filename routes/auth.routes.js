@@ -17,7 +17,7 @@ authRouter.post('/login', async (req, res) => {
     if (user && (await bcrypt.compare(password, user.password))) {
       req.session.userId = user.id;
       res
-        .status(200)
+        .status(201)
         .json({ login: true, url: '/', message: 'Вход прошел успешно' });
     } else {
       res.status(404).json({ login: false, message: 'Пользователь не найден' });
@@ -48,9 +48,11 @@ authRouter.post('/reg', async (req, res) => {
           updatedAt: new Date(),
         });
         req.session.userId = newUser.id;
-        res
-          .status(201)
-          .json({ reg: true, url: '/', message: 'Регистрация прошла успешно' });
+        res.status(201).json({
+          reg: true,
+          url: '/',
+          message: 'Регистрация прошла успешно',
+        });
       } else {
         res
           .status(403)
@@ -61,6 +63,20 @@ authRouter.post('/reg', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ reg: false, message: 'Ошибка при регистрации' });
+  }
+});
+
+authRouter.get('/logout', (req, res) => {
+  const { userId } = req.session;
+  if (userId) {
+    try {
+      req.session.destroy();
+      res.clearCookie('user_sid');
+      res.redirect('/');
+      // res.status(204).json({ message: 'Выход прошел успешно' });
+    } catch (error) {
+      res.status(500).json({ login: false, message: 'Ошибка при выходе' });
+    }
   }
 });
 

@@ -14,6 +14,7 @@ function Reg({ title }) {
               placeholder="Enter your login,"
               className="form-control"
               id="input-login"
+              autoComplete="off"
               required
             />
           </div>
@@ -24,6 +25,7 @@ function Reg({ title }) {
               placeholder="your name"
               className="form-control"
               id="input-userName"
+              autoComplete="off"
               required
             />
           </div>
@@ -35,6 +37,7 @@ function Reg({ title }) {
               minLength="8"
               className="form-control"
               id="input-regPass"
+              autoComplete="off"
               required
             />
           </div>
@@ -46,6 +49,7 @@ function Reg({ title }) {
               minLength="8"
               className="form-control"
               id="input-regPassConf"
+              autoComplete="off"
               required
             />
           </div>

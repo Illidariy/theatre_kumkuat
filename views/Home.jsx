@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Home({ title }) {
+function Home({ title, user }) {
   return (
-    <Layout title={title}>
+    <Layout title={title} user={user}>
       <div className="container">
         <h1>Home page</h1>
         <img

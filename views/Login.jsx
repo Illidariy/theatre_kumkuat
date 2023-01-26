@@ -13,6 +13,7 @@ function Login({ title }) {
               placeholder="Please enter your login"
               className="form-control"
               id="input-login"
+              autoComplete="off"
               required
             />
           </div>
@@ -24,6 +25,7 @@ function Login({ title }) {
               minLength="8"
               className="form-control"
               id="input-password"
+              autoComplete="off"
               required
             />
           </div>

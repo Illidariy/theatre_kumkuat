@@ -1,12 +1,19 @@
 const React = require('react');
 
-function NavBar() {
+function NavBar({ user }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
+        {user ? (
+          <a className="navbar-brand" href="#">
+            Hello,
+            {user.userName}!
+          </a>
+        ) : (
+          <a className="navbar-brand" href="#">
+            NavBar
+          </a>
+        )}
         <button
           className="navbar-toggler"
           type="button"
@@ -40,11 +47,19 @@ function NavBar() {
                 Students
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/auth/login">
-                Login
-              </a>
-            </li>
+            {!user ? (
+              <li className="nav-item">
+                <a className="nav-link" href="/auth/login">
+                  Login
+                </a>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <a className="nav-link" href="/auth/logout">
+                  Logout
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
