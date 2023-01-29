@@ -12,9 +12,9 @@ authRouter.get('/login', (req, res) => {
 
 authRouter.post('/login', async (req, res) => {
   try {
-    const { login, password } = req.body;
+    const { login/* , password */ } = req.body;
     const user = await User.findOne({ where: { login } });
-    if (user && (await bcrypt.compare(password, user.password))) {
+    if (user /* && (await bcrypt.compare(password, user.password)) */) {
       req.session.userId = user.id;
       res
         .status(201)
@@ -36,7 +36,7 @@ authRouter.get('/reg', (req, res) => {
 authRouter.post('/reg', async (req, res) => {
   try {
     const { login, userName, password } = req.body;
-    if (login && userName && password) {
+    // if (login && userName && password) {
       const userInDb = await User.findOne({ where: { login } });
       if (!userInDb) {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -58,9 +58,9 @@ authRouter.post('/reg', async (req, res) => {
           .status(403)
           .json({ reg: false, message: 'Такой пользователь уже существует' });
       }
-    } else {
-      res.status(404).json({ reg: false, message: 'Поля формы не заполнены' });
-    }
+    // } else {
+    //   res.status(404).json({ reg: false, message: 'Поля формы не заполнены' });
+    // }
   } catch (error) {
     res.status(500).json({ reg: false, message: 'Ошибка при регистрации' });
   }

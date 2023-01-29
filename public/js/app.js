@@ -23,7 +23,7 @@ function isSamePass() {
 // reg fetch
 formReg?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const { login, password, method, action } = event.target;
+  const { login, userName, password, method, action } = event.target;
   if (isSamePass()) {
     const res = await fetch(action, {
       method,
@@ -32,6 +32,7 @@ formReg?.addEventListener('submit', async (event) => {
       },
       body: JSON.stringify({
         login: login.value,
+        userName: userName.value,
         password: password.value,
       }),
     });
