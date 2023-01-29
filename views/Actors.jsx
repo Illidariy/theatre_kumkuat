@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Actors({ title, actors }) {
+function Actors({ title, actors, user }) {
   return (
-    <Layout title={title}>
+    <Layout title={title} user={user}>
       <div className="container">
         <h1>Actors</h1>
         <ul className="list-group">
