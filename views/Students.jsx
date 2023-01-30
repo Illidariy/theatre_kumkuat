@@ -1,5 +1,6 @@
 const React = require('react');
 const Layout = require('./Layout');
+const StudentPage = require('./StudentPage');
 
 function Students({ title, students, user }) {
   return (
@@ -94,27 +95,13 @@ function Students({ title, students, user }) {
         <h1>Students</h1>
         <div className="list-group">
           {students.map((student) => (
-            <div key={student.id} className="list-group-item">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">
-                    {student.firstName} {student.secondName}
-                  </h5>
-                  <h6 className="card-subtitle mb-2">
-                    {student.age} {student.exper}
-                  </h6>
-                  <p className="card-text">{student.about}</p>
-                  <h6 className="card-subtitle mb-2">
-                    {student.phone} {student.email}
-                  </h6>
-                  <a href="#" className="card-link-edit">
-                    Edit
-                  </a>
-                  <a href="student" className="card-link-delete">
-                    Delete
-                  </a>
-                </div>
-              </div>
+            <div>
+              <StudentPage
+                key={student.id}
+                user={user}
+                student={student}
+                className="list-group-item"
+              />
             </div>
           ))}
         </div>

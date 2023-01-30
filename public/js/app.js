@@ -100,6 +100,7 @@ formStudent?.addEventListener('submit', async (event) => {
     }),
   });
   const html = await res.text();
+  console.log(html);
   document.querySelector('.list-group').insertAdjacentHTML('beforeend', html);
   formStudent.reset();
 });

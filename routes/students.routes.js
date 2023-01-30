@@ -1,5 +1,6 @@
 const studentsRouter = require('express').Router();
 const Students = require('../views/Students');
+const StudentPage = require('../views/StudentPage');
 const { Student, User } = require('../db/models');
 
 studentsRouter.get('/', async (req, res) => {
@@ -15,7 +16,7 @@ studentsRouter.get('/', async (req, res) => {
 
 studentsRouter.post('/', async (req, res) => {
   try {
-    const newStudent = await Student.create({
+    const student = await Student.create({
       firstName: req.body.firstName,
       secondName: req.body.secondName,
       age: req.body.age,
@@ -24,7 +25,9 @@ studentsRouter.post('/', async (req, res) => {
       phone: req.body.phone,
       email: req.body.email,
     });
-    res.renderComponent(Students, { newStudent }, { doctype: false });
+    // const { userId } = req.session;
+    // const user = await User.findByPk(userId);
+    res.renderComponent(StudentPage, { student } /* , {doctype: false} */);
   } catch (error) {
     res.status(500).json(error.message);
   }
