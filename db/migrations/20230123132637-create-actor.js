@@ -32,13 +32,6 @@ module.exports = {
         unique: true,
         type: Sequelize.TEXT,
       },
-      spectacleId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Spectacles',
-          key: 'id',
-        },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

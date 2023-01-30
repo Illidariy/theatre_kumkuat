@@ -8,8 +8,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Actor, Director, Review }) {
-      Spectacle.Actor = Spectacle.hasMany(Actor, {
+      Spectacle.Actor = Spectacle.belongsToMany(Actor, {
+        through: 'SpectaclesActors',
         foreignKey: 'spectacleId',
+        otherKey: 'actorId',
+        as: 'actors',
       });
       Spectacle.Director = Spectacle.belongsTo(Director, {
         foreignKey: 'directorId',
@@ -40,10 +43,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    // actorId: {
-    //   allowNull: false,
-    //   type: DataTypes.INTEGER,
-    // },
     directorId: {
       allowNull: false,
       unique: true,

@@ -2,32 +2,21 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     const attributes = {
-      id: {
+      actorId: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Actors',
+          key: 'id',
+        },
       },
-      title: {
+      spectacleId: {
         allowNull: false,
-        unique: true,
-        type: Sequelize.TEXT,
-      },
-      body: {
-        allowNull: false,
-        unique: true,
-        type: Sequelize.TEXT,
-      },
-      photo: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      directorId: {
-        allowNull: false,
-        unique: true,
+        primaryKey: true,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Directors',
+          model: 'Spectacles',
           key: 'id',
         },
       },
@@ -40,9 +29,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
     };
-    await queryInterface.createTable('Spectacles', attributes);
+    await queryInterface.createTable('SpectaclesActors', attributes);
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Spectacles');
+    await queryInterface.dropTable('SpectaclesActors');
   },
 };

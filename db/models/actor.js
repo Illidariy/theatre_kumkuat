@@ -8,8 +8,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Spectacle }) {
-      Actor.Spectacle = Actor.belongsTo(Spectacle, {
-        foreignKey: 'spectacleId',
+      Actor.Spectacle = Actor.belongsToMany(Spectacle, {
+        through: 'SpectaclesActors',
+        foreignKey: 'actorId',
+        otherKey: 'spectacleId',
+        as: 'spectacles',
       });
     }
   }
@@ -43,13 +46,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
       type: DataTypes.TEXT,
-    },
-    spectacleId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Spectacles',
-        key: 'id',
-      },
     },
     createdAt: {
       allowNull: false,

@@ -11,6 +11,13 @@ spectaclesRouter.get('/', async (req, res) => {
     spectacles,
     user,
   });
+  // вывод через связь many to many
+  // const [result] = await Spectacle.findAll({
+  //   include: Spectacle.Actor,
+  // });
+  // console.log(result);
+  // const { actors } = result;
+  // res.json(actors);
 });
 
 module.exports = spectaclesRouter;
