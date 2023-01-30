@@ -1,0 +1,9 @@
+.edit {
+  visibility: hidden;
+  display: none;
+}
+
+.edit.active {
+  display: block;
+  visibility: visible;
+}

@@ -10,6 +10,7 @@ const regPassConf = document.querySelector('#input-regPassConf');
 // divs
 const feedback = document.querySelector('#feedback');
 const studentsList = document.querySelectorAll('.list-group-students');
+const edit = document.querySelector('.edit');
 
 // check passwords
 function isSamePass() {
@@ -119,6 +120,18 @@ studentsList.forEach((student) => {
       if (data > 0) {
         event.target.closest('.card').remove();
       }
+    }
+  });
+});
+
+// student edit
+studentsList.forEach((student) => {
+  student.addEventListener('click', async (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains('card-link-edit')) {
+      const editDiv = event.target.closest('.card');
+      editDiv.querySelector('.edit').classList.toggle('active');
+      // const { id } = event.target.dataset;
     }
   });
 });
