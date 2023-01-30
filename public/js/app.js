@@ -1,6 +1,7 @@
 // forms
 const formReg = document.querySelector('#form-reg');
 const formLogin = document.querySelector('#form-login');
+const formStudent = document.querySelector('#form-student');
 
 // inputs
 const regPass = document.querySelector('#input-regPass');
@@ -67,4 +68,38 @@ formLogin?.addEventListener('submit', async (event) => {
     feedback.style.display = 'block';
     feedback.textContent = data.message;
   }
+});
+
+// student form
+formStudent?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const {
+    firstName,
+    secondName,
+    age,
+    exper,
+    about,
+    phone,
+    email,
+    action,
+    method,
+  } = event.target;
+  const res = await fetch(action, {
+    method,
+    headers: {
+      'Content-Type': 'Application/json',
+    },
+    body: JSON.stringify({
+      firstName: firstName.value,
+      secondName: secondName.value,
+      age: age.value,
+      exper: exper.value,
+      about: about.value,
+      phone: phone.value,
+      email: email.value,
+    }),
+  });
+  const html = await res.text();
+  document.querySelector('.list-group').insertAdjacentHTML('beforeend', html);
+  formStudent.reset();
 });

@@ -44,7 +44,7 @@ function Reg({ title }) {
           <div className="mb-3">
             <input
               type="password"
-              name="password"
+              name="confPassword"
               placeholder="Confirm your password"
               minLength="8"
               className="form-control"
