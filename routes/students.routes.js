@@ -33,4 +33,14 @@ studentsRouter.post('/', async (req, res) => {
   }
 });
 
+studentsRouter.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await Student.destroy({ where: { id } });
+    res.json(result);
+  } catch (error) {
+    res.json(error.message);
+  }
+});
+
 module.exports = studentsRouter;

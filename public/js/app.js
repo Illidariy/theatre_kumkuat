@@ -9,6 +9,7 @@ const regPassConf = document.querySelector('#input-regPassConf');
 
 // divs
 const feedback = document.querySelector('#feedback');
+const studentsList = document.querySelectorAll('.list-group-students');
 
 // check passwords
 function isSamePass() {
@@ -100,7 +101,24 @@ formStudent?.addEventListener('submit', async (event) => {
     }),
   });
   const html = await res.text();
-  console.log(html);
-  document.querySelector('.list-group').insertAdjacentHTML('beforeend', html);
+  // console.log(html);
+  document
+    .querySelector('.list-group-students')
+    .insertAdjacentHTML('beforeend', html);
   formStudent.reset();
+});
+
+// student delete
+studentsList.forEach((student) => {
+  student.addEventListener('click', async (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains('card-link-delete')) {
+      const { id } = event.target.dataset;
+      const res = await fetch(`/students/${id}`, { method: 'DELETE' });
+      const data = await res.json();
+      if (data > 0) {
+        event.target.closest('.card').remove();
+      }
+    }
+  });
 });

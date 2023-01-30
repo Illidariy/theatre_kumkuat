@@ -14,11 +14,15 @@ function StudentPage({ student }) {
         <h6 className="card-subtitle mb-2">
           {student.phone} {student.email}
         </h6>
-        <a href="#" className="card-link-edit">
+        <a href={`students/${student.id}`} className="card-link-edit">
           Edit
         </a>
         <br />
-        <a href="student" className="card-link-delete">
+        <a
+          href={`students/${student.id}`}
+          data-id={student.id}
+          className="card-link-delete"
+        >
           Delete
         </a>
       </div>

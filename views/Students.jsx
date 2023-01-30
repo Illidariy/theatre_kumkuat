@@ -93,7 +93,7 @@ function Students({ title, students, user }) {
       </form>
       <div className="container">
         <h1>Students</h1>
-        <div className="list-group">
+        <div className="list-group-students">
           {students.map((student) => (
             <div>
               <StudentPage
