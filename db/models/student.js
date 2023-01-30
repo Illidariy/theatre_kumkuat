@@ -34,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
+    about: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
     phone: {
       allowNull: false,
       unique: true,

@@ -13,4 +13,21 @@ studentsRouter.get('/', async (req, res) => {
   });
 });
 
+studentsRouter.post('/', async (req, res) => {
+  try {
+    const newStudent = await Student.create({
+      firstName: req.body.firstName,
+      secondName: req.body.secondName,
+      age: req.body.age,
+      exper: req.body.exper,
+      about: req.body.about,
+      phone: req.body.phone,
+      email: req.body.email,
+    });
+    res.renderComponent(Students, { newStudent }, { doctype: false });
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+});
+
 module.exports = studentsRouter;

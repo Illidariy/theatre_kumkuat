@@ -24,6 +24,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
+      about: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
       phone: {
         allowNull: false,
         unique: true,
