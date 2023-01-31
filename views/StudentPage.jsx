@@ -28,7 +28,7 @@ function StudentPage({ student, user }) {
         {user && user.id === student.userId && (
           <div>
             <a
-              href={`students/${student.id}`}
+              href={`/students/${student.id}`}
               data-id={student.id}
               className="card-link-edit"
             >
