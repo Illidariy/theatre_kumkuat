@@ -43,4 +43,23 @@ studentsRouter.delete('/:id', async (req, res) => {
   }
 });
 
+studentsRouter.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { firstName, secondName, age, exper, about, phone, email } = req.body;
+    const student = await Student.findOne({ where: { id } });
+    student.firstName = firstName;
+    student.secondName = secondName;
+    student.age = age;
+    student.exper = exper;
+    student.about = about;
+    student.phone = phone;
+    student.email = email;
+    student.save();
+    res.json({ student, message: 'success' });
+  } catch (error) {
+    res.json(error.message);
+  }
+});
+
 module.exports = studentsRouter;

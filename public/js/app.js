@@ -2,6 +2,7 @@
 const formReg = document.querySelector('#form-reg');
 const formLogin = document.querySelector('#form-login');
 const formStudent = document.querySelector('#form-student');
+const editFormsStudent = document.querySelectorAll('.edit-form-student');
 
 // inputs
 const regPass = document.querySelector('#input-regPass');
@@ -9,8 +10,7 @@ const regPassConf = document.querySelector('#input-regPassConf');
 
 // divs
 const feedback = document.querySelector('#feedback');
-const studentsList = document.querySelectorAll('.list-group-students');
-const edit = document.querySelector('.edit');
+const studentsList = document.querySelector('.list-group-students');
 
 // check passwords
 function isSamePass() {
@@ -110,28 +110,72 @@ formStudent?.addEventListener('submit', async (event) => {
 });
 
 // student delete
-studentsList.forEach((student) => {
-  student.addEventListener('click', async (event) => {
-    event.preventDefault();
-    if (event.target.classList.contains('card-link-delete')) {
-      const { id } = event.target.dataset;
-      const res = await fetch(`/students/${id}`, { method: 'DELETE' });
-      const data = await res.json();
-      if (data > 0) {
-        event.target.closest('.card').remove();
-      }
+studentsList?.addEventListener('click', async (event) => {
+  event.preventDefault();
+  if (event.target.classList.contains('card-link-delete')) {
+    const { id } = event.target.dataset;
+    const res = await fetch(`/students/${id}`, { method: 'DELETE' });
+    const data = await res.json();
+    if (data > 0) {
+      event.target.closest('.card').remove();
     }
-  });
+  }
 });
 
-// student edit
-studentsList.forEach((student) => {
-  student.addEventListener('click', async (event) => {
+// student edit toggle
+studentsList?.addEventListener('click', async (event) => {
+  event.preventDefault();
+  if (event.target.classList.contains('card-link-edit')) {
+    const editDiv = event.target.closest('.card');
+    editDiv.querySelector('.edit').classList.toggle('active');
+  }
+});
+
+// student edit form
+document.querySelectorAll('.edit-form-student').forEach((editFormStudent) => {
+  // console.log(editFormStudent);
+  editFormStudent.addEventListener('click', async (event) => {
     event.preventDefault();
-    if (event.target.classList.contains('card-link-edit')) {
-      const editDiv = event.target.closest('.card');
-      editDiv.querySelector('.edit').classList.toggle('active');
-      // const { id } = event.target.dataset;
+    const parent = event.target.parentNode;
+    if (event.target.classList.contains('edit-save')) {
+      const { firstName, secondName, age, exper, about, phone, email, action } =
+        parent;
+      const res = await fetch(action, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'Application/json',
+        },
+        body: JSON.stringify({
+          firstName: firstName.value,
+          secondName: secondName.value,
+          age: age.value,
+          exper: exper.value,
+          about: about.value,
+          phone: phone.value,
+          email: email.value,
+        }),
+      });
+      const data = await res.json();
+      // console.log(data);
+      if (data.message === 'success') {
+        event.target.closest('.card-body').childNodes[0].innerText =
+          data.student.firstName;
+        event.target.closest('.card-body').childNodes[1].innerText =
+          data.student.secondName;
+        event.target.closest('.card-body').childNodes[2].innerText =
+          data.student.age;
+        event.target.closest('.card-body').childNodes[3].innerText =
+          data.student.exper;
+        event.target.closest('.card-body').childNodes[4].innerText =
+          data.student.about;
+        event.target.closest('.card-body').childNodes[5].innerText =
+          data.student.phone;
+        event.target.closest('.card-body').childNodes[6].innerText =
+          data.student.email;
+        event.target.closest('.edit').classList.toggle('active');
+      } else {
+        document.querySelector('.error').innerHTML = data.message;
+      }
     }
   });
 });

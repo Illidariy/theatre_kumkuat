@@ -95,9 +95,8 @@ function Students({ title, students, user }) {
         <h1>Students</h1>
         <div className="list-group-students">
           {students.map((student) => (
-            <div>
+            <div key={student.id}>
               <StudentPage
-                key={student.id}
                 user={user}
                 student={student}
                 className="list-group-item"
