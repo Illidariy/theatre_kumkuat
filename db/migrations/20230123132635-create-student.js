@@ -38,6 +38,14 @@ module.exports = {
         unique: true,
         type: Sequelize.TEXT,
       },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

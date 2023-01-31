@@ -16,6 +16,8 @@ studentsRouter.get('/', async (req, res) => {
 
 studentsRouter.post('/', async (req, res) => {
   try {
+    const { userId } = req.session;
+    const user = await User.findByPk(userId);
     const student = await Student.create({
       firstName: req.body.firstName,
       secondName: req.body.secondName,
@@ -24,10 +26,12 @@ studentsRouter.post('/', async (req, res) => {
       about: req.body.about,
       phone: req.body.phone,
       email: req.body.email,
+      userId,
     });
-    // const { userId } = req.session;
-    // const user = await User.findByPk(userId);
-    res.renderComponent(StudentPage, { student } /* , {doctype: false} */);
+    res.renderComponent(
+      StudentPage,
+      { student, user } /* , {doctype: false} */,
+    );
   } catch (error) {
     res.status(500).json(error.message);
   }
@@ -36,7 +40,9 @@ studentsRouter.post('/', async (req, res) => {
 studentsRouter.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await Student.destroy({ where: { id } });
+    const result = await Student.destroy({
+      where: { id, userId: req.session.userId },
+    });
     res.json(result);
   } catch (error) {
     res.json(error.message);
@@ -47,7 +53,9 @@ studentsRouter.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { firstName, secondName, age, exper, about, phone, email } = req.body;
-    const student = await Student.findOne({ where: { id } });
+    const student = await Student.findOne({
+      where: { id, userId: req.session.userId },
+    });
     student.firstName = firstName;
     student.secondName = secondName;
     student.age = age;

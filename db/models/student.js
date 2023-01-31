@@ -7,8 +7,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate({ User }) {
+      Student.User = Student.belongsTo(User, {
+        foreignKey: 'userId',
+      });
     }
   }
   const attributes = {
@@ -47,6 +49,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
       type: DataTypes.TEXT,
+    },
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
     },
     createdAt: {
       allowNull: false,
