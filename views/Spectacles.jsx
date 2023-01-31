@@ -9,12 +9,15 @@ function Spectacles({ title, spectacles, user }) {
         <ul className="list-group">
           {spectacles.map((spectacle) => (
             <li key={spectacle.id} className="list-group-item">
-              <img src={spectacle.photo} className="card-img-top" alt="" />
+              <div className="block-img">
+                <img src={spectacle.photo} className="card-img-top" alt="" />
+              </div>
+
               <div className="card-body">
                 <h5 className="card-title">{spectacle.title}</h5>
-                <p className="card-text">{spectacle.body}</p>
+                <a href={`/spectacles/${spectacle.id}`}>More...</a>
               </div>
-              <ul className="list-group list-group-flush">
+              {/* <ul className="list-group list-group-flush">
                 <li className="list-group-item">An item</li>
                 <li className="list-group-item">A second item</li>
                 <li className="list-group-item">A third item</li>
@@ -26,7 +29,7 @@ function Spectacles({ title, spectacles, user }) {
                 <a href="#" className="card-link">
                   Delete
                 </a>
-              </div>
+              </div> */}
             </li>
           ))}
         </ul>

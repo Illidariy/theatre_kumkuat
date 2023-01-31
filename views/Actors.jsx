@@ -9,7 +9,9 @@ function Actors({ title, actors, user }) {
         <ul className="list-group">
           {actors.map((actor) => (
             <li key={actor.id} className="list-group-item">
-              <img src={actor.photo} className="card-img-top" alt="" />
+              <div className="block-img">
+                <img src={actor.photo} className="card-img-top" alt="" />
+              </div>
               <div className="card-body">
                 <h5 className="card-title">
                   {actor.firstName} {actor.secondName}

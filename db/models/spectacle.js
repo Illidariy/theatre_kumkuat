@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'directorId',
       });
       Spectacle.Review = Spectacle.hasMany(Review, {
-        foreignKey: 'spectacleIdId',
+        foreignKey: 'spectacleId',
       });
     }
   }
