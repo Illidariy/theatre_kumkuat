@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      login: {
+      email: {
         allowNull: false,
         unique: true,
         type: Sequelize.TEXT,

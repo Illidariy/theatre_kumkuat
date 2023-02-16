@@ -22,12 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     firstName: {
       allowNull: false,
-      unique: true,
       type: DataTypes.TEXT,
     },
     secondName: {
       allowNull: false,
-      unique: true,
       type: DataTypes.TEXT,
     },
     photo: {
@@ -36,12 +34,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     title: {
       allowNull: false,
-      unique: true,
       type: DataTypes.TEXT,
     },
     body: {
       allowNull: false,
-      unique: true,
       type: DataTypes.TEXT,
     },
     createdAt: {

@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    login: {
+    email: {
       allowNull: false,
       unique: true,
       type: DataTypes.TEXT,

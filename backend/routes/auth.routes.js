@@ -1,19 +1,11 @@
 const authRouter = require('express').Router();
 const bcrypt = require('bcrypt');
-const Login = require('../views/Login');
-const Reg = require('../views/Reg');
 const { User } = require('../db/models');
-
-authRouter.get('/login', (req, res) => {
-  res.renderComponent(Login, {
-    title: 'Login form',
-  });
-});
 
 authRouter.post('/login', async (req, res) => {
   try {
-    const { login, password } = req.body;
-    const user = await User.findOne({ where: { login } });
+    const { email, password } = req.body;
+    const user = await User.findOne({ where: { email } });
     if (!user) {
       res.status(404).json({ login: false, message: 'Пользователь не найден' });
       return;
@@ -22,7 +14,7 @@ authRouter.post('/login', async (req, res) => {
     if (!isSame) {
       res
         .status(404)
-        .json({ login: false, message: 'Логин или пароль не верный' });
+        .json({ login: false, message: 'Email или пароль не верный' });
       return;
     }
     req.session.userId = user.id;
@@ -34,17 +26,11 @@ authRouter.post('/login', async (req, res) => {
   }
 });
 
-authRouter.get('/reg', (req, res) => {
-  res.renderComponent(Reg, {
-    title: 'Registration form',
-  });
-});
-
 authRouter.post('/reg', async (req, res) => {
   try {
-    const { login, userName, password } = req.body;
-    if (!login) {
-      res.status(404).json({ login: false, message: 'Введите логин' });
+    const { email, userName, password } = req.body;
+    if (!email) {
+      res.status(404).json({ login: false, message: 'Введите email' });
       return;
     }
     if (!userName) {
@@ -55,7 +41,7 @@ authRouter.post('/reg', async (req, res) => {
       res.status(404).json({ login: false, message: 'Введите пароль' });
       return;
     }
-    const userInDb = await User.findOne({ where: { login } });
+    const userInDb = await User.findOne({ where: { email } });
     if (userInDb) {
       res
         .status(403)
@@ -64,7 +50,7 @@ authRouter.post('/reg', async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await User.create({
-      login,
+      email,
       userName,
       password: hashedPassword,
       createdAt: new Date(),

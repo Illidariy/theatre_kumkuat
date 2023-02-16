@@ -7,7 +7,7 @@ module.exports = {
   async up(queryInterface) {
     const data = [
       {
-        login: process.env.DEMO_USER,
+        email: process.env.DEMO_EMAIL,
         password: await bcrypt.hash(process.env.DEMO_PASSWORD, saltRounds),
         userName: 'Creator',
         createdAt: new Date(),

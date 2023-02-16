@@ -26,12 +26,10 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        unique: true,
         type: Sequelize.TEXT,
       },
       body: {
         allowNull: false,
-        unique: true,
         type: Sequelize.TEXT,
       },
       createdAt: {
