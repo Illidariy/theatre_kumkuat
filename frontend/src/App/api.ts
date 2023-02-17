@@ -2,6 +2,7 @@
 import { Actor } from '../features/actors/Types/types';
 import { Perfomance } from '../features/perfomances/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
+import { Director } from '../features/directors/Types/types';
 
 export const loadPerfomances = async (): Promise<Perfomance[]> => {
   const res = await fetch('http://localhost:4000/api/perfomances');
@@ -12,6 +13,12 @@ export const loadActors = async (): Promise<Actor[]> => {
   const res = await fetch('http://localhost:4000/api/actors');
   return res.json();
 };
+
+export const loadDirectors = async (): Promise<Director[]> => {
+  const res = await fetch('http://localhost:4000/api/directors');
+  return res.json();
+};
+
 
 export const registr = async (newUser: User): Promise<PayloadAuth> => {
   const res = await fetch('http://localhost:4000/api/auth/registration', {

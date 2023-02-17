@@ -15,7 +15,7 @@ const actorsRouter = require('./routes/actors.routes');
 const spectaclesRouter = require('./routes/spectacles.routes');
 const authRouter = require('./routes/auth.routes');
 // const usersRouter = require('./routes/users.routes');
-// const directorsRouter = require('./routes/directors.routes');
+const directorsRouter = require('./routes/directors.routes');
 // const studentsRouter = require('./routes/students.routes');
 
 const app = express();
@@ -42,7 +42,7 @@ app.use('/api/perfomances', spectaclesRouter);
 app.use('/api/auth', authRouter);
 // app.use('/auth', usersRouter);
 // app.use('/spectacles', spectaclesRouter);
-// app.use('/directors', directorsRouter);
+app.use('/api/directors', directorsRouter);
 // app.use('/students', studentsRouter);
 
 app
