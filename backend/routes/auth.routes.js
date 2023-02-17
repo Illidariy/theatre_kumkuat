@@ -22,7 +22,6 @@ router.post('/login', async (req, res) => {
           id: user.id,
           name: user.name,
           email: user.email,
-          score: user.score,
         };
         req.session.userId = user.id;
         res.status(201).json({ message: '', user });
@@ -42,9 +41,12 @@ router.post('/login', async (req, res) => {
 router.post('/registration', async (req, res) => {
   try {
     const {
-      email, name, password, isAdmin,
+      email, name, password, password2, isAdmin,
     } = req.body;
-    if (email && name && password) {
+    if (password !== password2) {
+      return res.json({ error: 'Пароли не совпадают' });
+    }
+    if (email && name && password && password2) {
       let user = await User.findOne({ where: { email } });
       if (!user) {
         const hash = await bcrypt.hash(password, 10);
