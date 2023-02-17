@@ -17,7 +17,7 @@ function Registration(): JSX.Element {
     if ('name' in user) {
       nav('/');
     }
-  }, [user]);
+  }, [user, nav]);
   const registr = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(

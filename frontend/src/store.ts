@@ -2,12 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
 import actorsSlice from './features/actors/actorsSlice';
-import perfomanceSlice from './features/perfomances/perfomanceSlice';
+import spectacleSlice from './features/spectacles/spectacleSlice';
 import userSlice from './features/auth/authSlice';
 
 const store = configureStore({
   reducer: {
-    perfomanceState: perfomanceSlice,
+    spectacleState: spectacleSlice,
     actorState: actorsSlice,
     userState: userSlice,
   },
