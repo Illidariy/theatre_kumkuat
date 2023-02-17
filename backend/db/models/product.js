@@ -1,27 +1,15 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Spectacle extends Model {
+  class Product extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Actor, Director, Photo, Review }) {
-      Spectacle.Actor = Spectacle.belongsToMany(Actor, {
-        through: 'SpectaclesActors',
-        foreignKey: 'spectacleId',
-        otherKey: 'actorId',
-        as: 'actors',
-      });
-      Spectacle.Director = Spectacle.belongsTo(Director, {
-        foreignKey: 'directorId',
-      });
-      Spectacle.Review = Spectacle.hasMany(Review, {
-        foreignKey: 'spectacleId',
-      });
-      Spectacle.Photo = Spectacle.hasMany(Photo, {
-        foreignKey: 'spectacleId',
+    static associate({ User }) {
+      Product.User = Product.belongsTo(User, {
+        foreignKey: 'userId',
       });
     }
   }
@@ -40,23 +28,19 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    isActual: {
-      allowNull: false,
-      defaultValue: false,
-      type: DataTypes.BOOLEAN,
-    },
-    mainPhoto: {
+    photo: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    video: {
-      type: DataTypes.TEXT,
+    price: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
     },
-    directorId: {
+    userId: {
       allowNull: false,
       type: DataTypes.INTEGER,
       references: {
-        model: 'Directors',
+        model: 'Users',
         key: 'id',
       },
     },
@@ -71,9 +55,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   const options = {
     sequelize,
-    modelName: 'Spectacle',
-    tableName: 'Spectacles',
+    modelName: 'Product',
+    tableName: 'Products',
   };
-  Spectacle.init(attributes, options);
-  return Spectacle;
+  Product.init(attributes, options);
+  return Product;
 };
