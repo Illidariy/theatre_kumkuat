@@ -14,7 +14,7 @@ export const loadActors = async (): Promise<Actor[]> => {
 };
 
 export const registr = async (newUser: User): Promise<PayloadAuth> => {
-  const res = await fetch('http://localhost:4000/auth/registration', {
+  const res = await fetch('http://localhost:4000/api/auth/registration', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
