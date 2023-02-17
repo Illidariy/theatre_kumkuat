@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'TeX Gyre Cursor';
+    src: local('TeX Gyre Cursor'), local('TeXGyreCursor-Regular'), url('texgyrecursor.woff2') format('woff2'), url('texgyrecursor.woff') format('woff'), url('texgyrecursor.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TeX Gyre Cursor';
+    src: local('TeX Gyre Cursor Italic'), local('TeXGyreCursor-Italic'), url('texgyrecursoritalic.woff2') format('woff2'), url('texgyrecursoritalic.woff') format('woff'), url('texgyrecursoritalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'TeX Gyre Cursor';
+    src: local('TeX Gyre Cursor Bold'), local('TeXGyreCursor-Bold'), url('texgyrecursorbold.woff2') format('woff2'), url('texgyrecursorbold.woff') format('woff'), url('texgyrecursorbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TeX Gyre Cursor';
+    src: local('TeX Gyre Cursor Bold Italic'), local('TeXGyreCursor-BoldItalic'), url('texgyrecursorbolditalic.woff2') format('woff2'), url('texgyrecursorbolditalic.woff') format('woff'), url('texgyrecursorbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
