@@ -49,7 +49,7 @@ router.post('/registration', async (req, res) => {
       if (!user) {
         const hash = await bcrypt.hash(password, 10);
         const newUser = await User.create({
-          name,
+          userName: name,
           email,
           password: hash,
           isAdmin,

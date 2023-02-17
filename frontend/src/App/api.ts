@@ -1,7 +1,7 @@
 import { PayloadAuth, User } from '../features/auth/Types/type';
 
 export const registr = async (newUser: User): Promise<PayloadAuth> => {
-    const res = await fetch('http://localhost:4000/api/auth/sign-up', {
+    const res = await fetch('http://localhost:4000/auth/registration', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
