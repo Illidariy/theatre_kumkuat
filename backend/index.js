@@ -13,7 +13,7 @@ const sessionConfig = require('./config/session');
 // const indexRouter = require('./routes/index.routes');
 // const authRouter = require('./routes/auth.routes');
 // const actorsRouter = require('./routes/actors.routes');
-// const spectaclesRouter = require('./routes/spectacles.routes');
+const spectaclesRouter = require('./routes/spectacles.routes');
 // const directorsRouter = require('./routes/directors.routes');
 // const studentsRouter = require('./routes/students.routes');
 
@@ -38,7 +38,7 @@ app.use(cors(corsOptions));
 // app.use('/', indexRouter);
 // app.use('/auth', authRouter);
 // app.use('/actors', actorsRouter);
-// app.use('/spectacles', spectaclesRouter);
+app.use('/api/perfomances', spectaclesRouter);
 // app.use('/directors', directorsRouter);
 // app.use('/students', studentsRouter);
 
