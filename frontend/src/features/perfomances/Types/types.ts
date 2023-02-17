@@ -2,7 +2,7 @@ export type Perfomance = {
   id:number;
   title: string;
   body:string;
-  photo:string;
+  mainPhoto:string;
   directorId:number;
 
 };
