@@ -1,20 +1,14 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class Product extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Review, Student, Product }) {
-      User.Review = User.hasMany(Review, {
-        foreignKey: 'userId',
-      });
-      User.Student = User.hasMany(Student, {
-        foreignKey: 'userId',
-      });
-      User.Product = User.hasMany(Product, {
+    static associate({ User }) {
+      Product.User = Product.belongsTo(User, {
         foreignKey: 'userId',
       });
     }
@@ -26,23 +20,29 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    email: {
-      allowNull: false,
-      unique: true,
-      type: DataTypes.TEXT,
-    },
-    userName: {
+    title: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    password: {
+    body: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    isAdmin: {
+    photo: {
       allowNull: false,
-      defaultValue: false,
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.TEXT,
+    },
+    price: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
     },
     createdAt: {
       allowNull: false,
@@ -55,9 +55,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   const options = {
     sequelize,
-    modelName: 'User',
-    tableName: 'Users',
+    modelName: 'Product',
+    tableName: 'Products',
   };
-  User.init(attributes, options);
-  return User;
+  Product.init(attributes, options);
+  return Product;
 };
