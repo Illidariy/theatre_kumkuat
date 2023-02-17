@@ -36,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
+    photo: {
+      type: DataTypes.TEXT,
+    },
     about: {
       allowNull: false,
       type: DataTypes.TEXT,

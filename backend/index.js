@@ -11,9 +11,10 @@ const sessionConfig = require('./config/session');
 // const auth = require('./middleware/auth');
 
 // const indexRouter = require('./routes/index.routes');
-// const authRouter = require('./routes/auth.routes');
-// const actorsRouter = require('./routes/actors.routes');
-// const spectaclesRouter = require('./routes/spectacles.routes');
+const actorsRouter = require('./routes/actors.routes');
+const spectaclesRouter = require('./routes/spectacles.routes');
+const authRouter = require('./routes/auth.routes');
+// const usersRouter = require('./routes/users.routes');
 // const directorsRouter = require('./routes/directors.routes');
 // const studentsRouter = require('./routes/students.routes');
 
@@ -36,8 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
 
 // app.use('/', indexRouter);
-// app.use('/auth', authRouter);
-// app.use('/actors', actorsRouter);
+app.use('/api/actors', actorsRouter);
+app.use('/api/perfomances', spectaclesRouter);
+app.use('/auth', authRouter);
+// app.use('/auth', usersRouter);
 // app.use('/spectacles', spectaclesRouter);
 // app.use('/directors', directorsRouter);
 // app.use('/students', studentsRouter);

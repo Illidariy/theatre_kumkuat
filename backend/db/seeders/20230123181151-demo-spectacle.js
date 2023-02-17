@@ -5,8 +5,10 @@ module.exports = {
       {
         title: 'Кысь',
         body: 'Спектакль-мык "Кысь" по одноимённому роману Т. Толстой.',
-        photo:
+        isActual: true,
+        mainPhoto:
           'https://sun9-68.userapi.com/impg/8hVFbrCvp1hCDgAfr3IvR1IaIl_puHIGjelU7Q/kjqwY4LzOTk.jpg?size=604x403&quality=95&sign=98bb8cd3146630c88f3b56393df78243&type=album',
+        video: '',
         directorId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),

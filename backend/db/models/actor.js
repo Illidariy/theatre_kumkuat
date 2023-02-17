@@ -7,12 +7,15 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Spectacle }) {
+    static associate({ Spectacle, Photo }) {
       Actor.Spectacle = Actor.belongsToMany(Spectacle, {
         through: 'SpectaclesActors',
         foreignKey: 'actorId',
         otherKey: 'spectacleId',
         as: 'spectacles',
+      });
+      Actor.Photo = Actor.hasMany(Photo, {
+        foreignKey: 'actorId',
       });
     }
   }
@@ -31,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    photo: {
+    mainPhoto: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
@@ -41,7 +44,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     body: {
       allowNull: false,
-      unique: true,
       type: DataTypes.TEXT,
     },
     createdAt: {

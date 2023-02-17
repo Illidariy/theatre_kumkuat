@@ -16,23 +16,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      isActual: {
-        allowNull: false,
-        defaultValue: false,
-        type: Sequelize.BOOLEAN,
-      },
-      mainPhoto: {
+      photo: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      video: {
-        type: Sequelize.TEXT,
+      price: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
-      directorId: {
+      userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Directors',
+          model: 'Users',
           key: 'id',
         },
       },
@@ -45,9 +41,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
     };
-    await queryInterface.createTable('Spectacles', attributes);
+    await queryInterface.createTable('Products', attributes);
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Spectacles');
+    await queryInterface.dropTable('Products');
   },
 };

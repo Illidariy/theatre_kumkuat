@@ -8,31 +8,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
       body: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      isActual: {
-        allowNull: false,
-        defaultValue: false,
-        type: Sequelize.BOOLEAN,
-      },
-      mainPhoto: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      video: {
-        type: Sequelize.TEXT,
+      actorId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Actors',
+          key: 'id',
+        },
       },
       directorId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Directors',
+          key: 'id',
+        },
+      },
+      spectacleId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Spectacles',
           key: 'id',
         },
       },
@@ -45,9 +42,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
     };
-    await queryInterface.createTable('Spectacles', attributes);
+    await queryInterface.createTable('Photos', attributes);
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Spectacles');
+    await queryInterface.dropTable('Photos');
   },
 };
