@@ -7,29 +7,28 @@ import {
  import { State } from './Types/types';
 
  const initialState: State = {
-  perfomances: [],
+  actors: [],
   error: undefined,
 };
 
- export const getPerfomances = createAsyncThunk(
+export const getActors = createAsyncThunk(
   'perfomances',
   () =>
-    api.loadPerfomances()
+    api.loadActors()
 );
 
-const perfomanceSlise = createSlice({
-  name: 'perfomance',
+const actorSlise = createSlice({
+  name: 'actor',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-    .addCase(getPerfomances.fulfilled, (state, action) => {
-      state.perfomances = action.payload;
+    .addCase(getActors.fulfilled, (state, action) => {
+      state.actors = action.payload;
     })
-    .addCase(getPerfomances.rejected, (state, action) => {
+    .addCase(getActors.rejected, (state, action) => {
       state.error = action.error.message;
     });
   }
 });
-
-export default perfomanceSlise.reducer;
+export default actorSlise.reducer;
