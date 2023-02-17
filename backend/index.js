@@ -39,7 +39,7 @@ app.use(cors(corsOptions));
 // app.use('/', indexRouter);
 app.use('/api/actors', actorsRouter);
 app.use('/api/perfomances', spectaclesRouter);
-app.use('/auth', authRouter);
+app.use('/api/auth', authRouter);
 // app.use('/auth', usersRouter);
 // app.use('/spectacles', spectaclesRouter);
 // app.use('/directors', directorsRouter);
