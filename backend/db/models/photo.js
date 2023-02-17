@@ -1,26 +1,20 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Spectacle extends Model {
+  class Photo extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Actor, Director, Photo, Review }) {
-      Spectacle.Actor = Spectacle.belongsToMany(Actor, {
-        through: 'SpectaclesActors',
-        foreignKey: 'spectacleId',
-        otherKey: 'actorId',
-        as: 'actors',
+    static associate({ Actor, Director, Spectacle }) {
+      Photo.Actor = Photo.belongsTo(Actor, {
+        foreignKey: 'actorId',
       });
-      Spectacle.Director = Spectacle.belongsTo(Director, {
+      Photo.Director = Photo.belongsTo(Director, {
         foreignKey: 'directorId',
       });
-      Spectacle.Review = Spectacle.hasMany(Review, {
-        foreignKey: 'spectacleId',
-      });
-      Spectacle.Photo = Spectacle.hasMany(Photo, {
+      Photo.Spectacle = Photo.belongsTo(Spectacle, {
         foreignKey: 'spectacleId',
       });
     }
@@ -32,31 +26,28 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    title: {
-      allowNull: false,
-      type: DataTypes.TEXT,
-    },
     body: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    isActual: {
-      allowNull: false,
-      defaultValue: false,
-      type: DataTypes.BOOLEAN,
-    },
-    mainPhoto: {
-      allowNull: false,
-      type: DataTypes.TEXT,
-    },
-    video: {
-      type: DataTypes.TEXT,
+    actorId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Actors',
+        key: 'id',
+      },
     },
     directorId: {
-      allowNull: false,
       type: DataTypes.INTEGER,
       references: {
         model: 'Directors',
+        key: 'id',
+      },
+    },
+    spectacleId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Spectacles',
         key: 'id',
       },
     },
@@ -71,9 +62,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   const options = {
     sequelize,
-    modelName: 'Spectacle',
-    tableName: 'Spectacles',
+    modelName: 'Photo',
+    tableName: 'Photos',
   };
-  Spectacle.init(attributes, options);
-  return Spectacle;
+  Photo.init(attributes, options);
+  return Photo;
 };

@@ -5,7 +5,7 @@ module.exports = {
       {
         firstName: 'Мария',
         secondName: 'Левицкая',
-        photo: 'url',
+        mainPhoto: 'url',
         title: 'Коротко',
         body: 'Ученица З. Я. Корогодского, режиссер, актриса, педагог высшей категории, основатель театра-студии «Кумкуат».',
         createdAt: new Date(),
