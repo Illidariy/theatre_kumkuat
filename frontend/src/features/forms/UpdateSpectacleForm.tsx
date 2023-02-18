@@ -5,21 +5,23 @@ import { Spectacle } from '../spectacles/Types/types';
 
 function UpdateSpectacleForm({
   spectacle,
+  showUpdate,
 }: {
   spectacle: Spectacle;
+  showUpdate: () => void;
 }): JSX.Element {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [isActual, setIsActual] = useState(false);
-  const [mainPhoto, setMainPhoto] = useState('');
-  const [video, setVideo] = useState('');
-  const [directorId, setDirectorId] = useState(1);
+  const [title, setTitle] = useState(spectacle.title);
+  const [body, setBody] = useState(spectacle.body);
+  const [isActual, setIsActual] = useState(spectacle.isActual);
+  const [mainPhoto, setMainPhoto] = useState(spectacle.mainPhoto);
+  const [video, setVideo] = useState(spectacle.video);
+  const [directorId, setDirectorId] = useState(spectacle.directorId);
 
   const dispatch = useAppDispatch();
 
   const updateSpectacle = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(
+    const res = dispatch(
       currentSpectacle({
         id: spectacle.id,
         title,
@@ -30,6 +32,11 @@ function UpdateSpectacleForm({
         directorId,
       }),
     );
+    res.then((data) => {
+      if (data.meta.requestStatus === 'fulfilled') {
+        showUpdate();
+      }
+    });
   };
 
   return (

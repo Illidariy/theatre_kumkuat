@@ -8,9 +8,11 @@ function AdminSpectacleCard({
   spectacle: Spectacle;
 }): JSX.Element {
   const [updateFormSpectacle, setUpdateFormSpectacle] = useState(false);
+
   function showUpdate(): void {
     setUpdateFormSpectacle((prev) => !prev);
   }
+
   return (
     <ul key={spectacle.id}>
       <p>{spectacle.title}</p>
@@ -20,7 +22,11 @@ function AdminSpectacleCard({
       </button>
       <button type="button">Delete</button>
       {updateFormSpectacle && (
-        <UpdateSpectacleForm key={spectacle.id} spectacle={spectacle} />
+        <UpdateSpectacleForm
+          key={spectacle.id}
+          spectacle={spectacle}
+          showUpdate={showUpdate}
+        />
       )}
     </ul>
   );

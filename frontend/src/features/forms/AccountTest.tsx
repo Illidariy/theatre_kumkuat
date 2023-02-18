@@ -6,6 +6,7 @@ import ActorForm from './ActorForm';
 import ProductForm from './ProductForm';
 import SpectacleForm from './SpectacleForm';
 import AdminSpectacleCard from './Types/AdminSpectacleCard';
+import './styles/styles.css';
 
 function AccountTest(): JSX.Element {
   const [actorForm, setActorForm] = useState(false);
@@ -22,9 +23,10 @@ function AccountTest(): JSX.Element {
     setSpectacleForm((prev) => !prev);
   }
 
-  const { spectacles } = useSelector(
-    (store: RootState) => store.spectacleState,
-  );
+  const {
+    spectacleState: { spectacles },
+    actorState: { actors },
+  } = useSelector((store: RootState) => store);
 
   const dispatch = useAppDispatch();
   useEffect(() => {

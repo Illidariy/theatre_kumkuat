@@ -8,7 +8,7 @@ const initialState: State = {
   error: undefined,
 };
 
-export const getActors = createAsyncThunk('spectacles', () => api.loadActors());
+export const getActors = createAsyncThunk('actors', () => api.loadActors());
 
 const actorSlice = createSlice({
   name: 'actor',

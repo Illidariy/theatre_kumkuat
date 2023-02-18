@@ -35,7 +35,7 @@ export const newSpectacle = async ({
 };
 
 export const currentSpectacle = async ({
-  id,
+  id: spectacleId,
   title,
   body,
   isActual,
@@ -43,13 +43,13 @@ export const currentSpectacle = async ({
   video,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
-  const res = await fetch(`http://localhost:4000/spectacles/${id}`, {
+  const res = await fetch(`http://localhost:4000/spectacles/${spectacleId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      id,
+      id: spectacleId,
       title,
       body,
       isActual,
@@ -58,7 +58,10 @@ export const currentSpectacle = async ({
       directorId,
     }),
   });
-  return res.json();
+
+  const data = await res.json();
+
+  return data;
 };
 
 export const loadActors = async (): Promise<Actor[]> => {
