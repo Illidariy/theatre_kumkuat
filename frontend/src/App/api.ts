@@ -1,16 +1,68 @@
 /* eslint-disable import/prefer-default-export */
 import { Actor } from '../features/actors/Types/types';
-import { Perfomance } from '../features/perfomances/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
+import { Spectacle } from '../features/spectacles/Types/types';
 import { Director } from '../features/directors/Types/types';
 
-export const loadPerfomances = async (): Promise<Perfomance[]> => {
-  const res = await fetch('http://localhost:4000/api/perfomances');
+export const loadSpectacles = async (): Promise<Spectacle[]> => {
+  const res = await fetch('http://localhost:4000/spectacles');
+  return res.json();
+};
+
+export const newSpectacle = async ({
+  title,
+  body,
+  isActual,
+  mainPhoto,
+  video,
+  directorId,
+}: Spectacle): Promise<Spectacle> => {
+  const res = await fetch('http://localhost:4000/spectacles', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title,
+      body,
+      isActual,
+      mainPhoto,
+      video,
+      directorId,
+    }),
+  });
+  return res.json();
+};
+
+export const currentSpectacle = async ({
+  id,
+  title,
+  body,
+  isActual,
+  mainPhoto,
+  video,
+  directorId,
+}: Spectacle): Promise<Spectacle> => {
+  const res = await fetch(`http://localhost:4000/spectacles/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+      title,
+      body,
+      isActual,
+      mainPhoto,
+      video,
+      directorId,
+    }),
+  });
   return res.json();
 };
 
 export const loadActors = async (): Promise<Actor[]> => {
-  const res = await fetch('http://localhost:4000/api/actors');
+  const res = await fetch('http://localhost:4000/actors');
   return res.json();
 };
 
@@ -19,9 +71,8 @@ export const loadDirectors = async (): Promise<Director[]> => {
   return res.json();
 };
 
-
 export const registr = async (newUser: User): Promise<PayloadAuth> => {
-  const res = await fetch('http://localhost:4000/api/auth/registration', {
+  const res = await fetch('http://localhost:4000/auth/registration', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -38,7 +89,7 @@ export const registr = async (newUser: User): Promise<PayloadAuth> => {
   return res.json();
 };
 export const login = async (item: User): Promise<User> => {
-  const res = await fetch('http://localhost:4000/api/auth/sign-in', {
+  const res = await fetch('http://localhost:4000/auth/sign-in', {
     method: 'post',
     headers: { 'Content-type': 'application/json' },
     credentials: 'include',
@@ -47,7 +98,7 @@ export const login = async (item: User): Promise<User> => {
   return res.json();
 };
 export const checkUser = async (): Promise<PayloadAuth> => {
-  const res = await fetch('http://localhost:4000/api/auth/sign-in', {
+  const res = await fetch('http://localhost:4000/auth/sign-in', {
     credentials: 'include',
   });
   const data = await res.json();
@@ -55,13 +106,13 @@ export const checkUser = async (): Promise<PayloadAuth> => {
 };
 
 export const logout = async (): Promise<User> => {
-  const res = await fetch('http://localhost:4000/api/auth/logout', {
+  const res = await fetch('http://localhost:4000/auth/logout', {
     credentials: 'include',
   });
   return res.json();
 };
 
 export const getUsers = async (): Promise<User[]> => {
-  const res = await fetch('http://localhost:4000/api/main');
+  const res = await fetch('http://localhost:4000/main');
   return res.json();
 };

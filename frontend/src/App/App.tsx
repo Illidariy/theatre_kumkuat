@@ -6,28 +6,27 @@ import Navbar from '../features/Navbar/Navbar';
 import MainPage from '../features/MainPage/MainPage';
 import NotFound from '../features/NotFound/NotFound';
 import ActorsList from '../features/actors/ActorsList';
-import Registration from '../features/auth/Registration';
+import AccountTest from '../features/forms/AccountTest';
+import SpectaclesList from '../features/spectacles/SpectaclesList';
 import DirectorsList from '../features/directors/DirectolList';
-import PerfomancesList from '../features/perfomances/PerfomancesList';
+import Registration from '../features/auth/Registration';
 
 function App(): JSX.Element {
   return (
-    <>
-      <div className="main__container">
-        <Routes>
-          <Route path="/" element={<Navbar />}>
-            <Route index element={<MainPage />} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/perfomances" element={<PerfomancesList />} />
-            <Route path="/directors" element={<DirectorsList />} />
-            <Route path="/actors" element={<ActorsList />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
+    <div className="main__container">
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<MainPage />} />
+          <Route path="/spectacles" element={<SpectaclesList />} />
+          <Route path="/directors" element={<DirectorsList />} />
+          <Route path="/actors" element={<ActorsList />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/accounttest" element={<AccountTest />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <a href="#twf">Накупить билетов</a>
-    </>
+    </div>
   );
 }
 export default App;

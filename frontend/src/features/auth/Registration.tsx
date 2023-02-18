@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, RootState } from '../../store';
 import { registrUser } from './authSlice';
@@ -11,13 +11,13 @@ function Registration(): JSX.Element {
   const [password2, setPassword2] = useState('');
   const dispatch = useAppDispatch();
   const nav = useNavigate();
-  // const { error, user } = useSelector((store: RootState) => store.userState);
+  const { error, user } = useSelector((store: RootState) => store.userState);
 
-  // useEffect(() => {
-  //   if ('name' in user) {
-  //     nav('/');
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if ('name' in user) {
+      nav('/');
+    }
+  }, [user, nav]);
   const registr = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(
