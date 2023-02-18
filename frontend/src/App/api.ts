@@ -2,6 +2,7 @@
 import { Actor } from '../features/actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
 import { Spectacle } from '../features/spectacles/Types/types';
+import { Director } from '../features/directors/Types/types';
 
 export const loadSpectacles = async (): Promise<Spectacle[]> => {
   const res = await fetch('http://localhost:4000/spectacles');
@@ -62,6 +63,11 @@ export const currentSpectacle = async ({
 
 export const loadActors = async (): Promise<Actor[]> => {
   const res = await fetch('http://localhost:4000/actors');
+  return res.json();
+};
+
+export const loadDirectors = async (): Promise<Director[]> => {
+  const res = await fetch('http://localhost:4000/api/directors');
   return res.json();
 };
 
