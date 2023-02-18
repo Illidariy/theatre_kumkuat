@@ -10,6 +10,7 @@ export type Spectacle = {
 
 export type State = {
   spectacles: Spectacle[];
+  spectacle: Spectacle;
   error: undefined | string;
 };
 

@@ -33,6 +33,33 @@ export const newSpectacle = async ({
   return res.json();
 };
 
+export const currentSpectacle = async ({
+  id,
+  title,
+  body,
+  isActual,
+  mainPhoto,
+  video,
+  directorId,
+}: Spectacle): Promise<Spectacle> => {
+  const res = await fetch(`http://localhost:4000/spectacles/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+      title,
+      body,
+      isActual,
+      mainPhoto,
+      video,
+      directorId,
+    }),
+  });
+  return res.json();
+};
+
 export const loadActors = async (): Promise<Actor[]> => {
   const res = await fetch('http://localhost:4000/actors');
   return res.json();

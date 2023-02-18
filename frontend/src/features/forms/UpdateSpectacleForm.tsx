@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../store';
-import { newSpectacle } from '../spectacles/spectacleSlice';
+import { currentSpectacle } from '../spectacles/spectacleSlice';
+import { Spectacle } from '../spectacles/Types/types';
 
-function SpectacleForm(): JSX.Element {
+function UpdateSpectacleForm({
+  spectacle,
+}: {
+  spectacle: Spectacle;
+}): JSX.Element {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [isActual, setIsActual] = useState(false);
@@ -12,14 +17,11 @@ function SpectacleForm(): JSX.Element {
 
   const dispatch = useAppDispatch();
 
-  // const { error, spectacles } = useSelector(
-  //   (store: RootState) => store.spectacleState,
-  // );
-
-  const createSpectacle = (e: React.FormEvent<HTMLFormElement>): void => {
+  const updateSpectacle = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(
-      newSpectacle({
+      currentSpectacle({
+        id: spectacle.id,
         title,
         body,
         isActual,
@@ -35,14 +37,14 @@ function SpectacleForm(): JSX.Element {
       <form
         className="form__body"
         style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={createSpectacle}
+        onSubmit={updateSpectacle}
       >
         <label htmlFor="title">Title</label>
         <input
           id="title"
           name="title"
           type="text"
-          value={title}
+          defaultValue={spectacle.title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <label htmlFor="body">Body</label>
@@ -50,7 +52,7 @@ function SpectacleForm(): JSX.Element {
           id="body"
           name="body"
           type="text"
-          value={body}
+          defaultValue={spectacle.body}
           onChange={(e) => setBody(e.target.value)}
         />
         <label htmlFor="isActual">Actual</label>
@@ -58,7 +60,7 @@ function SpectacleForm(): JSX.Element {
           id="isActual"
           name="isActual"
           type="checkbox"
-          checked={isActual}
+          defaultChecked={spectacle.isActual}
           onChange={() => setIsActual((prev) => !prev)}
         />
         <label htmlFor="mainPhoto">Main Photo</label>
@@ -66,7 +68,7 @@ function SpectacleForm(): JSX.Element {
           id="mainPhoto"
           name="mainPhoto"
           type="text"
-          value={mainPhoto}
+          defaultValue={spectacle.mainPhoto}
           onChange={(e) => setMainPhoto(e.target.value)}
         />
         <label htmlFor="video">Video</label>
@@ -74,7 +76,7 @@ function SpectacleForm(): JSX.Element {
           id="video"
           name="video"
           type="text"
-          value={video}
+          defaultValue={spectacle.video}
           onChange={(e) => setVideo(e.target.value)}
         />
         <label htmlFor="directorId">Director ID</label>
@@ -82,7 +84,7 @@ function SpectacleForm(): JSX.Element {
           id="directorId"
           name="directorId"
           type="text"
-          value={directorId}
+          defaultValue={spectacle.directorId}
           onChange={(e) => setDirectorId(Number(e.target.value))}
         />
         <button type="submit">Добавить</button>
@@ -92,4 +94,4 @@ function SpectacleForm(): JSX.Element {
   );
 }
 
-export default SpectacleForm;
+export default UpdateSpectacleForm;

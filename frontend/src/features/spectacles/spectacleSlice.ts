@@ -5,6 +5,14 @@ import { Spectacle, State } from './Types/types';
 
 const initialState: State = {
   spectacles: [],
+  spectacle: {
+    title: '',
+    body: '',
+    isActual: false,
+    mainPhoto: '',
+    video: '',
+    directorId: 1,
+  },
   error: undefined,
 };
 
@@ -25,6 +33,19 @@ export const newSpectacle = createAsyncThunk(
     }),
 );
 
+export const currentSpectacle = createAsyncThunk(
+  'spectacles/update',
+  ({ id, title, body, isActual, mainPhoto, video, directorId }: Spectacle) =>
+    api.currentSpectacle({
+      id,
+      title,
+      body,
+      isActual,
+      mainPhoto,
+      video,
+      directorId,
+    }),
+);
 const spectacleSlice = createSlice({
   name: 'spectacle',
   initialState,
@@ -41,6 +62,14 @@ const spectacleSlice = createSlice({
         state.spectacles.push(action.payload);
       })
       .addCase(newSpectacle.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(currentSpectacle.fulfilled, (state, action) => {
+        state.spectacles.map((spectacle) =>
+          spectacle.id === action.payload.id ? action.payload : spectacle,
+        );
+      })
+      .addCase(currentSpectacle.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },
