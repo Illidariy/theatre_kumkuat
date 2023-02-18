@@ -3,7 +3,6 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
