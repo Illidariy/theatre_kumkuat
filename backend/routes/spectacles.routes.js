@@ -32,7 +32,7 @@ router.put('/:spectacleId', async (req, res) => {
   const { title, body, isActual, mainPhoto, video, directorId } = req.body;
   try {
     const currentSpectacle = await Spectacle.findOne({
-      where: { id: spectacleId },
+      where: { id: Number(spectacleId) },
     });
     if (currentSpectacle) {
       currentSpectacle.title = title;
@@ -58,15 +58,17 @@ router.put('/:spectacleId', async (req, res) => {
 router.delete('/:idSpectacle', async (req, res) => {
   const { idSpectacle } = req.params;
   try {
-    const deleted = await Spectacle.destroy({ where: { id: idSpectacle } });
+    const deleted = await Spectacle.destroy({
+      where: { id: Number(idSpectacle) },
+    });
     if (deleted > 0) {
-      res.status(200).json({ message: 'fulfilled' });
-    } else {
-      res.status(500).json({ message: 'rejected' });
+      return res.status(200).json({ message: 'fulfilled' });
     }
+    res.status(500).json({ message: 'rejected' });
   } catch ({ message }) {
     res.status(500).json({ message });
   }
+  return res.json({});
 });
 
 module.exports = router;

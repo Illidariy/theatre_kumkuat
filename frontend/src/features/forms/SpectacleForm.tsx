@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useAppDispatch } from '../../store';
 import { newSpectacle } from '../spectacles/spectacleSlice';
 
-function SpectacleForm(): JSX.Element {
+function SpectacleForm({
+  spectacleHandler,
+}: {
+  spectacleHandler: () => void;
+}): JSX.Element {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [isActual, setIsActual] = useState(false);
@@ -28,6 +32,7 @@ function SpectacleForm(): JSX.Element {
         directorId,
       }),
     );
+    spectacleHandler();
   };
 
   return (

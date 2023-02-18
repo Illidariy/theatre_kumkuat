@@ -45,9 +45,11 @@ function AccountTest(): JSX.Element {
         <button onClick={spectacleHandler} type="button">
           Spectacle Form
         </button>
-        {actorForm && <ActorForm />}
+        {actorForm && <ActorForm actorHandler={() => actorHandler()} />}
         {productForm && <ProductForm />}
-        {spectacleForm && <SpectacleForm />}
+        {spectacleForm && (
+          <SpectacleForm spectacleHandler={() => spectacleHandler()} />
+        )}
       </div>
       <div className="spectacles_table">
         <div>
