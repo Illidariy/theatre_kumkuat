@@ -8,7 +8,7 @@ import NotFound from '../features/NotFound/NotFound';
 import ActorsList from '../features/actors/ActorsList';
 import AccountTest from '../features/forms/AccountTest';
 import SpectaclesList from '../features/spectacles/SpectaclesList';
-import DirectorsList from '../features/directors/DirectolList';
+import DirectorsList from '../features/directors/DirectorsList';
 import Registration from '../features/auth/Registration';
 
 function App(): JSX.Element {

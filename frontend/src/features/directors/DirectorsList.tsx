@@ -5,18 +5,18 @@ import DirectorCard from './DirectorCard';
 import { getDirectors } from './directorSlice';
 
 export default function DirectorsList(): JSX.Element {
-  const { directors } = useSelector((store:RootState) => store.directorState);
+  const { directors } = useSelector((store: RootState) => store.directorState);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getDirectors());
   }, []);
   return (
     <div>
-      <div>
+      <ul>
         {directors.map((director) => (
           <DirectorCard key={director.id} director={director} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

@@ -3,12 +3,17 @@ import { Actor } from './Types/types';
 
 export default function ActorCard({ actor }: { actor: Actor }): JSX.Element {
   return (
-    <div>
-      <h3>{actor.firstName}</h3>
-      <h4>{actor.secondName}</h4>
-      <img src={actor.mainPhoto} alt="spectacle" />
-      <h5>{actor.title}</h5>
-      <h5>{actor.body}</h5>
+    <div className="actor-container">
+      <h3 className="actor-name">
+        {actor.firstName} {actor.secondName}
+      </h3>
+      <img
+        className="actor-photo"
+        src={actor.mainPhoto}
+        alt="actor-mainPhoto"
+      />
+      <h5 className="actor-title">{actor.title}</h5>
+      <h5 className="actor-body">{actor.body}</h5>
     </div>
   );
 }
