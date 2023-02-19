@@ -34,7 +34,7 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
       <div className="product_card_info">
         <h2>{product.title}</h2>
         <p>{product.body}</p>
-        <i>{product.price}</i>
+        <i>PRICE: {product.price}</i>
         <div className="buttons_admin">
           <button onClick={showUpdate} type="button">
             Update

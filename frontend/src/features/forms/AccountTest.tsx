@@ -25,21 +25,40 @@ function AccountTest(): JSX.Element {
   return (
     <div className="admin_content">
       <div className="buttons_main">
-        <button onClick={actorHandler} type="button">
-          Actor Form
-        </button>
-        <button onClick={productHandler} type="button">
-          Product Form
-        </button>
-        <button onClick={spectacleHandler} type="button">
-          Spectacle Form
-        </button>
+        {!productForm && !spectacleForm && (
+          <button onClick={actorHandler} type="button">
+            {!actorForm ? 'ACTOR FORM' : 'Back'}
+          </button>
+        )}
+        {!spectacleForm && !actorForm && (
+          <button onClick={productHandler} type="button">
+            {!productForm ? 'PRODUCT FORM' : 'Back'}
+          </button>
+        )}
+        {!actorForm && !productForm && (
+          <button onClick={spectacleHandler} type="button">
+            {!spectacleForm ? 'SPECTACLE FORM' : 'Back'}
+          </button>
+        )}
       </div>
       <div className="main_forms">
-        {actorForm && <ActorForm actorHandler={() => actorHandler()} />}
-        {productForm && <ProductForm productHandler={() => productHandler()} />}
-        {spectacleForm && (
-          <SpectacleForm spectacleHandler={() => spectacleHandler()} />
+        {actorForm && !productForm && !spectacleForm && (
+          <>
+            <h6>ACTOR FORM</h6>
+            <ActorForm actorHandler={() => actorHandler()} />
+          </>
+        )}
+        {productForm && !actorForm && !spectacleForm && (
+          <>
+            <h6>PRODUCT FORM</h6>
+            <ProductForm productHandler={() => productHandler()} />
+          </>
+        )}
+        {spectacleForm && !actorForm && !productForm && (
+          <>
+            <h6>SPECTACLE FORM</h6>
+            <SpectacleForm spectacleHandler={() => spectacleHandler()} />
+          </>
         )}
       </div>
       <div className="tables">
