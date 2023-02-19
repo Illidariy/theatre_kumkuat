@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../store';
-import { newProduct } from '../products/productSlice';
+import { useAppDispatch } from '../../../store';
+import { currentProduct } from '../../products/productSlice';
+import { Product } from '../../products/types/types';
 
-function ProductForm({
-  productHandler,
+function UpdateProductForm({
+  product,
+  showUpdate,
 }: {
-  productHandler: () => void;
+  product: Product;
+  showUpdate: () => void;
 }): JSX.Element {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [photo, setPhoto] = useState('');
-  const [price, setPrice] = useState(0);
-  const [userId, setUserId] = useState(1);
+  const [title, setTitle] = useState(product.title);
+  const [body, setBody] = useState(product.body);
+  const [photo, setPhoto] = useState(product.photo);
+  const [price, setPrice] = useState(product.price);
+  const [userId, setUserId] = useState(product.userId);
 
   const dispatch = useAppDispatch();
 
-  const createProduct = (e: React.FormEvent<HTMLFormElement>): void => {
+  const updateProduct = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(
-      newProduct({
+    const res = dispatch(
+      currentProduct({
+        id: product.id,
         title,
         body,
         photo,
@@ -26,18 +30,21 @@ function ProductForm({
         userId,
       }),
     );
-    productHandler();
+    res.then((data) => {
+      if (data.meta.requestStatus === 'fulfilled') {
+        showUpdate();
+      }
+    });
   };
-
   return (
     <div className="form__container">
-      <form className="form__body" onSubmit={createProduct}>
+      <form className="form__body" onSubmit={updateProduct}>
         <label htmlFor="title">Title</label>
         <input
           id="title"
           name="title"
           type="text"
-          value={title}
+          defaultValue={product.title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <label htmlFor="body">Body</label>
@@ -45,7 +52,7 @@ function ProductForm({
           id="body"
           name="body"
           type="text"
-          value={body}
+          defaultValue={product.body}
           onChange={(e) => setBody(e.target.value)}
         />
         <label htmlFor="photo">Photo</label>
@@ -53,7 +60,7 @@ function ProductForm({
           id="photo"
           name="photo"
           type="text"
-          value={photo}
+          defaultValue={product.photo}
           onChange={(e) => setPhoto(e.target.value)}
         />
         <label htmlFor="price">Price</label>
@@ -61,7 +68,7 @@ function ProductForm({
           id="price"
           name="price"
           type="number"
-          value={price}
+          defaultValue={product.price}
           onChange={(e) => setPrice(Number(e.target.value))}
         />
         <label htmlFor="userId">UserId</label>
@@ -69,14 +76,14 @@ function ProductForm({
           id="userId"
           name="userId"
           type="number"
-          value={userId}
+          defaultValue={product.userId}
           onChange={(e) => setUserId(Number(e.target.value))}
         />
-        <button type="submit">Добавить</button>
+        <button type="submit">SAVE</button>
       </form>
       {/* <h2>{error && error}</h2> */}
     </div>
   );
 }
 
-export default ProductForm;
+export default UpdateProductForm;

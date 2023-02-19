@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../store';
-import { newActor } from '../actors/actorsSlice';
+import { useAppDispatch } from '../../../store';
+import { currentActor } from '../../actors/actorsSlice';
+import { Actor } from '../../actors/Types/types';
 
-function ActorForm({
-  actorHandler,
+function UpdateActorForm({
+  actor,
+  showUpdate,
 }: {
-  actorHandler: () => void;
+  actor: Actor;
+  showUpdate: () => void;
 }): JSX.Element {
-  const [firstName, setFirstName] = useState('');
-  const [secondName, setSecondName] = useState('');
-  const [mainPhoto, setMainPhoto] = useState('');
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [firstName, setFirstName] = useState(actor.firstName);
+  const [secondName, setSecondName] = useState(actor.secondName);
+  const [mainPhoto, setMainPhoto] = useState(actor.mainPhoto);
+  const [title, setTitle] = useState(actor.title);
+  const [body, setBody] = useState(actor.body);
 
   const dispatch = useAppDispatch();
 
-  // const { error, spectacles } = useSelector(
-  //   (store: RootState) => store.spectacleState,
-  // );
-
-  const createActor = (e: React.FormEvent<HTMLFormElement>): void => {
+  const updateActor = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(
-      newActor({
+    const res = dispatch(
+      currentActor({
+        id: actor.id,
         firstName,
         secondName,
         mainPhoto,
@@ -30,18 +30,21 @@ function ActorForm({
         body,
       }),
     );
-    actorHandler();
+    res.then((data) => {
+      if (data.meta.requestStatus === 'fulfilled') {
+        showUpdate();
+      }
+    });
   };
-
   return (
     <div className="form__container">
-      <form className="form__body" onSubmit={createActor}>
+      <form className="form__body" onSubmit={updateActor}>
         <label htmlFor="firstName">FirstName</label>
         <input
           id="firstName"
           name="firstName"
           type="text"
-          value={firstName}
+          defaultValue={actor.firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <label htmlFor="secondName">SecondName</label>
@@ -49,7 +52,7 @@ function ActorForm({
           id="secondName"
           name="secondName"
           type="text"
-          value={secondName}
+          defaultValue={actor.secondName}
           onChange={(e) => setSecondName(e.target.value)}
         />
         <label htmlFor="mainPhoto">MainPhoto</label>
@@ -57,7 +60,7 @@ function ActorForm({
           id="mainPhoto"
           name="mainPhoto"
           type="text"
-          value={mainPhoto}
+          defaultValue={actor.mainPhoto}
           onChange={(e) => setMainPhoto(e.target.value)}
         />
         <label htmlFor="title">Title</label>
@@ -65,7 +68,7 @@ function ActorForm({
           id="title"
           name="title"
           type="text"
-          value={title}
+          defaultValue={actor.title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <label htmlFor="body">Body</label>
@@ -73,14 +76,14 @@ function ActorForm({
           id="body"
           name="body"
           type="text"
-          value={body}
+          defaultValue={actor.body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <button type="submit">Добавить</button>
+        <button type="submit">SAVE</button>
       </form>
       {/* <h2>{error && error}</h2> */}
     </div>
   );
 }
 
-export default ActorForm;
+export default UpdateActorForm;

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from '../../App/api';
 
-import { Spectacle, State } from './Types/types';
+import { Spectacle, SpectacleId, State } from './Types/types';
 
 const initialState: State = {
   spectacles: [],
@@ -46,6 +46,12 @@ export const currentSpectacle = createAsyncThunk(
       directorId,
     }),
 );
+
+export const removeSpectacle = createAsyncThunk(
+  'spectacles/delete',
+  (id: SpectacleId) => api.removeSpectacle(id),
+);
+
 const spectacleSlice = createSlice({
   name: 'spectacle',
   initialState,
@@ -70,6 +76,14 @@ const spectacleSlice = createSlice({
         );
       })
       .addCase(currentSpectacle.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(removeSpectacle.fulfilled, (state, action) => {
+        state.spectacles.filter(
+          (spectacle) => spectacle.id !== action.payload.id,
+        );
+      })
+      .addCase(removeSpectacle.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },

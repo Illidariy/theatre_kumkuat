@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../store';
-import { getSpectacles } from '../spectacles/spectacleSlice';
+import React, { useState } from 'react';
 import ActorForm from './ActorForm';
 import ProductForm from './ProductForm';
 import SpectacleForm from './SpectacleForm';
-import AdminSpectacleCard from './Types/AdminSpectacleCard';
+import './styles/styles.css';
+import ActorTable from './tables/ActorTable';
+import ProductTable from './tables/ProductTable';
+import SpectacleTable from './tables/SpectacleTable';
 
 function AccountTest(): JSX.Element {
   const [actorForm, setActorForm] = useState(false);
@@ -22,37 +22,54 @@ function AccountTest(): JSX.Element {
     setSpectacleForm((prev) => !prev);
   }
 
-  const { spectacles } = useSelector(
-    (store: RootState) => store.spectacleState,
-  );
-
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(getSpectacles());
-  }, [dispatch]);
-
   return (
-    <div>
-      <div className="header">
-        <button onClick={actorHandler} type="button">
-          Actor Form
-        </button>
-        <button onClick={productHandler} type="button">
-          Product Form
-        </button>
-        <button onClick={spectacleHandler} type="button">
-          Spectacle Form
-        </button>
-        {actorForm && <ActorForm />}
-        {productForm && <ProductForm />}
-        {spectacleForm && <SpectacleForm />}
+    <div className="admin_content">
+      <div className="buttons_main">
+        {!productForm && !spectacleForm && (
+          <button onClick={actorHandler} type="button">
+            {!actorForm ? 'ACTOR FORM' : 'Back'}
+          </button>
+        )}
+        {!spectacleForm && !actorForm && (
+          <button onClick={productHandler} type="button">
+            {!productForm ? 'PRODUCT FORM' : 'Back'}
+          </button>
+        )}
+        {!actorForm && !productForm && (
+          <button onClick={spectacleHandler} type="button">
+            {!spectacleForm ? 'SPECTACLE FORM' : 'Back'}
+          </button>
+        )}
       </div>
-      <div className="spectacles_table">
-        <div>
-          {spectacles &&
-            spectacles.map((spectacle) => (
-              <AdminSpectacleCard key={spectacle.id} spectacle={spectacle} />
-            ))}
+      <div className="main_forms">
+        {actorForm && !productForm && !spectacleForm && (
+          <>
+            <h6>ACTOR FORM</h6>
+            <ActorForm actorHandler={() => actorHandler()} />
+          </>
+        )}
+        {productForm && !actorForm && !spectacleForm && (
+          <>
+            <h6>PRODUCT FORM</h6>
+            <ProductForm productHandler={() => productHandler()} />
+          </>
+        )}
+        {spectacleForm && !actorForm && !productForm && (
+          <>
+            <h6>SPECTACLE FORM</h6>
+            <SpectacleForm spectacleHandler={() => spectacleHandler()} />
+          </>
+        )}
+      </div>
+      <div className="tables">
+        <div className="actors_table">
+          <ActorTable />
+        </div>
+        <div className="products_table">
+          <ProductTable />
+        </div>
+        <div className="spectacles_table">
+          <SpectacleTable />
         </div>
       </div>
     </div>

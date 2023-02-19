@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useAppDispatch } from '../../store';
 import { newSpectacle } from '../spectacles/spectacleSlice';
 
-function SpectacleForm(): JSX.Element {
+function SpectacleForm({
+  spectacleHandler,
+}: {
+  spectacleHandler: () => void;
+}): JSX.Element {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [isActual, setIsActual] = useState(false);
@@ -11,10 +15,6 @@ function SpectacleForm(): JSX.Element {
   const [directorId, setDirectorId] = useState(1);
 
   const dispatch = useAppDispatch();
-
-  // const { error, spectacles } = useSelector(
-  //   (store: RootState) => store.spectacleState,
-  // );
 
   const createSpectacle = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -28,15 +28,12 @@ function SpectacleForm(): JSX.Element {
         directorId,
       }),
     );
+    spectacleHandler();
   };
 
   return (
     <div className="form__container">
-      <form
-        className="form__body"
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={createSpectacle}
-      >
+      <form className="form__body" onSubmit={createSpectacle}>
         <label htmlFor="title">Title</label>
         <input
           id="title"
