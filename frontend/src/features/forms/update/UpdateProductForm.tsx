@@ -38,11 +38,7 @@ function UpdateProductForm({
   };
   return (
     <div className="form__container">
-      <form
-        className="form__body"
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={updateProduct}
-      >
+      <form className="form__body" onSubmit={updateProduct}>
         <label htmlFor="title">Title</label>
         <input
           id="title"

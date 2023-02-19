@@ -41,11 +41,7 @@ function UpdateSpectacleForm({
 
   return (
     <div className="form__container">
-      <form
-        className="form__body"
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={updateSpectacle}
-      >
+      <form className="form__body" onSubmit={updateSpectacle}>
         <label htmlFor="title">Title</label>
         <input
           id="title"

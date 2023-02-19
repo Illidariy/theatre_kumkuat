@@ -28,15 +28,21 @@ function AdminActorCard({ actor }: { actor: Actor }): JSX.Element {
     dispatch(getActors());
   }, [updateFormActor, refreshDelete]);
   return (
-    <ul key={actor.id}>
-      <p>{actor.title}</p>
-      <i>{actor.body}</i>
-      <button onClick={showUpdate} type="button">
-        Update
-      </button>
-      <button onClick={deleteActor} type="button">
-        Delete
-      </button>
+    <div className="actor_card" key={actor.id}>
+      <img src={actor.mainPhoto} alt="" />
+      <div className="actor_card_info">
+        <h2>{`${actor.firstName}\n${actor.secondName}`}</h2>
+        <p>{actor.title}</p>
+        <p>{actor.body}</p>
+        <div className="buttons_admin">
+          <button onClick={showUpdate} type="button">
+            Update
+          </button>
+          <button className="button_delete" onClick={deleteActor} type="button">
+            Delete
+          </button>
+        </div>
+      </div>
       {updateFormActor && (
         <UpdateActorForm
           key={actor.id}
@@ -44,7 +50,7 @@ function AdminActorCard({ actor }: { actor: Actor }): JSX.Element {
           showUpdate={() => showUpdate()}
         />
       )}
-    </ul>
+    </div>
   );
 }
 

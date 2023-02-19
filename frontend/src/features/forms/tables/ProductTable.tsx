@@ -14,7 +14,7 @@ function ProductTable(): JSX.Element {
     productState: { products },
   } = useSelector((store: RootState) => store);
   return (
-    <div>
+    <div className="list_products">
       {products &&
         products.map((product) => (
           <AdminProductCard key={product.id} product={product} />

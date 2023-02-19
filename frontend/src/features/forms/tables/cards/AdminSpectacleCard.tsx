@@ -36,15 +36,27 @@ function AdminSpectacleCard({
   }, [updateFormSpectacle, refreshDelete]);
 
   return (
-    <ul key={spectacle.id}>
-      <p>{spectacle.title}</p>
-      <i>{spectacle.body}</i>
-      <button onClick={showUpdate} type="button">
-        Update
-      </button>
-      <button onClick={deleteSpectacle} type="button">
-        Delete
-      </button>
+    <div className="spectacle_card" key={spectacle.id}>
+      <img src={spectacle.mainPhoto} alt="" />
+      <div className="spectacle_card_info">
+        <h2>{spectacle.title}</h2>
+        <p>{spectacle.body}</p>
+        <p className={spectacle.isActual ? 'actually' : 'notActually'}>
+          {spectacle.isActual ? 'Актаульно!' : 'Не актуально!'}
+        </p>
+        <div className="buttons_admin">
+          <button onClick={showUpdate} type="button">
+            Update
+          </button>
+          <button
+            onClick={deleteSpectacle}
+            className="button_delete"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
       {updateFormSpectacle && (
         <UpdateSpectacleForm
           key={spectacle.id}
@@ -52,7 +64,7 @@ function AdminSpectacleCard({
           showUpdate={() => showUpdate()}
         />
       )}
-    </ul>
+    </div>
   );
 }
 

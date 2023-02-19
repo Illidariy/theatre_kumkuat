@@ -35,11 +35,7 @@ function ActorForm({
 
   return (
     <div className="form__container">
-      <form
-        className="form__body"
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={createActor}
-      >
+      <form className="form__body" onSubmit={createActor}>
         <label htmlFor="firstName">FirstName</label>
         <input
           id="firstName"

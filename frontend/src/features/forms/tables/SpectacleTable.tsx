@@ -14,7 +14,7 @@ function SpectacleTable(): JSX.Element {
     spectacleState: { spectacles },
   } = useSelector((store: RootState) => store);
   return (
-    <div>
+    <div className="list_spectacles">
       {spectacles &&
         spectacles.map((spectacle) => (
           <AdminSpectacleCard key={spectacle.id} spectacle={spectacle} />

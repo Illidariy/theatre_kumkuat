@@ -14,7 +14,7 @@ function ActorTable(): JSX.Element {
     actorState: { actors },
   } = useSelector((store: RootState) => store);
   return (
-    <div>
+    <div className="list_actors">
       {actors &&
         actors.map((actor) => <AdminActorCard key={actor.id} actor={actor} />)}
     </div>

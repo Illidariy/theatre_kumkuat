@@ -31,11 +31,7 @@ function ProductForm({
 
   return (
     <div className="form__container">
-      <form
-        className="form__body"
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={createProduct}
-      >
+      <form className="form__body" onSubmit={createProduct}>
         <label htmlFor="title">Title</label>
         <input
           id="title"

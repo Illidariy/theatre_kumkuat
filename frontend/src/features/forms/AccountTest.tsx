@@ -23,8 +23,8 @@ function AccountTest(): JSX.Element {
   }
 
   return (
-    <div>
-      <div className="header">
+    <div className="admin_content">
+      <div className="buttons_main">
         <button onClick={actorHandler} type="button">
           Actor Form
         </button>
@@ -34,6 +34,8 @@ function AccountTest(): JSX.Element {
         <button onClick={spectacleHandler} type="button">
           Spectacle Form
         </button>
+      </div>
+      <div className="main_forms">
         {actorForm && <ActorForm actorHandler={() => actorHandler()} />}
         {productForm && <ProductForm productHandler={() => productHandler()} />}
         {spectacleForm && (

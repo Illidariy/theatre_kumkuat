@@ -33,11 +33,7 @@ function SpectacleForm({
 
   return (
     <div className="form__container">
-      <form
-        className="form__body"
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={createSpectacle}
-      >
+      <form className="form__body" onSubmit={createSpectacle}>
         <label htmlFor="title">Title</label>
         <input
           id="title"

@@ -29,15 +29,25 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
   }, [updateFormProduct, refreshDelete]);
 
   return (
-    <ul key={product.id}>
-      <p>{product.title}</p>
-      <i>{product.body}</i>
-      <button onClick={showUpdate} type="button">
-        Update
-      </button>
-      <button onClick={deleteProduct} type="button">
-        Delete
-      </button>
+    <div className="product_card" key={product.id}>
+      <img src={product.photo} alt="" />
+      <div className="product_card_info">
+        <h2>{product.title}</h2>
+        <p>{product.body}</p>
+        <i>{product.price}</i>
+        <div className="buttons_admin">
+          <button onClick={showUpdate} type="button">
+            Update
+          </button>
+          <button
+            className="button_delete"
+            onClick={deleteProduct}
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
       {updateFormProduct && (
         <UpdateProductForm
           key={product.id}
@@ -45,7 +55,7 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
           showUpdate={() => showUpdate()}
         />
       )}
-    </ul>
+    </div>
   );
 }
 

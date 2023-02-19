@@ -38,11 +38,7 @@ function UpdateActorForm({
   };
   return (
     <div className="form__container">
-      <form
-        className="form__body"
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={updateActor}
-      >
+      <form className="form__body" onSubmit={updateActor}>
         <label htmlFor="firstName">FirstName</label>
         <input
           id="firstName"
