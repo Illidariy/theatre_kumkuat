@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch } from '../../../store';
+import { useAppDispatch } from '../../../../store';
 import {
   getSpectacles,
   removeSpectacle,
-} from '../../spectacles/spectacleSlice';
-import { Spectacle } from '../../spectacles/Types/types';
-import UpdateSpectacleForm from '../UpdateSpectacleForm';
+} from '../../../spectacles/spectacleSlice';
+import { Spectacle } from '../../../spectacles/Types/types';
+import UpdateSpectacleForm from '../../update/UpdateSpectacleForm';
 
 function AdminSpectacleCard({
   spectacle,

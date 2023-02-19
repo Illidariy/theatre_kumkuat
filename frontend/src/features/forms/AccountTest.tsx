@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../store';
-import { getSpectacles } from '../spectacles/spectacleSlice';
+import React, { useState } from 'react';
 import ActorForm from './ActorForm';
 import ProductForm from './ProductForm';
 import SpectacleForm from './SpectacleForm';
-import AdminSpectacleCard from './Types/AdminSpectacleCard';
 import './styles/styles.css';
+import ActorTable from './tables/ActorTable';
+import ProductTable from './tables/ProductTable';
+import SpectacleTable from './tables/SpectacleTable';
 
 function AccountTest(): JSX.Element {
   const [actorForm, setActorForm] = useState(false);
@@ -23,16 +22,6 @@ function AccountTest(): JSX.Element {
     setSpectacleForm((prev) => !prev);
   }
 
-  const {
-    spectacleState: { spectacles },
-    actorState: { actors },
-  } = useSelector((store: RootState) => store);
-
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(getSpectacles());
-  }, [dispatch]);
-
   return (
     <div>
       <div className="header">
@@ -46,17 +35,20 @@ function AccountTest(): JSX.Element {
           Spectacle Form
         </button>
         {actorForm && <ActorForm actorHandler={() => actorHandler()} />}
-        {productForm && <ProductForm />}
+        {productForm && <ProductForm productHandler={() => productHandler()} />}
         {spectacleForm && (
           <SpectacleForm spectacleHandler={() => spectacleHandler()} />
         )}
       </div>
-      <div className="spectacles_table">
-        <div>
-          {spectacles &&
-            spectacles.map((spectacle) => (
-              <AdminSpectacleCard key={spectacle.id} spectacle={spectacle} />
-            ))}
+      <div className="tables">
+        <div className="actors_table">
+          <ActorTable />
+        </div>
+        <div className="products_table">
+          <ProductTable />
+        </div>
+        <div className="spectacles_table">
+          <SpectacleTable />
         </div>
       </div>
     </div>

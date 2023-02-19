@@ -9,12 +9,13 @@ const session = require('express-session');
 const sessionConfig = require('./config/session');
 // const auth = require('./middleware/auth');
 
-// const indexRouter = require('./routes/index.routes');
 const actorsRouter = require('./routes/actors.routes');
 const spectaclesRouter = require('./routes/spectacles.routes');
 const authRouter = require('./routes/auth.routes');
-// const usersRouter = require('./routes/users.routes');
 const directorsRouter = require('./routes/directors.routes');
+const productsRouter = require('./routes/products.routes');
+// const indexRouter = require('./routes/index.routes');
+// const usersRouter = require('./routes/users.routes');
 // const studentsRouter = require('./routes/students.routes');
 
 const app = express();
@@ -35,14 +36,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(auth);
 app.use(cors(corsOptions));
 
-// app.use('/', indexRouter);
 app.use('/actors', actorsRouter);
 app.use('/spectacles', spectaclesRouter);
 app.use('/auth', authRouter);
-// app.use('/auth', usersRouter);
-// app.use('/spectacles', spectaclesRouter);
 app.use('/api/directors', directorsRouter);
-// app.use('/students', studentsRouter);
+app.use('/products', productsRouter);
 
 app
   .listen(PORT)

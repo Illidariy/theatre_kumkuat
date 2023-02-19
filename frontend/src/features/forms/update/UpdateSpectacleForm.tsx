@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../store';
-import { currentSpectacle } from '../spectacles/spectacleSlice';
-import { Spectacle } from '../spectacles/Types/types';
+import { useAppDispatch } from '../../../store';
+import { currentSpectacle } from '../../spectacles/spectacleSlice';
+import { Spectacle } from '../../spectacles/Types/types';
 
 function UpdateSpectacleForm({
   spectacle,
@@ -94,7 +94,7 @@ function UpdateSpectacleForm({
           defaultValue={spectacle.directorId}
           onChange={(e) => setDirectorId(Number(e.target.value))}
         />
-        <button type="submit">Добавить</button>
+        <button type="submit">SAVE</button>
       </form>
       {/* <h2>{error && error}</h2> */}
     </div>

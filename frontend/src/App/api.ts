@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { Actor } from '../features/actors/Types/types';
+import { Actor, ActorId } from '../features/actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
 import { Spectacle, SpectacleId } from '../features/spectacles/Types/types';
 import { Director } from '../features/directors/Types/types';
@@ -92,6 +92,38 @@ export const newActor = async ({
       title,
       body,
     }),
+  });
+  return res.json();
+};
+
+export const currentActor = async ({
+  id,
+  firstName,
+  secondName,
+  mainPhoto,
+  title,
+  body,
+}: Actor): Promise<Actor> => {
+  const res = await fetch(`http://localhost:4000/actors/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+      firstName,
+      secondName,
+      mainPhoto,
+      title,
+      body,
+    }),
+  });
+  return res.json();
+};
+
+export const removeActor = async (id: ActorId): Promise<Actor> => {
+  const res = await fetch(`http://localhost:4000/actors/${id}`, {
+    method: 'DELETE',
   });
   return res.json();
 };

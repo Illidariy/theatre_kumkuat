@@ -1,29 +1,29 @@
 const router = require('express').Router();
-const { Actor } = require('../db/models');
+const { Product } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
-    const actors = await Actor.findAll({
+    const products = await Product.findAll({
       raw: true,
       order: [['updatedAt', 'DESC']],
     });
-    res.status(200).json(actors);
+    res.status(200).json(products);
   } catch ({ message }) {
     res.status(500).json(message);
   }
 });
 
 router.post('/', async (req, res) => {
-  const { firstName, secondName, mainPhoto, title, body } = req.body;
+  const { title, body, photo, price, userId } = req.body;
   try {
-    const actor = await Actor.create({
-      firstName,
-      secondName,
-      mainPhoto,
+    const product = await Product.create({
       title,
       body,
+      photo,
+      price,
+      userId,
     });
-    res.status(200).json({ actor });
+    res.status(200).json({ product });
   } catch ({ message }) {
     res.status(500).json({ message });
   }
@@ -31,21 +31,21 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { firstName, secondName, mainPhoto, title, body } = req.body;
+  const { title, body, photo, price, userId } = req.body;
   try {
-    const currentActor = await Actor.findOne({
+    const currentProduct = await Product.findOne({
       where: { id: Number(id) },
     });
-    if (currentActor) {
-      currentActor.firstName = firstName;
-      currentActor.secondName = secondName;
-      currentActor.mainPhoto = mainPhoto;
-      currentActor.title = title;
-      currentActor.body = body;
-      const newActor = await currentActor.save();
-      return res.status(200).json({ actor: newActor });
+    if (currentProduct) {
+      currentProduct.title = title;
+      currentProduct.body = body;
+      currentProduct.photo = photo;
+      currentProduct.price = price;
+      currentProduct.userId = userId;
+      const newProduct = await currentProduct.save();
+      return res.status(200).json({ product: newProduct });
     }
-    return res.json({ message: 'Actor undefined' });
+    return res.json({ message: 'Product undefined' });
   } catch ({ message }) {
     res.status(500).json({ message });
   }
@@ -55,7 +55,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const deleted = await Actor.destroy({
+    const deleted = await Product.destroy({
       where: { id: Number(id) },
     });
     if (deleted > 0) {

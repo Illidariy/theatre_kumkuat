@@ -16,10 +16,6 @@ function SpectacleForm({
 
   const dispatch = useAppDispatch();
 
-  // const { error, spectacles } = useSelector(
-  //   (store: RootState) => store.spectacleState,
-  // );
-
   const createSpectacle = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(

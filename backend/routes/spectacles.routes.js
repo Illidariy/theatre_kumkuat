@@ -3,7 +3,10 @@ const { Spectacle } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
-    const spectacles = await Spectacle.findAll();
+    const spectacles = await Spectacle.findAll({
+      raw: true,
+      order: [['updatedAt', 'DESC']],
+    });
     res.status(200).json(spectacles);
   } catch ({ message }) {
     res.status(500).json(message);
