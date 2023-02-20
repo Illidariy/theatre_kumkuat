@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import { UserInfo } from 'os';
 import { Actor, ActorId } from '../features/actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
 import { Spectacle, SpectacleId } from '../features/spectacles/Types/types';
@@ -150,14 +151,17 @@ export const registr = async (newUser: User): Promise<PayloadAuth> => {
   });
   return res.json();
 };
-export const login = async (user: User): Promise<PayloadAuth> => {
+export const login = async (user: User): Promise<User> => {
   const res = await fetch('http://localhost:4000/auth/login', {
     method: 'post',
     headers: { 'Content-type': 'application/json' },
     credentials: 'include',
     body: JSON.stringify(user),
   });
-  return res.json();
+  const data = await res.json();
+  console.log(user, res);
+
+  return data;
 };
 export const checkUser = async (): Promise<PayloadAuth> => {
   const res = await fetch('http://localhost:4000/auth/login', {
