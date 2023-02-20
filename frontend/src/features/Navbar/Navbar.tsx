@@ -33,7 +33,7 @@ export default function Navbar(): JSX.Element {
             <ul className="nav__list">
               {/* {!user && ( */}
               <li className="nav__list-item">
-                <NavLink to="/">новости</NavLink>
+                <NavLink to="/news">новости</NavLink>
               </li>
               <li className="nav__list-item">
                 <NavLink to="/">спектакли</NavLink>
