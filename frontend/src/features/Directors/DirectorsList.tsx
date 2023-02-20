@@ -10,23 +10,23 @@ export default function DirectorsList(): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getDirectors());
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <ul>
         {directors.map((director) => (
           // <DirectorCard key={director.id} director={director} />
           <li key={director.id}>
-            <div className="director-main">
+            <div className="director__main">
               <NavLink to={`directors/${director.id}`}>
                 <img
-                  className="director-photo"
+                  className="director__photo"
                   src={director.mainPhoto}
-                  alt="director-mainPhoto"
+                  alt="director"
                 />
               </NavLink>
               <br />
-              <h3 className="director-name">
+              <h3 className="director__name">
                 {director.firstName} {director.secondName}
               </h3>
             </div>

@@ -10,23 +10,23 @@ export default function ActorsList(): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getActors());
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <ul>
         {actors.map((actor) => (
           // <ActorCard key={actor.id} actor={actor} />
           <li key={actor.id}>
-            <div className="actor-main">
+            <div className="actor__main">
               <NavLink to={`actors/${actor.id}`}>
                 <img
-                  className="actor-photo"
+                  className="actor__photo"
                   src={actor.mainPhoto}
-                  alt="actor-mainPhoto"
+                  alt="actor"
                 />
               </NavLink>
               <br />
-              <h3 className="actor-name">
+              <h3 className="actor__name">
                 {actor.firstName} {actor.secondName}
               </h3>
             </div>

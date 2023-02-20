@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../store';
-import { newActor } from '../actors/actorsSlice';
+import { newActor } from '../Actors/actorsSlice';
 
 function ActorForm({
   actorHandler,

@@ -7,22 +7,22 @@ export default function DirectorCard({
   director: Director;
 }): JSX.Element {
   return (
-    <div className="director-container">
-      <div className="director-main">
+    <div className="director container">
+      <div className="director__main">
         <img
-          className="director-photo"
+          className="director__photo"
           src={director.mainPhoto}
-          alt="director-mainPhoto"
+          alt="director"
         />
         <br />
-        <h3 className="director-name">
+        <h3 className="director__name">
           {director.firstName} {director.secondName}
         </h3>
       </div>
-      <div className="director-more">
-        <span className="director-title">{director.title}</span>
+      <div className="director__info">
+        <span className="director__title">{director.title}</span>
         <br />
-        <span className="director-body">{director.body}</span>
+        <span className="director__body">{director.body}</span>
       </div>
     </div>
   );
