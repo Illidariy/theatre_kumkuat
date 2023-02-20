@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
 import SpectacleShortCard from './SpectacleShortCard';
 import { getSpectacles } from './spectaclePageSlice';
+import './Spectacles.scss';
 
 export default function SpectaclesPageList(): JSX.Element {
   const { spectacles } = useSelector(
