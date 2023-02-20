@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/actors', actorsRouter);
 app.use('/spectacles', spectaclesRouter);
 app.use('/auth', authRouter);
-app.use('/api/directors', directorsRouter);
+app.use('/directors', directorsRouter);
 app.use('/products', productsRouter);
 
 app

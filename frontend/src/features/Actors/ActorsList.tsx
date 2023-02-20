@@ -18,7 +18,7 @@ export default function ActorsList(): JSX.Element {
           // <ActorCard key={actor.id} actor={actor} />
           <li key={actor.id}>
             <div className="actor__main">
-              <NavLink to={`actors/${actor.id}`}>
+              <NavLink to={`/crew/actors/${actor.id}`}>
                 <img
                   className="actor__photo"
                   src={actor.mainPhoto}
