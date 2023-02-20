@@ -13,8 +13,8 @@ export const registrUser = createAsyncThunk('user/registr', (action: User) =>
   api.registr(action),
 );
 
-export const loginUser = createAsyncThunk('user/login', (action: User) =>
-api.login(action));
+export const loginUser = createAsyncThunk('user/login', (user: User) =>
+api.login(user));
 
 const userSlice = createSlice({
   name: 'user',
