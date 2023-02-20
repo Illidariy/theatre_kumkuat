@@ -13,7 +13,7 @@ function Authorization(): JSX.Element {
   const { user } = useSelector((store: RootState) => store.userState);
 
   useEffect(() => {
-    if ('id' in user && user.isAdmin) {
+    if ('name' in user) {
       nav('/');
     }
   }, [user, nav]);
@@ -23,6 +23,7 @@ function Authorization(): JSX.Element {
       loginUser({
         email,
         password,
+        isAdmin: true,
       }),
     );
   };
@@ -46,7 +47,7 @@ function Authorization(): JSX.Element {
         <input
           id="img"
           name="password"
-          type="text"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

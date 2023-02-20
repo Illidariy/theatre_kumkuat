@@ -4,7 +4,7 @@ export type User = {
     email:string;
     password:string;
     password2?:string;
-    isAdmin?:boolean
+    isAdmin:boolean
   };
    export type State = {
     user:{} | User;

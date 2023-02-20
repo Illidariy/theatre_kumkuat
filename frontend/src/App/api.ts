@@ -150,12 +150,12 @@ export const registr = async (newUser: User): Promise<PayloadAuth> => {
   });
   return res.json();
 };
-export const login = async (item: User): Promise<User> => {
+export const login = async (user: User): Promise<PayloadAuth> => {
   const res = await fetch('http://localhost:4000/auth/login', {
     method: 'post',
     headers: { 'Content-type': 'application/json' },
     credentials: 'include',
-    body: JSON.stringify(item),
+    body: JSON.stringify(user),
   });
   return res.json();
 };
