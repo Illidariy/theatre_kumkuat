@@ -1,11 +1,12 @@
 /* eslint-disable import/prefer-default-export */
-import { Actor, ActorId } from '../features/actors/Types/types';
+
+import { Actor, ActorId } from '../features/Actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
-import { Spectacle, SpectacleId } from '../features/spectacles/Types/types';
-import { Director } from '../features/directors/Types/types';
+import { Spectacle, SpectacleId } from '../features/Spectacles/Types/types';
+import { Director } from '../features/Directors/Types/types';
 
 export const loadSpectacles = async (): Promise<Spectacle[]> => {
-  const res = await fetch('http://localhost:4000/spectacles');
+  const res = await fetch('/spectacles');
   return res.json();
 };
 
@@ -17,7 +18,7 @@ export const newSpectacle = async ({
   video,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
-  const res = await fetch('http://localhost:4000/spectacles', {
+  const res = await fetch('/spectacles', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -43,7 +44,7 @@ export const currentSpectacle = async ({
   video,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
-  const res = await fetch(`http://localhost:4000/spectacles/${spectacleId}`, {
+  const res = await fetch(`/spectacles/${spectacleId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -62,14 +63,14 @@ export const currentSpectacle = async ({
 };
 
 export const removeSpectacle = async (id: SpectacleId): Promise<Spectacle> => {
-  const res = await fetch(`http://localhost:4000/spectacles/${id}`, {
+  const res = await fetch(`/spectacles/${id}`, {
     method: 'DELETE',
   });
   return res.json();
 };
 
 export const loadActors = async (): Promise<Actor[]> => {
-  const res = await fetch('http://localhost:4000/actors');
+  const res = await fetch('/actors');
   return res.json();
 };
 
@@ -80,7 +81,7 @@ export const newActor = async ({
   title,
   body,
 }: Actor): Promise<Actor> => {
-  const res = await fetch('http://localhost:4000/actors', {
+  const res = await fetch('/actors', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -104,7 +105,7 @@ export const currentActor = async ({
   title,
   body,
 }: Actor): Promise<Actor> => {
-  const res = await fetch(`http://localhost:4000/actors/${id}`, {
+  const res = await fetch(`/actors/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -122,19 +123,19 @@ export const currentActor = async ({
 };
 
 export const removeActor = async (id: ActorId): Promise<Actor> => {
-  const res = await fetch(`http://localhost:4000/actors/${id}`, {
+  const res = await fetch(`/actors/${id}`, {
     method: 'DELETE',
   });
   return res.json();
 };
 
 export const loadDirectors = async (): Promise<Director[]> => {
-  const res = await fetch('http://localhost:4000/api/directors');
+  const res = await fetch('/api/directors');
   return res.json();
 };
 
 export const registr = async (newUser: User): Promise<PayloadAuth> => {
-  const res = await fetch('http://localhost:4000/auth/registration', {
+  const res = await fetch('/auth/registration', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -151,7 +152,7 @@ export const registr = async (newUser: User): Promise<PayloadAuth> => {
   return res.json();
 };
 export const login = async (user: User): Promise<User> => {
-  const res = await fetch('http://localhost:4000/auth/login', {
+  const res = await fetch('/auth/login', {
     method: 'post',
     headers: { 'Content-type': 'application/json' },
     credentials: 'include',
@@ -161,8 +162,12 @@ export const login = async (user: User): Promise<User> => {
 
   return data;
 };
+
+// export const checkUser = async (): Promise<User> => {
+// const res = await fetch('http://localhost:4000/auth/user', {
+
 export const checkUser = async (): Promise<User> => {
-  const res = await fetch('http://localhost:4000/auth/user', {
+  const res = await fetch('/auth/user', {
     credentials: 'include',
   });
   const data = await res.json();
@@ -170,13 +175,15 @@ export const checkUser = async (): Promise<User> => {
 };
 
 export const logout = async (): Promise<User> => {
-  const res = await fetch('http://localhost:4000/auth/logout', {
+  const res = await fetch('/auth/logout', {
     credentials: 'include',
   });
   return res.json();
 };
 
 export const getUsers = async (): Promise<User[]> => {
-  const res = await fetch('http://localhost:4000/main');
+  const res = await fetch('/main');
   return res.json();
 };
+
+

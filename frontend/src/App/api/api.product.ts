@@ -1,7 +1,7 @@
 import { Product, ProductId } from '../../features/products/types/types';
 
 export const loadProducts = async (): Promise<Product[]> => {
-  const res = await fetch('http://localhost:4000/products');
+  const res = await fetch('/products');
   return res.json();
 };
 
@@ -12,7 +12,7 @@ export const newProduct = async ({
   price,
   userId,
 }: Product): Promise<Product> => {
-  const res = await fetch('http://localhost:4000/products', {
+  const res = await fetch('/products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const currentProduct = async ({
   price,
   userId,
 }: Product): Promise<Product> => {
-  const res = await fetch(`http://localhost:4000/products/${id}`, {
+  const res = await fetch(`/products/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export const currentProduct = async ({
 };
 
 export const removeProduct = async (id: ProductId): Promise<Product> => {
-  const res = await fetch(`http://localhost:4000/products/${id}`, {
+  const res = await fetch(`/products/${id}`, {
     method: 'DELETE',
   });
   return res.json();

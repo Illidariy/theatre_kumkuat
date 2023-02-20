@@ -8,44 +8,59 @@ export default function Navbar(): JSX.Element {
   const { user } = useSelector((store: RootState) => store.userState);
 
   return (
+    //     const navbar = document.querySelector('.nav__flex');
+    // window.onscroll = () => {
+    //   if (window.scrollY > 500) {
+    //     navbar.classList.add('nav-active');
+    //   } else {
+    //     navbar.classList.remove('nav-active');
+    //   }
+    // };
     <>
-      <div className="nav__container">
-        <div className="nav__flex">
-          <div className="nav__logo">
-            <NavLink to="/">
-              <img
-                src="../../images/logo.png"
-                alt="logo"
-                className="nav__logo_img"
-              />
-            </NavLink>
-          </div>
+      <div className="nav">
+        <div className="container">
+          <div className="nav__flex">
+            <div className="nav__logo">
+              <NavLink to="/">
+               <span className="nav__logo-text">театр-студия</span>
+                <br />
+                <span className="nav__logo-text nav__logo-text-size">
+                  КУМКУАТ
+                </span>
+              </NavLink>
+            </div>
           <ul className="nav__list">
-            <li>
-              <NavLink className="nav__list-item" to="/registration">
-                афиша
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav__list-item" to="/login">
-                спектакли
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav__list-item" to="/login">
-                команда
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav__list-item" to="/login">
-                мерч
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav__list-item" to="/login">
-                контакты
-              </NavLink>
-            </li>
+            <li className="nav__list-item">
+                <NavLink to="/news">новости</NavLink>
+              </li>
+              <li className="nav__list-item">
+                <NavLink to="/spectacles">спектакли</NavLink>
+              </li>
+              <li className="nav__list-item">
+                <NavLink to="/crew">команда</NavLink>
+              </li>
+              <li className="nav__list-item">
+                <NavLink to="/products">мерч</NavLink>
+              </li>
+              <li className="nav__list-item">
+                <NavLink to="/">контакты</NavLink>
+              </li>
+            <li className="nav__list-social">
+                <a href="/">
+                  <img
+                    src="../../images/vk.png"
+                    alt="vk"
+                    className="nav__a-size"
+                  />
+                </a>
+                <a href="/">
+                  <img
+                    src="../../images/inst.png"
+                    alt="vk"
+                    className="nav__a-size"
+                  />
+                </a>
+              </li>
             {user.isAdmin === true && (
               <li>
                 <NavLink className="nav__list-item" to="/logout">
@@ -54,6 +69,7 @@ export default function Navbar(): JSX.Element {
               </li>
             )}
           </ul>
+          </div>
         </div>
       </div>
       <Outlet />

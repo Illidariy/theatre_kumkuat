@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../store';
-import { currentSpectacle } from '../../spectacles/spectacleSlice';
-import { Spectacle } from '../../spectacles/Types/types';
+import { currentSpectacle } from '../../Spectacles/spectacleSlice';
+import { Spectacle } from '../../Spectacles/Types/types';
 
 function UpdateSpectacleForm({
   spectacle,

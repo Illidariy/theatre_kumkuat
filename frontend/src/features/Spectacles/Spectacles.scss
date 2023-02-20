@@ -1,0 +1,28 @@
+.spectacle {
+  background-color: black;
+  padding-bottom: 100px;
+  color: white;
+
+  &__card {
+    padding-left: 30px;
+  }
+
+  &__title {
+    color: #ff5001;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 85px;
+    padding: 20px 0 40px 30px;
+  }
+
+  &__img {
+    height: 200px;
+  }
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
