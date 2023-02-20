@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../store';
-import { currentActor } from '../../actors/actorsSlice';
-import { Actor } from '../../actors/Types/types';
+import { currentActor } from '../../Actors/actorsSlice';
+import { Actor } from '../../Actors/Types/types';
 
 function UpdateActorForm({
   actor,

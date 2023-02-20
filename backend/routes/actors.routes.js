@@ -13,6 +13,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const actor = await Actor.findByPk({ where: id });
+    res.status(200).json(actor);
+  } catch ({ message }) {
+    res.status(500).json(message);
+  }
+});
+
 router.post('/', async (req, res) => {
   const { firstName, secondName, mainPhoto, title, body } = req.body;
   try {
