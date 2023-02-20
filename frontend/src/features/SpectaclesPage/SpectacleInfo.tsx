@@ -37,7 +37,7 @@ export default function SpectacleInfo():JSX.Element {
 
     ))}
     </div>
-    <button type="button">купить билет</button>
+    {/* <button type="button">купить билет</button> */}
     </div>
   );
 }
