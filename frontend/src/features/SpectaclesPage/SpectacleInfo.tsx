@@ -11,6 +11,6 @@ export default function SpectacleInfo():JSX.Element {
       .then((data) => setSpectacle(data));
   }, []);
   return (
-    <div>Gqergqerg</div>
+    <div>{spectacle[0]}</div>
   );
 }

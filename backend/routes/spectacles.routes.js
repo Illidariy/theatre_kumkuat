@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
       Spectacle.Actor],
 
     });
-    console.log(spectacle);
+    console.log(spectacle[0]);
 
     res.status(200).json(spectacle);
   } catch ({ message }) {
