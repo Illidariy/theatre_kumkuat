@@ -6,7 +6,7 @@ import Navbar from '../features/Navbar/Navbar';
 import MainPage from '../features/MainPage/MainPage';
 import NotFound from '../features/NotFound/NotFound';
 import AccountTest from '../features/forms/AccountTest';
-import SpectaclesList from '../features/spectacles/SpectaclesList';
+import SpectaclesList from '../features/Spectacles/SpectaclesList';
 import CrewList from '../features/crew/crewList';
 import DirectorsList from '../features/directors/DirectorsList';
 import DirectorCard from '../features/directors/DirectorCard';
@@ -31,7 +31,6 @@ function App(): JSX.Element {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <a href="#twf">Накупить билетов</a>
     </div>
   );
 }

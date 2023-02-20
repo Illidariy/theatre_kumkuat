@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+/* * {
+  color: rgb(237, 253, 248);
+} */
+
+.admin_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.buttons_main {
+  display: flex;
+  justify-content: space-between;
+  width: 50rem;
+}
+
+button {
+  background-color: rgb(0, 0, 0);
+  border: transparent;
+  font-size: 19px;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+}
+
+button:hover {
+  color: rgb(255, 229, 127);
+}
+
+.button_delete:hover {
+  color: rgb(169, 98, 98);
+}
+
+.tables {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list_products,
+.list_spectacles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.actor_card,
+.spectacle_card {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin: 0 5rem 0.5rem 5rem;
+}
+
+.product_card {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 5rem 0.5rem 5rem;
+}
+
+.actor_card_info,
+.product_card_info,
+.spectacle_card_info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 1rem 0 1rem;
+}
+
+.main_forms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+}
+
+input {
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 2px solid rgb(255, 229, 127);
+  width: 15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+#body {
+  width: 20rem;
+  height: 5rem;
+}
+
+/* img {
+  object-fit: contain;
+  width: 500px;
+} */
+
+.actually {
+  color: rgb(0, 86, 0);
+}
+.notActually {
+  color: brown;
+}
