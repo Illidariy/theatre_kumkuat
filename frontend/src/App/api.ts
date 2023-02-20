@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { Actor, ActorId } from '../features/actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
-import { Spectacle, SpectacleId } from '../features/spectacles/Types/types';
+import { Spectacle, SpectacleId } from '../features/Spectacles/Types/types';
 import { Director } from '../features/directors/Types/types';
 
 export const loadSpectacles = async (): Promise<Spectacle[]> => {

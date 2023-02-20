@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
 import SpectacleCard from './SpectacleCard';
 import { getSpectacles } from './spectacleSlice';
+import './Spectacles.scss';
 
 export default function SpectaclesList(): JSX.Element {
   const { spectacles } = useSelector(
@@ -13,11 +14,15 @@ export default function SpectaclesList(): JSX.Element {
     dispatch(getSpectacles());
   }, [dispatch]);
   return (
-    <div>
-      <div>
-        {spectacles.map((spectacle) => (
-          <SpectacleCard key={spectacle.id} spectacle={spectacle} />
-        ))}
+    <div className="spectacle">
+      <div className="container">
+        <h1 className="spectacle__title">СПЕКТАКЛИ</h1>
+        <div className="spectacle__flex">
+          {spectacles.map((spectacle) => (
+            <SpectacleCard key={spectacle.id} spectacle={spectacle} />
+          ))}
+          <h1>тут типо красиво</h1>
+        </div>
       </div>
     </div>
   );

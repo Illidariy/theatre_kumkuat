@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../store';
-import { getSpectacles } from '../../spectacles/spectacleSlice';
+import { getSpectacles } from '../../Spectacles/spectacleSlice';
 import AdminSpectacleCard from './cards/AdminSpectacleCard';
 
 function SpectacleTable(): JSX.Element {

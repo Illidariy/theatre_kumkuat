@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
 import actorsSlice from './features/actors/actorsSlice';
-import spectacleSlice from './features/spectacles/spectacleSlice';
+import spectacleSlice from './features/Spectacles/spectacleSlice';
 import userSlice from './features/auth/authSlice';
 import directorSlise from './features/directors/directorSlice';
 import productSlice from './features/products/productSlice';
