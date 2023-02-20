@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from '../../App/api';
 
-import { State } from './Types/types';
+import { DirectorId, State } from './Types/types';
 
 const initialState: State = {
   directors: [],
@@ -19,6 +19,10 @@ export const getDirectors = createAsyncThunk('directors', () =>
   api.loadDirectors(),
 );
 
+export const getDirector = createAsyncThunk('director', (id: DirectorId) =>
+  api.loadDirector(id),
+);
+
 const directorSlise = createSlice({
   name: 'director',
   initialState,
@@ -29,6 +33,12 @@ const directorSlise = createSlice({
         state.directors = action.payload;
       })
       .addCase(getDirectors.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(getDirector.fulfilled, (state, action) => {
+        state.director = action.payload;
+      })
+      .addCase(getDirector.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },

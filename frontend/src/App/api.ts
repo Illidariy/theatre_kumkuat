@@ -2,7 +2,7 @@
 import { Actor, ActorId } from '../features/Actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
 import { Spectacle, SpectacleId } from '../features/Spectacles/Types/types';
-import { Director } from '../features/Directors/Types/types';
+import { Director, DirectorId } from '../features/Directors/Types/types';
 
 export const loadSpectacles = async (): Promise<Spectacle[]> => {
   const res = await fetch('/spectacles');
@@ -73,6 +73,11 @@ export const loadActors = async (): Promise<Actor[]> => {
   return res.json();
 };
 
+export const loadActor = async (id: ActorId): Promise<Actor> => {
+  const res = await fetch(`/actors/${id}`);
+  return res.json();
+};
+
 export const newActor = async ({
   firstName,
   secondName,
@@ -129,7 +134,12 @@ export const removeActor = async (id: ActorId): Promise<Actor> => {
 };
 
 export const loadDirectors = async (): Promise<Director[]> => {
-  const res = await fetch('/api/directors');
+  const res = await fetch('/directors');
+  return res.json();
+};
+
+export const loadDirector = async (id: DirectorId): Promise<Director> => {
+  const res = await fetch(`/directors/${id}`);
   return res.json();
 };
 

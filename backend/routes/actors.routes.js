@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const actor = await Actor.findByPk({ where: id });
+    const actor = await Actor.findOne({ where: { id } });
     res.status(200).json(actor);
   } catch ({ message }) {
     res.status(500).json(message);
