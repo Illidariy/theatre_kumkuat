@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'; // { useState, useEffect }
 import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../store';
+import { useAppDispatch } from '../store';
 import Navbar from '../features/Navbar/Navbar';
 import MainPage from '../features/MainPage/MainPage';
 import NotFound from '../features/NotFound/NotFound';
@@ -33,15 +32,14 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<MainPage />} />
-          {/* <Route path="/directors" element={<SpectaclesPageList />} /> */}
           <Route path="/spectacles" element={<SpectaclesPageList />} />
           <Route path="/spectacles/:id" element={<SpectacleInfo />} />
           <Route path="/products" element={<ProductList />} />
 
           {/* <Route path="/spectacles" element={<SpectaclesList />} /> */}
           <Route path="/crew" element={<CrewList />} />
-          <Route path="/directors" element={<DirectorsList />} />
-          <Route path="/directors/:directorId" element={<DirectorCard />} />
+          <Route path="/crew/directors" element={<DirectorsList />} />
+          <Route path="/crew/directors/:id" element={<DirectorCard />} />
           <Route path="/crew/actors" element={<ActorsList />} />
           <Route path="/crew/actors/:id" element={<ActorCard />} />
           <Route path="/registration" element={<Registration />} />

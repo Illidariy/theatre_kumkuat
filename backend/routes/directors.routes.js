@@ -1,7 +1,7 @@
-const directorsRouter = require('express').Router();
+const router = require('express').Router();
 const { Director } = require('../db/models');
 
-directorsRouter.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const directors = await Director.findAll();
     res.status(200).json(directors);
@@ -10,7 +10,7 @@ directorsRouter.get('/', async (req, res) => {
   }
 });
 
-directorsRouter.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const director = await Director.findOne({ where: { id } });
@@ -20,4 +20,4 @@ directorsRouter.get('/:id', async (req, res) => {
   }
 });
 
-module.exports = directorsRouter;
+module.exports = router;

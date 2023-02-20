@@ -23,7 +23,7 @@ export const getDirector = createAsyncThunk('director', (id: DirectorId) =>
   api.loadDirector(id),
 );
 
-const directorSlise = createSlice({
+const directorSlice = createSlice({
   name: 'director',
   initialState,
   reducers: {},
@@ -43,4 +43,4 @@ const directorSlise = createSlice({
       });
   },
 });
-export default directorSlise.reducer;
+export default directorSlice.reducer;
