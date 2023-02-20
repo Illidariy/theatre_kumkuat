@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
-* {
+/* * {
   color: rgb(237, 253, 248);
-}
+} */
 
 .admin_content {
   display: flex;
@@ -10,7 +10,7 @@
   align-items: center;
   flex-direction: column;
   font-size: 20px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .buttons_main {
@@ -101,10 +101,10 @@ input {
   height: 5rem;
 }
 
-img {
+/* img {
   object-fit: contain;
   width: 500px;
-}
+} */
 
 .actually {
   color: rgb(0, 86, 0);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../store';
-import { newSpectacle } from '../spectacles/spectacleSlice';
+import { newSpectacle } from '../Spectacles/spectacleSlice';
 
 function SpectacleForm({
   spectacleHandler,

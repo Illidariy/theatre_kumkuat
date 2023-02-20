@@ -3,8 +3,8 @@ import { useAppDispatch } from '../../../../store';
 import {
   getSpectacles,
   removeSpectacle,
-} from '../../../spectacles/spectacleSlice';
-import { Spectacle } from '../../../spectacles/Types/types';
+} from '../../../Spectacles/spectacleSlice';
+import { Spectacle } from '../../../Spectacles/Types/types';
 import UpdateSpectacleForm from '../../update/UpdateSpectacleForm';
 
 function AdminSpectacleCard({
