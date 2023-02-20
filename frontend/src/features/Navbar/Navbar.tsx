@@ -34,7 +34,7 @@ export default function Navbar(): JSX.Element {
                 <NavLink to="/">команда</NavLink>
               </li>
               <li className="nav__list-item">
-                <NavLink to="/">мерч</NavLink>
+                <NavLink to="/products">мерч</NavLink>
               </li>
               <li className="nav__list-item">
                 <NavLink to="/">контакты</NavLink>

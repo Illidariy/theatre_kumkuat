@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Spectacle, Director, Actor } = require('../db/models');
+const { Spectacle, Director } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
@@ -16,15 +16,14 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const spectacle = await Spectacle.findOne({
+    const spectacle = await Spectacle.findAll({
       raw: true,
       where: { id },
-      include: [
-      //   {
-      //   model: Director, key: 'directorId',
+      include: [{
+        model: Director, key: 'directorId',
 
-      // },
-      { model: Actor, key: 'spectacleId' }],
+      },
+      Spectacle.Actor],
 
     });
     console.log(spectacle);

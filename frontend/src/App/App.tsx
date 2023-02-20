@@ -11,6 +11,7 @@ import AccountTest from '../features/forms/AccountTest';
 import Registration from '../features/auth/Registration';
 import SpectaclesPageList from '../features/SpectaclesPage/SpectaclesPageList';
 import SpectacleInfo from '../features/SpectaclesPage/SpectacleInfo';
+import ProductList from '../features/products/ProductList';
 
 function App(): JSX.Element {
   return (
@@ -21,7 +22,7 @@ function App(): JSX.Element {
           {/* <Route path="/directors" element={<SpectaclesPageList />} /> */}
           <Route path="/spectacles" element={<SpectaclesPageList />} />
           <Route path="/spectacles/:id" element={<SpectacleInfo />} />
-
+          <Route path="/products" element={<ProductList />} />
 
           <Route path="/actors" element={<ActorsList />} />
           <Route path="/registration" element={<Registration />} />
