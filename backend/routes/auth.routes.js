@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
           email: user.email,
         };
         req.session.userId = user.id;
-        res.status(201).json({ message: '', user });
+        res.status(201).json({ message: 'Успешно', user });
       } else {
         res
           .status(403)

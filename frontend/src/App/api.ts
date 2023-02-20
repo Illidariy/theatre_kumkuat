@@ -163,7 +163,7 @@ export const login = async (user: User): Promise<User> => {
 
   return data;
 };
-export const checkUser = async (): Promise<PayloadAuth> => {
+export const checkUser = async (): Promise<User> => {
   const res = await fetch('http://localhost:4000/auth/login', {
     credentials: 'include',
   });

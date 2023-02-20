@@ -16,6 +16,9 @@ export const registrUser = createAsyncThunk('user/registr', (action: User) =>
 export const loginUser = createAsyncThunk('user/login', (user: User) =>
 api.login(user));
 
+export const logout = createAsyncThunk('user/logout', () =>
+api.logout());
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
