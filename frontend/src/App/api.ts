@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import { UserInfo } from 'os';
 import { Actor, ActorId } from '../features/actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
 import { Spectacle, SpectacleId } from '../features/spectacles/Types/types';
@@ -159,12 +158,11 @@ export const login = async (user: User): Promise<User> => {
     body: JSON.stringify(user),
   });
   const data = await res.json();
-  console.log(user, res);
 
   return data;
 };
 export const checkUser = async (): Promise<User> => {
-  const res = await fetch('http://localhost:4000/auth/login', {
+  const res = await fetch('http://localhost:4000/auth/user', {
     credentials: 'include',
   });
   const data = await res.json();

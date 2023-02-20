@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
+import { RootState } from '../../store';
 import './Navbar.scss';
 
 export default function Navbar(): JSX.Element {
+  const { user } = useSelector((store: RootState) => store.userState);
+
   return (
     <>
       <div className="nav__container">
@@ -17,7 +21,6 @@ export default function Navbar(): JSX.Element {
             </NavLink>
           </div>
           <ul className="nav__list">
-            {/* {!user && ( */}
             <li>
               <NavLink className="nav__list-item" to="/registration">
                 афиша
@@ -43,14 +46,13 @@ export default function Navbar(): JSX.Element {
                 контакты
               </NavLink>
             </li>
-            {/* )} */}
-            {/* {user && ( */}
-            <li>
-              <NavLink className="nav__list-item" to="/logout">
-                выход
-              </NavLink>
-            </li>
-            {/* )} */}
+            {user.isAdmin === true && (
+              <li>
+                <NavLink className="nav__list-item" to="/logout">
+                  выход
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>

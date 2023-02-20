@@ -1,7 +1,9 @@
-import React from 'react'; // { useState, useEffect }
+import React, { useEffect } from 'react'; // { useState, useEffect }
 import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../store';
 import Navbar from '../features/Navbar/Navbar';
 import MainPage from '../features/MainPage/MainPage';
 import NotFound from '../features/NotFound/NotFound';
@@ -12,8 +14,14 @@ import DirectorsList from '../features/directors/DirectolList';
 import Registration from '../features/auth/Registration';
 import Authorization from '../features/auth/Authorization';
 import Logout from '../features/auth/Logout';
+import { checkUser } from '../features/auth/authSlice';
 
 function App(): JSX.Element {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(checkUser());
+  }, []);
+
   return (
     <div className="main__container">
       <Routes>
