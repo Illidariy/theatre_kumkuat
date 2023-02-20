@@ -21,7 +21,6 @@ export default function SpectaclesList(): JSX.Element {
           {spectacles.map((spectacle) => (
             <SpectacleCard key={spectacle.id} spectacle={spectacle} />
           ))}
-          <h1>тут типо красиво</h1>
         </div>
       </div>
     </div>

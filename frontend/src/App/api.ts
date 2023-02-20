@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+
 import { Actor, ActorId } from '../features/Actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
 import { Spectacle, SpectacleId } from '../features/Spectacles/Types/types';
@@ -168,12 +169,15 @@ export const login = async (user: User): Promise<User> => {
     body: JSON.stringify(user),
   });
   const data = await res.json();
-  console.log(user, res);
 
   return data;
 };
-export const checkUser = async (): Promise<PayloadAuth> => {
-  const res = await fetch('/auth/login', {
+
+// export const checkUser = async (): Promise<User> => {
+// const res = await fetch('http://localhost:4000/auth/user', {
+
+export const checkUser = async (): Promise<User> => {
+  const res = await fetch('/auth/user', {
     credentials: 'include',
   });
   const data = await res.json();
@@ -191,3 +195,5 @@ export const getUsers = async (): Promise<User[]> => {
   const res = await fetch('/main');
   return res.json();
 };
+
+
