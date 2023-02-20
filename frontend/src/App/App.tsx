@@ -21,6 +21,7 @@ import Authorization from '../features/auth/Authorization';
 import ProductList from '../features/products/ProductList';
 import SpectacleInfo from '../features/SpectaclesPage/SpectacleInfo';
 import SpectaclesPageList from '../features/SpectaclesPage/SpectaclesPageList';
+import ContactsPage from '../features/Contacts/ContactsPage';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -48,6 +49,7 @@ function App(): JSX.Element {
           <Route path="/login" element={<Authorization />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/accounttest" element={<AccountTest />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
