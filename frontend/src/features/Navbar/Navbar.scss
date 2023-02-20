@@ -1,6 +1,13 @@
 .nav {
   background-color: #000000;
 
+  &-active {
+    background-color: #ff5001;
+    position: fixed;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+  }
+
   &__flex {
     display: flex;
     align-items: center;

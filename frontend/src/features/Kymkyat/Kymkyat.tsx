@@ -13,14 +13,7 @@ export default function Kymkyat(): JSX.Element {
         <div className="container">
           <h1 className="kymkyat__title">КУМКУАТ</h1>
           <div className="kymkyat__flex">
-            <div>
-              <img
-                src="../../../images/kymkyat.jpg"
-                alt=""
-                className="kymkyat__img"
-              />
-            </div>
-            <div>
+            <div className="kymkyat__info">
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde
                 saepe earum ducimus obcaecati laborum sequi, nobis veritatis
@@ -31,12 +24,23 @@ export default function Kymkyat(): JSX.Element {
                 ipsa error nesciunt eveniet facere aut quae delectus sequi ad
                 corporis deserunt. Nulla.
               </p>
+              <br />
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Inventore expedita consequatur ad, provident harum unde sint
                 tempora vero, distinctio nesciunt nulla. Itaque accusamus atque
                 esse neque doloremque fugiat quaerat eligendi.
               </p>
+              <a href="/">
+                <div className="kymkyat__info-btn">команда</div>
+              </a>
+            </div>
+            <div>
+              <img
+                src="../../../images/kymkyat.jpg"
+                alt=""
+                className="kymkyat__img"
+              />
             </div>
           </div>
         </div>
