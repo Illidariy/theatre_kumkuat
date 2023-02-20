@@ -5,6 +5,13 @@ import { Actor, ActorId, State } from './Types/types';
 
 const initialState: State = {
   actors: [],
+  actor: {
+    firstName: '',
+    secondName: '',
+    title: '',
+    body: '',
+    mainPhoto: '',
+  },
   error: undefined,
 };
 
@@ -38,7 +45,6 @@ export const currentActor = createAsyncThunk(
 export const removeActor = createAsyncThunk('actors/delete', (id: ActorId) =>
   api.removeActor(id),
 );
-
 const actorSlice = createSlice({
   name: 'actor',
   initialState,

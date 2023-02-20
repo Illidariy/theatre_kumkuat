@@ -1,4 +1,4 @@
-export type Actor = {
+export type Director = {
   id?: number;
   firstName: string;
   secondName: string;
@@ -8,8 +8,9 @@ export type Actor = {
 };
 
 export type State = {
-  actors: Actor[];
+  directors: Director[];
+  director: Director;
   error: undefined | string;
 };
 
-export type ActorId = Actor['id'];
+export type DirectorId = Director['id'];
