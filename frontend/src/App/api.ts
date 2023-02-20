@@ -178,3 +178,5 @@ export const getUsers = async (): Promise<User[]> => {
   const res = await fetch('http://localhost:4000/main');
   return res.json();
 };
+
+

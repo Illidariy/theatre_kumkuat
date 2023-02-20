@@ -7,9 +7,10 @@ import MainPage from '../features/MainPage/MainPage';
 import NotFound from '../features/NotFound/NotFound';
 import ActorsList from '../features/actors/ActorsList';
 import AccountTest from '../features/forms/AccountTest';
-// import SpectaclesList from '../features/spectacles/SpectaclesList';
-import DirectorsList from '../features/directors/DirectolList';
+// import DirectorsList from '../features/directors/DirectolList';
 import Registration from '../features/auth/Registration';
+import SpectaclesPageList from '../features/SpectaclesPage/SpectaclesPageList';
+import SpectacleInfo from '../features/SpectaclesPage/SpectacleInfo';
 
 function App(): JSX.Element {
   return (
@@ -17,8 +18,11 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<MainPage />} />
-          {/* <Route path="/spectacles" element={<SpectaclesList />} /> */}
-          <Route path="/directors" element={<DirectorsList />} />
+          {/* <Route path="/directors" element={<SpectaclesPageList />} /> */}
+          <Route path="/spectacles" element={<SpectaclesPageList />} />
+          <Route path="/spectacles/:id" element={<SpectacleInfo />} />
+
+
           <Route path="/actors" element={<ActorsList />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/accounttest" element={<AccountTest />} />
