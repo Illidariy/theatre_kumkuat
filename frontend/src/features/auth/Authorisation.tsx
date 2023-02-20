@@ -6,6 +6,7 @@ import { RootState, useAppDispatch } from '../../store';
 import { loginUser } from './authSlice';
 
 function Authorization(): JSX.Element {
+  const [redirect, setRedirect] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
@@ -13,10 +14,10 @@ function Authorization(): JSX.Element {
   const { user } = useSelector((store: RootState) => store.userState);
 
   useEffect(() => {
-    if ('id' in user && user.isAdmin) {
+    if (redirect) {
       nav('/');
     }
-  }, [user, nav]);
+  }, [redirect, nav, user]);
   const login = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(
@@ -25,7 +26,9 @@ function Authorization(): JSX.Element {
         password,
       }),
     );
+    setRedirect(true);
   };
+  console.log(user);
 
   return (
     <div className="form__container">
@@ -34,19 +37,19 @@ function Authorization(): JSX.Element {
         style={{ display: 'flex', flexDirection: 'column' }}
         onSubmit={login}
       >
-        <label htmlFor="type">Email</label>
+        <label htmlFor="mail">Email</label>
         <input
-          id="type"
+          id="mail"
           name="email"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="img">Password</label>
+        <label htmlFor="pass">Password</label>
         <input
-          id="img"
+          id="pass"
           name="password"
-          type="text"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
