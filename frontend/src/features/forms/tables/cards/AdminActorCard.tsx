@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../../../store';
-import { getActors, removeActor } from '../../../actors/actorsSlice';
-import { Actor } from '../../../actors/Types/types';
+import { getActors, removeActor } from '../../../Actors/actorsSlice';
+import { Actor } from '../../../Actors/Types/types';
 import UpdateActorForm from '../../update/UpdateActorForm';
 
 function AdminActorCard({ actor }: { actor: Actor }): JSX.Element {

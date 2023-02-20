@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../store';
-import { getActors } from '../../actors/actorsSlice';
+import { getActors } from '../../Actors/actorsSlice';
 import AdminActorCard from './cards/AdminActorCard';
 
 function ActorTable(): JSX.Element {

@@ -5,13 +5,18 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from '../features/Navbar/Navbar';
 import MainPage from '../features/MainPage/MainPage';
 import NotFound from '../features/NotFound/NotFound';
-import ActorsList from '../features/actors/ActorsList';
 import AccountTest from '../features/forms/AccountTest';
-// import DirectorsList from '../features/directors/DirectolList';
+// import SpectaclesList from '../features/Spectacles/SpectaclesList';
+import CrewList from '../features/Crew/CrewList';
+import DirectorsList from '../features/Directors/DirectorsList';
+// import DirectorCard from '../features/Directors/DirectorCard';
+import ActorsList from '../features/Actors/ActorsList';
+// import ActorCard from '../features/Actors/ActorCard';
 import Registration from '../features/auth/Registration';
-import SpectaclesPageList from '../features/SpectaclesPage/SpectaclesPageList';
-import SpectacleInfo from '../features/SpectaclesPage/SpectacleInfo';
+import Authorization from '../features/auth/Authorisation';
 import ProductList from '../features/products/ProductList';
+import SpectacleInfo from '../features/SpectaclesPage/SpectacleInfo';
+import SpectaclesPageList from '../features/SpectaclesPage/SpectaclesPageList';
 
 function App(): JSX.Element {
   return (
@@ -24,8 +29,14 @@ function App(): JSX.Element {
           <Route path="/spectacles/:id" element={<SpectacleInfo />} />
           <Route path="/products" element={<ProductList />} />
 
+          {/* <Route path="/spectacles" element={<SpectaclesList />} /> */}
+          <Route path="/crew" element={<CrewList />} />
+          <Route path="/directors" element={<DirectorsList />} />
+          {/* <Route path="/directors/:directorId" element={<DirectorCard />} /> */}
           <Route path="/actors" element={<ActorsList />} />
+          {/* <Route path="/actors/:actorId" element={<ActorCard />} /> */}
           <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Authorization />} />
           <Route path="/accounttest" element={<AccountTest />} />
         </Route>
         <Route path="*" element={<NotFound />} />
