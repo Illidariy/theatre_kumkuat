@@ -2,11 +2,32 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
+router.get('/user', async (req, res) => {
+  if (req.session?.userId) {
+    const { userId } = req.session;
+    const user = await User.findOne({ where: { id: userId } });
+    const admin = {
+      id: user.id,
+      isAdmin: user.isAdmin,
+      email: user.email,
+    };
+    res.json(admin);
+  } else {
+    res.json({ isAdmin: false });
+  }
+});
+
 router.get('/login', async (req, res) => {
   const id = req.session.userId;
   if (id) {
     const user = await User.findOne({ where: { id } });
-    res.status(201).json({ message: 'Hi', user: user.name });
+    res.status(201).json({
+      message: 'Hi',
+      user: {
+        userName: user.userName,
+        isAdmin: user.isAdmin,
+      },
+    });
   } else {
     res.status(403).json({ message: 'no', user: '' });
   }
@@ -21,10 +42,11 @@ router.post('/login', async (req, res) => {
       if (user && (await bcrypt.compare(password, user.password))) {
         user = {
           id: user.id,
+          isAdmin: user.isAdmin,
           email: user.email,
         };
         req.session.userId = user.id;
-        res.status(201).json({ message: '', user });
+        res.status(201).json(user);
       } else {
         res
           .status(403)
@@ -60,6 +82,7 @@ router.post('/registration', async (req, res) => {
           id: newUser.id,
           name: newUser.name,
           email: newUser.email,
+          isAdmin: false,
 
         };
         req.session.userId = user.id;
@@ -78,7 +101,7 @@ router.post('/registration', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  req.session.destroy(() => res.clearCookie('user_sid').json({ message: 'Session destroy' }));
+  req.session.destroy(() => res.clearCookie('user_sid').json({ isAdmin: false }));
 });
 
 module.exports = router;

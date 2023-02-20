@@ -7,7 +7,7 @@ export type User = {
     isAdmin?:boolean
   };
    export type State = {
-    user:{} | User;
+    user: User;
     error:undefined | string;
    };
    export type PayloadAuth = {

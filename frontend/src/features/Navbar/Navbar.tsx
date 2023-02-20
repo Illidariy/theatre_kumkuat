@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
+import { RootState } from '../../store';
 import './Navbar.scss';
 
 export default function Navbar(): JSX.Element {
+  const { user } = useSelector((store: RootState) => store.userState);
+
   return (
     //     const navbar = document.querySelector('.nav__flex');
     // window.onscroll = () => {
@@ -18,21 +22,15 @@ export default function Navbar(): JSX.Element {
           <div className="nav__flex">
             <div className="nav__logo">
               <NavLink to="/">
-                {/* <img
-                src="../../images/logo.png"
-                alt="logo"
-                className="nav__logo_img"
-              /> */}
-                <span className="nav__logo-text">театр-студия</span>
+               <span className="nav__logo-text">театр-студия</span>
                 <br />
                 <span className="nav__logo-text nav__logo-text-size">
                   КУМКУАТ
                 </span>
               </NavLink>
             </div>
-            <ul className="nav__list">
-              {/* {!user && ( */}
-              <li className="nav__list-item">
+          <ul className="nav__list">
+            <li className="nav__list-item">
                 <NavLink to="/news">новости</NavLink>
               </li>
               <li className="nav__list-item">
@@ -47,15 +45,7 @@ export default function Navbar(): JSX.Element {
               <li className="nav__list-item">
                 <NavLink to="/">контакты</NavLink>
               </li>
-              {/* )} */}
-              {/* {user && ( */}
-              {/* <li>
-              <NavLink className="nav__list-item" to="/logout">
-                выход
-              </NavLink>
-            </li> */}
-              {/* )} */}
-              <li className="nav__list-social">
+            <li className="nav__list-social">
                 <a href="/">
                   <img
                     src="../../images/vk.png"
@@ -71,7 +61,14 @@ export default function Navbar(): JSX.Element {
                   />
                 </a>
               </li>
-            </ul>
+            {user.isAdmin === true && (
+              <li>
+                <NavLink className="nav__list-item" to="/logout">
+                  выход
+                </NavLink>
+              </li>
+            )}
+          </ul>
           </div>
         </div>
       </div>
