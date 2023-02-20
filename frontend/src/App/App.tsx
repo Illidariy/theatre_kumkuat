@@ -10,6 +10,7 @@ import AccountTest from '../features/forms/AccountTest';
 // import SpectaclesList from '../features/spectacles/SpectaclesList';
 import DirectorsList from '../features/directors/DirectolList';
 import Registration from '../features/auth/Registration';
+import Authorization from '../features/auth/Authorisation';
 
 function App(): JSX.Element {
   return (
@@ -21,6 +22,7 @@ function App(): JSX.Element {
           <Route path="/directors" element={<DirectorsList />} />
           <Route path="/actors" element={<ActorsList />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Authorization />} />
           <Route path="/accounttest" element={<AccountTest />} />
         </Route>
         <Route path="*" element={<NotFound />} />

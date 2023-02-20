@@ -13,6 +13,9 @@ export const registrUser = createAsyncThunk('user/registr', (action: User) =>
   api.registr(action),
 );
 
+export const loginUser = createAsyncThunk('user/login', (action: User) =>
+api.login(action));
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -29,8 +32,18 @@ const userSlice = createSlice({
       .addCase(registrUser.rejected, (state, action) => {
         // показываем как меняется state если загрузка прошла успешно
         state.error = action.error.message;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        if (action.payload) {
+state.user = action.payload;
+        } else {
+          state.error = action.payload;
+        }
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.error = action.error.message;
       });
-  },
+    },
 });
 
 export default userSlice.reducer;

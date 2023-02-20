@@ -151,7 +151,7 @@ export const registr = async (newUser: User): Promise<PayloadAuth> => {
   return res.json();
 };
 export const login = async (item: User): Promise<User> => {
-  const res = await fetch('http://localhost:4000/auth/sign-in', {
+  const res = await fetch('http://localhost:4000/auth/login', {
     method: 'post',
     headers: { 'Content-type': 'application/json' },
     credentials: 'include',
@@ -160,7 +160,7 @@ export const login = async (item: User): Promise<User> => {
   return res.json();
 };
 export const checkUser = async (): Promise<PayloadAuth> => {
-  const res = await fetch('http://localhost:4000/auth/sign-in', {
+  const res = await fetch('http://localhost:4000/auth/login', {
     credentials: 'include',
   });
   const data = await res.json();

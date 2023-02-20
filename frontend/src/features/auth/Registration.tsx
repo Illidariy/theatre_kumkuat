@@ -71,7 +71,7 @@ function Registration(): JSX.Element {
         />
         <button type="submit">Зарегистрироваться</button>
       </form>
-      {/* <h2>{error && error}</h2> */}
+      <h2>{error && error}</h2>
     </div>
   );
 }
