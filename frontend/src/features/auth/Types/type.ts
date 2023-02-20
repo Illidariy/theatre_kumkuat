@@ -1,10 +1,10 @@
 export type User = {
     id?:number;
-    userName:string;
+    userName?:string;
     email:string;
     password:string;
     password2?:string;
-    isAdmin:boolean
+    isAdmin?:boolean
   };
    export type State = {
     user:{} | User;
@@ -14,3 +14,7 @@ export type User = {
     user?:User;
     error?:string;
    };
+   export type LoginUser = {
+    email: string;
+    password: string;
+};

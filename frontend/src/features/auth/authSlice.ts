@@ -32,14 +32,17 @@ const userSlice = createSlice({
       .addCase(registrUser.rejected, (state, action) => {
         // показываем как меняется state если загрузка прошла успешно
         state.error = action.error.message;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        if (action.payload) {
+state.user = action.payload;
+        } else {
+          state.error = action.payload;
+        }
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.error = action.error.message;
       });
-      .addCase(loginUser.fulfilled, (state,action)=>{
-        state.user = action.payload.user;
-        state.error.message = action.error.message
-      })
-      .addCase(loginUser.rejected, (state,action)=>{
-        state.error.message = action.error.message
-      })
     },
 });
 

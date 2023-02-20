@@ -22,7 +22,7 @@ function App(): JSX.Element {
           <Route path="/directors" element={<DirectorsList />} />
           <Route path="/actors" element={<ActorsList />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="login" element={<Authorization />} />
+          <Route path="/login" element={<Authorization />} />
           <Route path="/accounttest" element={<AccountTest />} />
         </Route>
         <Route path="*" element={<NotFound />} />
