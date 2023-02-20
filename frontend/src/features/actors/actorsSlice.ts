@@ -5,10 +5,17 @@ import { State } from './Types/types';
 
 const initialState: State = {
   actors: [],
+  actor: {
+    firstName: '',
+    secondName: '',
+    title: '',
+    body: '',
+    mainPhoto: '',
+  },
   error: undefined,
 };
 
-export const getActors = createAsyncThunk('spectacles', () => api.loadActors());
+export const getActors = createAsyncThunk('actors', () => api.loadActors());
 
 const actorSlice = createSlice({
   name: 'actor',

@@ -5,6 +5,13 @@ import { State } from './Types/types';
 
 const initialState: State = {
   directors: [],
+  director: {
+    firstName: '',
+    secondName: '',
+    title: '',
+    body: '',
+    mainPhoto: '',
+  },
   error: undefined,
 };
 

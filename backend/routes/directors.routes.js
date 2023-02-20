@@ -10,4 +10,14 @@ directorsRouter.get('/', async (req, res) => {
   }
 });
 
+directorsRouter.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const director = await Director.findByPk({ where: id });
+    res.status(200).json(director);
+  } catch ({ message }) {
+    res.status(500).json(message);
+  }
+});
+
 module.exports = directorsRouter;
