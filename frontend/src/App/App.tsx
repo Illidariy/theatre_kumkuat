@@ -17,11 +17,10 @@ import ActorsList from '../features/Actors/ActorsList';
 import Registration from '../features/auth/Registration';
 import Logout from '../features/auth/Logout';
 import { checkUser } from '../features/auth/authSlice';
-import Authorization from '../features/auth/Authorisation';
+import Authorization from '../features/auth/Authorization';
 import ProductList from '../features/products/ProductList';
 import SpectacleInfo from '../features/SpectaclesPage/SpectacleInfo';
 import SpectaclesPageList from '../features/SpectaclesPage/SpectaclesPageList';
-
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -31,7 +30,7 @@ function App(): JSX.Element {
 
   return (
     <div className="main__container">
-      <Routes></Routes>
+      <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<MainPage />} />
           {/* <Route path="/directors" element={<SpectaclesPageList />} /> */}

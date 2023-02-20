@@ -22,15 +22,15 @@ export default function Navbar(): JSX.Element {
           <div className="nav__flex">
             <div className="nav__logo">
               <NavLink to="/">
-               <span className="nav__logo-text">театр-студия</span>
+                <span className="nav__logo-text">театр-студия</span>
                 <br />
                 <span className="nav__logo-text nav__logo-text-size">
                   КУМКУАТ
                 </span>
               </NavLink>
             </div>
-          <ul className="nav__list">
-            <li className="nav__list-item">
+            <ul className="nav__list">
+              <li className="nav__list-item">
                 <NavLink to="/news">новости</NavLink>
               </li>
               <li className="nav__list-item">
@@ -45,7 +45,7 @@ export default function Navbar(): JSX.Element {
               <li className="nav__list-item">
                 <NavLink to="/">контакты</NavLink>
               </li>
-            <li className="nav__list-social">
+              <li className="nav__list-social">
                 <a href="/">
                   <img
                     src="../../images/vk.png"
@@ -61,14 +61,14 @@ export default function Navbar(): JSX.Element {
                   />
                 </a>
               </li>
-            {user.isAdmin === true && (
-              <li>
-                <NavLink className="nav__list-item" to="/logout">
-                  выход
-                </NavLink>
-              </li>
-            )}
-          </ul>
+              {user.isAdmin === true && (
+                <li>
+                  <NavLink className="nav__list-item" to="/logout">
+                    выход
+                  </NavLink>
+                </li>
+              )}
+            </ul>
           </div>
         </div>
       </div>
