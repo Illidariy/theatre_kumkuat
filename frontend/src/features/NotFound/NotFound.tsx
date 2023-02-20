@@ -1,5 +1,10 @@
 import React from 'react';
+import './NotFound.scss';
 
 export default function NotFound(): JSX.Element {
-  return <div>NotFound</div>;
+  return (
+    <div>
+      <div>404</div>
+    </div>
+  );
 }

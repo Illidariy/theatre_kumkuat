@@ -4,6 +4,14 @@ import './Navbar.scss';
 
 export default function Navbar(): JSX.Element {
   return (
+    //     const navbar = document.querySelector('.nav__flex');
+    // window.onscroll = () => {
+    //   if (window.scrollY > 500) {
+    //     navbar.classList.add('nav-active');
+    //   } else {
+    //     navbar.classList.remove('nav-active');
+    //   }
+    // };
     <>
       <div className="nav">
         <div className="container">
@@ -25,7 +33,7 @@ export default function Navbar(): JSX.Element {
             <ul className="nav__list">
               {/* {!user && ( */}
               <li className="nav__list-item">
-                <NavLink to="/">афиша</NavLink>
+                <NavLink to="/">новости</NavLink>
               </li>
               <li className="nav__list-item">
                 <NavLink to="/">спектакли</NavLink>
