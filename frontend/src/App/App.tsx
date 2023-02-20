@@ -21,7 +21,7 @@ import SpectaclesPageList from '../features/SpectaclesPage/SpectaclesPageList';
 function App(): JSX.Element {
   return (
     <div className="main__container">
-      <Routes></Routes>
+      <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<MainPage />} />
           {/* <Route path="/directors" element={<SpectaclesPageList />} /> */}
