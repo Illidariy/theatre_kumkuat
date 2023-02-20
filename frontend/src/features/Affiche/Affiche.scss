@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Tourney&display=swap');
+
+.affiche {
+  margin-bottom: 100px;
+
+  &__block {
+    position: relative;
+  }
+
+  &__img {
+    width: 78%;
+    height: 180px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__title {
+    color: #ff5001;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 85px;
+    padding: 90px 0 0 30px;
+  }
+
+  &__text {
+    border-bottom: 1px solid #918471;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    & > span {
+      width: 25%;
+      padding-left: 30px;
+      // font-weight: 600;
+    }
+
+    &-data {
+      font-size: 100px;
+      min-width: 320px;
+      font-family: 'Tourney', cursive;
+      // font-weight: 300 !important;
+    }
+  }
+}
+
+.sell {
+  color: white;
+  background: #ff5001;
+  border-radius: 10px;
+  padding: 15px;
+}
