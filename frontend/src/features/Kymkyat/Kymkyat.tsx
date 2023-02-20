@@ -15,25 +15,24 @@ export default function Kymkyat(): JSX.Element {
           <div className="kymkyat__flex">
             <div className="kymkyat__info">
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde
-                saepe earum ducimus obcaecati laborum sequi, nobis veritatis
-                asperiores molestias odio corporis praesentium nulla quisquam
-                eum quas repellat accusamus voluptatibus eveniet. Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Distinctio
-                corrupti magnam asperiores! Quidem itaque non maxime aspernatur,
-                ipsa error nesciunt eveniet facere aut quae delectus sequi ad
-                corporis deserunt. Nulla.
+                Театр-студия «Кумкуат» - сообщество молодых людей, объединенных
+                любовью к театру. Руководитель театра - Левицкая Мария
+                Александровна, ученица знаменитого театрального режиссёра
+                Зиновия Яковлевича Корогодского. Основанный в 2006 году,
+                «Кумкуат» прошел путь от детской студии до настоящего
+                репертуарного театра. При театре действует студия, где каждый
+                желающий может прикоснуться к основам актерского мастерства.
+                Театр активно принимает участие в фестивалях.
               </p>
               <br />
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Inventore expedita consequatur ad, provident harum unde sint
-                tempora vero, distinctio nesciunt nulla. Itaque accusamus atque
-                esse neque doloremque fugiat quaerat eligendi.
+                Кумкуат любит: тренинги, развитие, импровизацию, смыслы,
+                процесс, погружение, студийность, этику и дисциплину, радость
+                творчества, поиск, добрый ум и умную доброту, вдохновение…
               </p>
-              <a href="/">
+              {/* <a href="/">
                 <div className="kymkyat__info-btn">команда</div>
-              </a>
+              </a> */}
             </div>
             <div>
               <img
