@@ -13,6 +13,8 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+
 router.post('/', async (req, res) => {
   const { title, body, photo, price, userId } = req.body;
   try {
