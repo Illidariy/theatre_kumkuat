@@ -4,6 +4,7 @@ import { RootState, useAppDispatch } from '../../store';
 import SpectacleShortCard from './SpectacleShortCard';
 import { getSpectacles } from './spectaclePageSlice';
 import './Spectacles.scss';
+import Footer from '../Footer/Footer';
 
 export default function SpectaclesPageList(): JSX.Element {
   const { spectacles } = useSelector(
@@ -14,13 +15,16 @@ export default function SpectaclesPageList(): JSX.Element {
     dispatch(getSpectacles());
   }, [dispatch]);
   return (
-    <div>
-      <div className="spectacles__pageName"> Репертуар </div>
-      <div className="spectacles__flex">
-        {spectacles.map((spectacle) => (
-          <SpectacleShortCard key={spectacle.id} spectacle={spectacle} />
-        ))}
+    <div className="spectacles">
+      <div className="container">
+        <div className="spectacles__page-name"> Репертуар </div>
+        <div className="spectacles__flex">
+          {spectacles.map((spectacle) => (
+            <SpectacleShortCard key={spectacle.id} spectacle={spectacle} />
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
