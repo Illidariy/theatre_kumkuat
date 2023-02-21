@@ -14,6 +14,7 @@ const spectaclesRouter = require('./routes/spectacles.routes');
 const authRouter = require('./routes/auth.routes');
 const directorsRouter = require('./routes/directors.routes');
 const productsRouter = require('./routes/products.routes');
+const subscribersRouter = require('./routes/subscribers.routes');
 // const indexRouter = require('./routes/index.routes');
 // const usersRouter = require('./routes/users.routes');
 // const studentsRouter = require('./routes/students.routes');
@@ -39,8 +40,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/actors', actorsRouter);
 app.use('/spectacles', spectaclesRouter);
 app.use('/auth', authRouter);
-app.use('/api/directors', directorsRouter);
+app.use('/directors', directorsRouter);
 app.use('/products', productsRouter);
+app.use('/subscribers', subscribersRouter);
 
 app
   .listen(PORT)

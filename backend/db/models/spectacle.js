@@ -2,9 +2,7 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Spectacle extends Model {
-    static associate({
-      Actor, Director, Photo, Review,
-    }) {
+    static associate({ Actor, Director, Event, Photo, Review }) {
       Spectacle.Actor = Spectacle.belongsToMany(Actor, {
         through: 'SpectaclesActors',
         foreignKey: 'spectacleId',
@@ -13,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       });
       Spectacle.Director = Spectacle.belongsTo(Director, {
         foreignKey: 'directorId',
+      });
+      Spectacle.Event = Spectacle.hasMany(Event, {
+        foreignKey: 'spectacleId',
       });
       Spectacle.Review = Spectacle.hasMany(Review, {
         foreignKey: 'spectacleId',
@@ -33,6 +34,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
+    premiere: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    censor: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
     body: {
       allowNull: false,
       type: DataTypes.TEXT,
@@ -46,9 +55,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    video: {
+    smallPhoto: {
+      allowNull: false,
       type: DataTypes.TEXT,
     },
+
     directorId: {
       allowNull: false,
       type: DataTypes.INTEGER,

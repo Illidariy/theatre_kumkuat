@@ -1,10 +1,12 @@
 export type Spectacle = {
   id?: number;
   title: string;
+  premiere: string;
+  censor: string;
   body: string;
   isActual: boolean;
   mainPhoto: string;
-  video: string;
+  smallPhoto: string;
   directorId?: number;
 };
 

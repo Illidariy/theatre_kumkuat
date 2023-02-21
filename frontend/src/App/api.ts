@@ -3,7 +3,7 @@
 import { Actor, ActorId } from '../features/Actors/Types/types';
 import { PayloadAuth, User } from '../features/auth/Types/type';
 import { Spectacle, SpectacleId } from '../features/Spectacles/Types/types';
-import { Director } from '../features/Directors/Types/types';
+import { Director, DirectorId } from '../features/Directors/Types/types';
 
 export const loadSpectacles = async (): Promise<Spectacle[]> => {
   const res = await fetch('/spectacles');
@@ -12,10 +12,12 @@ export const loadSpectacles = async (): Promise<Spectacle[]> => {
 
 export const newSpectacle = async ({
   title,
+  premiere,
+  censor,
   body,
   isActual,
   mainPhoto,
-  video,
+  smallPhoto,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
   const res = await fetch('/spectacles', {
@@ -25,10 +27,12 @@ export const newSpectacle = async ({
     },
     body: JSON.stringify({
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
   });
@@ -38,10 +42,12 @@ export const newSpectacle = async ({
 export const currentSpectacle = async ({
   id: spectacleId,
   title,
+  premiere,
+  censor,
   body,
   isActual,
   mainPhoto,
-  video,
+  smallPhoto,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
   const res = await fetch(`/spectacles/${spectacleId}`, {
@@ -52,10 +58,12 @@ export const currentSpectacle = async ({
     body: JSON.stringify({
       id: spectacleId,
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
   });
@@ -74,12 +82,20 @@ export const loadActors = async (): Promise<Actor[]> => {
   return res.json();
 };
 
+export const loadActor = async (id: ActorId): Promise<Actor> => {
+  const res = await fetch(`/actors/${id}`);
+  return res.json();
+};
+
 export const newActor = async ({
   firstName,
   secondName,
   mainPhoto,
+  smallPhoto,
   title,
   body,
+  like,
+  dislike,
 }: Actor): Promise<Actor> => {
   const res = await fetch('/actors', {
     method: 'POST',
@@ -90,8 +106,11 @@ export const newActor = async ({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
   });
   return res.json();
@@ -102,8 +121,11 @@ export const currentActor = async ({
   firstName,
   secondName,
   mainPhoto,
+  smallPhoto,
   title,
   body,
+  like,
+  dislike,
 }: Actor): Promise<Actor> => {
   const res = await fetch(`/actors/${id}`, {
     method: 'PUT',
@@ -115,8 +137,11 @@ export const currentActor = async ({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
   });
   return res.json();
@@ -130,7 +155,12 @@ export const removeActor = async (id: ActorId): Promise<Actor> => {
 };
 
 export const loadDirectors = async (): Promise<Director[]> => {
-  const res = await fetch('/api/directors');
+  const res = await fetch('/directors');
+  return res.json();
+};
+
+export const loadDirector = async (id: DirectorId): Promise<Director> => {
+  const res = await fetch(`/directors/${id}`);
   return res.json();
 };
 
@@ -185,5 +215,3 @@ export const getUsers = async (): Promise<User[]> => {
   const res = await fetch('/main');
   return res.json();
 };
-
-

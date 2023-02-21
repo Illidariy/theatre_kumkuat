@@ -8,10 +8,12 @@ function SpectacleForm({
   spectacleHandler: () => void;
 }): JSX.Element {
   const [title, setTitle] = useState('');
+  const [premiere, setPremiere] = useState('');
+  const [censor, setCensor] = useState('');
   const [body, setBody] = useState('');
   const [isActual, setIsActual] = useState(false);
   const [mainPhoto, setMainPhoto] = useState('');
-  const [video, setVideo] = useState('');
+  const [smallPhoto, setSmallPhoto] = useState('');
   const [directorId, setDirectorId] = useState(1);
 
   const dispatch = useAppDispatch();
@@ -21,10 +23,12 @@ function SpectacleForm({
     dispatch(
       newSpectacle({
         title,
+        premiere,
+        censor,
         body,
         isActual,
         mainPhoto,
-        video,
+        smallPhoto,
         directorId,
       }),
     );
@@ -41,6 +45,22 @@ function SpectacleForm({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+        />
+        <label htmlFor="premiere">Premiere</label>
+        <input
+          id="premiere"
+          name="premiere"
+          type="text"
+          value={premiere}
+          onChange={(e) => setPremiere(e.target.value)}
+        />
+        <label htmlFor="censor">Censor</label>
+        <input
+          id="censor"
+          name="censor"
+          type="text"
+          value={censor}
+          onChange={(e) => setCensor(e.target.value)}
         />
         <label htmlFor="body">Body</label>
         <input
@@ -66,13 +86,13 @@ function SpectacleForm({
           value={mainPhoto}
           onChange={(e) => setMainPhoto(e.target.value)}
         />
-        <label htmlFor="video">Video</label>
+        <label htmlFor="smallPhoto">SmallPhoto</label>
         <input
-          id="video"
-          name="video"
+          id="smallPhoto"
+          name="smallPhoto"
           type="text"
-          value={video}
-          onChange={(e) => setVideo(e.target.value)}
+          value={smallPhoto}
+          onChange={(e) => setSmallPhoto(e.target.value)}
         />
         <label htmlFor="directorId">Director ID</label>
         <input

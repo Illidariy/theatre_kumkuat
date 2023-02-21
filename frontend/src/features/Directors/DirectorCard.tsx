@@ -1,11 +1,17 @@
-import React from 'react';
-import { Director } from './Types/types';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { RootState, useAppDispatch } from '../../store';
+import { getDirector } from './directorSlice';
 
-export default function DirectorCard({
-  director,
-}: {
-  director: Director;
-}): JSX.Element {
+export default function DirectorCard(): JSX.Element {
+  const { id } = useParams();
+  const { director } = useSelector((store: RootState) => store.directorState);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getDirector(Number(id)));
+  }, []);
+
   return (
     <div className="director container">
       <div className="director__main">
@@ -23,6 +29,10 @@ export default function DirectorCard({
         <span className="director__title">{director.title}</span>
         <br />
         <span className="director__body">{director.body}</span>
+        <br />
+        <span className="director__like">{director.like}</span>
+        <br />
+        <span className="director__dislike">{director.dislike}</span>
       </div>
     </div>
   );

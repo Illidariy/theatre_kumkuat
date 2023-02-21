@@ -21,7 +21,7 @@ export default function DirectorsList(): JSX.Element {
               <NavLink to={`directors/${director.id}`}>
                 <img
                   className="director__photo"
-                  src={director.mainPhoto}
+                  src={director.smallPhoto}
                   alt="director"
                 />
               </NavLink>

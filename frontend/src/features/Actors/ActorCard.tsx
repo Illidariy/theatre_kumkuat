@@ -1,7 +1,17 @@
-import React from 'react';
-import { Actor } from './Types/types';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { RootState, useAppDispatch } from '../../store';
+import { getActor } from './actorsSlice';
 
-export default function ActorCard({ actor }: { actor: Actor }): JSX.Element {
+export default function ActorCard(): JSX.Element {
+  const { id } = useParams();
+  const { actor } = useSelector((store: RootState) => store.actorState);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getActor(Number(id)));
+  }, []);
+
   return (
     <div className="actor container">
       <div className="actor__main">
@@ -15,6 +25,10 @@ export default function ActorCard({ actor }: { actor: Actor }): JSX.Element {
         <span className="actor__title">{actor.title}</span>
         <br />
         <span className="actor__body">{actor.body}</span>
+        <br />
+        <span className="actor__like">{actor.like}</span>
+        <br />
+        <span className="actor__dislike">{actor.dislike}</span>
       </div>
     </div>
   );

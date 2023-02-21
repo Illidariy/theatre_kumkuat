@@ -4,16 +4,18 @@ import { useDispatch } from 'react-redux';
 import actorsSlice from './features/Actors/actorsSlice';
 import spectacleSlice from './features/Spectacles/spectacleSlice';
 import userSlice from './features/auth/authSlice';
-import directorSlise from './features/Directors/directorSlice';
+import directorSlice from './features/Directors/directorSlice';
 import productSlice from './features/products/productSlice';
+import timepadSlice from './features/Timepad/timepadSlice';
 
 const store = configureStore({
   reducer: {
     spectacleState: spectacleSlice,
     actorState: actorsSlice,
     userState: userSlice,
-    directorState: directorSlise,
+    directorState: directorSlice,
     productState: productSlice,
+    timepadState: timepadSlice,
   },
 });
 export type AppDispatch = typeof store.dispatch;

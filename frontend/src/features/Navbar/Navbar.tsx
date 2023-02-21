@@ -31,9 +31,6 @@ export default function Navbar(): JSX.Element {
             </div>
             <ul className="nav__list">
               <li className="nav__list-item">
-                <NavLink to="/news">новости</NavLink>
-              </li>
-              <li className="nav__list-item">
                 <NavLink to="/spectacles">спектакли</NavLink>
               </li>
               <li className="nav__list-item">
@@ -47,6 +44,7 @@ export default function Navbar(): JSX.Element {
               </li>
               <li className="nav__list-social">
                 <a href="https://vk.com/teatr_kumkuat">
+                
                   <img
                     src="../../images/vkontacte.png"
                     alt="vk"

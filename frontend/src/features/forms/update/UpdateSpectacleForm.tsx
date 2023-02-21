@@ -11,10 +11,12 @@ function UpdateSpectacleForm({
   showUpdate: () => void;
 }): JSX.Element {
   const [title, setTitle] = useState(spectacle.title);
+  const [premiere, setPremiere] = useState(spectacle.premiere);
+  const [censor, setCensor] = useState(spectacle.censor);
   const [body, setBody] = useState(spectacle.body);
   const [isActual, setIsActual] = useState(spectacle.isActual);
   const [mainPhoto, setMainPhoto] = useState(spectacle.mainPhoto);
-  const [video, setVideo] = useState(spectacle.video);
+  const [smallPhoto, setSmallPhoto] = useState(spectacle.smallPhoto);
   const [directorId, setDirectorId] = useState(spectacle.directorId);
 
   const dispatch = useAppDispatch();
@@ -25,10 +27,12 @@ function UpdateSpectacleForm({
       currentSpectacle({
         id: spectacle.id,
         title,
+        premiere,
+        censor,
         body,
         isActual,
         mainPhoto,
-        video,
+        smallPhoto,
         directorId,
       }),
     );
@@ -49,6 +53,22 @@ function UpdateSpectacleForm({
           type="text"
           defaultValue={spectacle.title}
           onChange={(e) => setTitle(e.target.value)}
+        />
+        <label htmlFor="premiere">Premiere</label>
+        <input
+          id="premiere"
+          name="premiere"
+          type="text"
+          defaultValue={spectacle.premiere}
+          onChange={(e) => setPremiere(e.target.value)}
+        />
+        <label htmlFor="censor">Censor</label>
+        <input
+          id="censor"
+          name="censor"
+          type="text"
+          defaultValue={spectacle.censor}
+          onChange={(e) => setCensor(e.target.value)}
         />
         <label htmlFor="body">Body</label>
         <input
@@ -74,13 +94,13 @@ function UpdateSpectacleForm({
           defaultValue={spectacle.mainPhoto}
           onChange={(e) => setMainPhoto(e.target.value)}
         />
-        <label htmlFor="video">Video</label>
+        <label htmlFor="smallPhoto">SmallPhoto</label>
         <input
-          id="video"
-          name="video"
+          id="smallPhoto"
+          name="smallPhoto"
           type="text"
-          defaultValue={spectacle.video}
-          onChange={(e) => setVideo(e.target.value)}
+          defaultValue={spectacle.smallPhoto}
+          onChange={(e) => setSmallPhoto(e.target.value)}
         />
         <label htmlFor="directorId">Director ID</label>
         <input

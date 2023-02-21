@@ -3,8 +3,11 @@ export type Actor = {
   firstName: string;
   secondName: string;
   mainPhoto: string;
+  smallPhoto: string;
   title: string;
   body: string;
+  like: string;
+  dislike: string;
 };
 
 export type State = {

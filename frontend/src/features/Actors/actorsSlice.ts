@@ -10,35 +10,65 @@ const initialState: State = {
     secondName: '',
     title: '',
     body: '',
+    like: '',
+    dislike: '',
     mainPhoto: '',
+    smallPhoto: '',
   },
   error: undefined,
 };
 
 export const getActors = createAsyncThunk('actors', () => api.loadActors());
 
+export const getActor = createAsyncThunk('actor', (id: ActorId) =>
+  api.loadActor(id),
+);
+
 export const newActor = createAsyncThunk(
   'actors/create',
-  ({ firstName, secondName, mainPhoto, title, body }: Actor) =>
+  ({
+    firstName,
+    secondName,
+    mainPhoto,
+    smallPhoto,
+    title,
+    body,
+    like,
+    dislike,
+  }: Actor) =>
     api.newActor({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
 );
 
 export const currentActor = createAsyncThunk(
   'actors/update',
-  ({ id, firstName, secondName, mainPhoto, title, body }: Actor) =>
+  ({
+    firstName,
+    secondName,
+    mainPhoto,
+    smallPhoto,
+    title,
+    body,
+    like,
+    dislike,
+  }: Actor) =>
     api.currentActor({
-      id,
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
 );
 
@@ -55,6 +85,12 @@ const actorSlice = createSlice({
         state.actors = action.payload;
       })
       .addCase(getActors.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(getActor.fulfilled, (state, action) => {
+        state.actor = action.payload;
+      })
+      .addCase(getActor.rejected, (state, action) => {
         state.error = action.error.message;
       })
       .addCase(newActor.fulfilled, (state, action) => {

@@ -15,6 +15,12 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        body: 'url product',
+        productId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
         body: 'url spectacle',
         spectacleId: 1,
         createdAt: new Date(),
