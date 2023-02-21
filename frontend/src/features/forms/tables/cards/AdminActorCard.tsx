@@ -26,7 +26,7 @@ function AdminActorCard({ actor }: { actor: Actor }): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getActors());
-  }, [updateFormActor, refreshDelete]);
+  }, [dispatch, updateFormActor, refreshDelete]);
   return (
     <div className="actor_card" key={actor.id}>
       <img src={actor.mainPhoto} alt="" />

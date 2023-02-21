@@ -1,4 +1,4 @@
-// import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Spectacle } from './Types/types';
 import './Spectacles.scss';
@@ -10,8 +10,14 @@ export default function SpectacleShortCard({
 }): JSX.Element {
   return (
     <div className="spectacles__container">
-      <img className="spectacles__img" src={spectacle.mainPhoto} alt="spectacle" />
-      <NavLink className="spectacles__color" to={`/spectacles/${spectacle.id}`}>{spectacle.title}  </NavLink>
+      <NavLink className="spectacles__color" to={`/spectacles/${spectacle.id}`}>
+        <img
+          className="spectacles__img"
+          src={spectacle.mainPhoto}
+          alt="spectacle"
+        />
+        {spectacle.title}
+      </NavLink>
     </div>
   );
 }

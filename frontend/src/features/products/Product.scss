@@ -1,7 +1,9 @@
 .product {
 &__flex {
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
+  // flex-direction:row;
+  flex-wrap: wrap;
   color:white;
   align-items: center;
   left: 123px;

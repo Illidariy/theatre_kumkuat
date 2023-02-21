@@ -1,5 +1,9 @@
 .nav {
   background-color: #000000;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 30;
 
   &-active {
     background-color: #ff5001;

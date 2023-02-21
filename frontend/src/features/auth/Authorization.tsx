@@ -28,7 +28,6 @@ function Authorization(): JSX.Element {
     );
     setRedirect(true);
   };
-  console.log(user);
 
   return (
     <div className="form__container">
