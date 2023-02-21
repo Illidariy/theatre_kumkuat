@@ -10,7 +10,10 @@ const initialState: State = {
     secondName: '',
     title: '',
     body: '',
+    like: '',
+    dislike: '',
     mainPhoto: '',
+    smallPhoto: '',
   },
   error: undefined,
 };
@@ -23,26 +26,49 @@ export const getActor = createAsyncThunk('actor', (id: ActorId) =>
 
 export const newActor = createAsyncThunk(
   'actors/create',
-  ({ firstName, secondName, mainPhoto, title, body }: Actor) =>
+  ({
+    firstName,
+    secondName,
+    mainPhoto,
+    smallPhoto,
+    title,
+    body,
+    like,
+    dislike,
+  }: Actor) =>
     api.newActor({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
 );
 
 export const currentActor = createAsyncThunk(
   'actors/update',
-  ({ id, firstName, secondName, mainPhoto, title, body }: Actor) =>
+  ({
+    firstName,
+    secondName,
+    mainPhoto,
+    smallPhoto,
+    title,
+    body,
+    like,
+    dislike,
+  }: Actor) =>
     api.currentActor({
-      id,
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
 );
 

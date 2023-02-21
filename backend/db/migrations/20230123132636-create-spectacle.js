@@ -12,6 +12,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
+      premiere: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      censor: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
       body: {
         allowNull: false,
         type: Sequelize.TEXT,
@@ -25,7 +33,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      video: {
+      smallPhoto: {
+        allowNull: false,
         type: Sequelize.TEXT,
       },
       directorId: {

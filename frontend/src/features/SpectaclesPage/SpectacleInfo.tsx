@@ -3,14 +3,14 @@ import { NavLink, useParams } from 'react-router-dom';
 import './Spectacles.scss';
 import { SpectacleInfoList } from './Types/types';
 
-export default function SpectacleInfo():JSX.Element {
+export default function SpectacleInfo(): JSX.Element {
   const { id } = useParams();
-    const [spectacle, setSpectacle] = useState<SpectacleInfoList>([]);
+  const [spectacle, setSpectacle] = useState<SpectacleInfoList>([]);
   useEffect(() => {
     fetch(`/spectacles/${id}`)
       .then((res) => res.json())
-      .then((data) => setSpectacle((data)));
-  }, []);
+      .then((data) => setSpectacle(data));
+  }, [id]);
 
   return (
     <div className="container">
@@ -40,10 +40,7 @@ export default function SpectacleInfo():JSX.Element {
         </NavLink>
 
       </div>
-
-    ))}
-    </div>
-    {/* <button type="button">купить билет</button> */}
+      {/* <button type="button">купить билет</button> */}
     </div>
   );
 }

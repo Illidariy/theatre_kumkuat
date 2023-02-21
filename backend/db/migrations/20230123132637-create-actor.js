@@ -20,11 +20,23 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
+      smallPhoto: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
       title: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
       body: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      like: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      dislike: {
         allowNull: false,
         type: Sequelize.TEXT,
       },

@@ -1,7 +1,14 @@
 .footer {
   background-color: black;
   padding-bottom: 30px;
+  padding-top: 30px;
+  margin-top: 100px;
   color: white;
+  width: 100%;
+  z-index: 30;
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Левый нижний угол */
 
   &__container {
     border: 1px solid white;
@@ -15,7 +22,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 170px;
+    height: 100px;
+  }
+
+  &__title {
+    font-weight: bold;
+    padding-bottom: 10px;
   }
 
   &__item {

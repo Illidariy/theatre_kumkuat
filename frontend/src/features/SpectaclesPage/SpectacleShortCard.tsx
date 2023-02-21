@@ -9,9 +9,13 @@ export default function SpectacleShortCard({
   spectacle: Spectacle;
 }): JSX.Element {
   return (
-    <div className="spectacles-page__container">
-      <NavLink className="spectacles-page__color" to={`/spectacles/${spectacle.id}`}>
-      <img className="spectacles-page__img" src={spectacle.mainPhoto} alt="spectacle" />
+    <div className="spectacles__container">
+      <NavLink className="spectacles__color" to={`/spectacles/${spectacle.id}`}>
+        <img
+          className="spectacles__img"
+          src={spectacle.mainPhoto}
+          alt="spectacle"
+        />
         {spectacle.title}
       </NavLink>
     </div>

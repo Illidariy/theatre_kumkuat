@@ -10,8 +10,11 @@ function ActorForm({
   const [firstName, setFirstName] = useState('');
   const [secondName, setSecondName] = useState('');
   const [mainPhoto, setMainPhoto] = useState('');
+  const [smallPhoto, setSmallPhoto] = useState('');
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const [like, setLike] = useState('');
+  const [dislike, setDislike] = useState('');
 
   const dispatch = useAppDispatch();
 
@@ -26,8 +29,11 @@ function ActorForm({
         firstName,
         secondName,
         mainPhoto,
+        smallPhoto,
         title,
         body,
+        like,
+        dislike,
       }),
     );
     actorHandler();
@@ -60,6 +66,14 @@ function ActorForm({
           value={mainPhoto}
           onChange={(e) => setMainPhoto(e.target.value)}
         />
+        <label htmlFor="smallPhoto">SmallPhoto</label>
+        <input
+          id="smallPhoto"
+          name="smallPhoto"
+          type="text"
+          value={smallPhoto}
+          onChange={(e) => setSmallPhoto(e.target.value)}
+        />
         <label htmlFor="title">Title</label>
         <input
           id="title"
@@ -75,6 +89,22 @@ function ActorForm({
           type="text"
           value={body}
           onChange={(e) => setBody(e.target.value)}
+        />
+        <label htmlFor="like">Like</label>
+        <input
+          id="like"
+          name="like"
+          type="text"
+          value={like}
+          onChange={(e) => setLike(e.target.value)}
+        />
+        <label htmlFor="dislike">Dislike</label>
+        <input
+          id="dislike"
+          name="dislike"
+          type="text"
+          value={dislike}
+          onChange={(e) => setDislike(e.target.value)}
         />
         <button type="submit">Добавить</button>
       </form>

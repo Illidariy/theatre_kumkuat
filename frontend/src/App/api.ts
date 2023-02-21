@@ -12,10 +12,12 @@ export const loadSpectacles = async (): Promise<Spectacle[]> => {
 
 export const newSpectacle = async ({
   title,
+  premiere,
+  censor,
   body,
   isActual,
   mainPhoto,
-  video,
+  smallPhoto,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
   const res = await fetch('/spectacles', {
@@ -25,10 +27,12 @@ export const newSpectacle = async ({
     },
     body: JSON.stringify({
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
   });
@@ -38,10 +42,12 @@ export const newSpectacle = async ({
 export const currentSpectacle = async ({
   id: spectacleId,
   title,
+  premiere,
+  censor,
   body,
   isActual,
   mainPhoto,
-  video,
+  smallPhoto,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
   const res = await fetch(`/spectacles/${spectacleId}`, {
@@ -52,10 +58,12 @@ export const currentSpectacle = async ({
     body: JSON.stringify({
       id: spectacleId,
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
   });
@@ -83,8 +91,11 @@ export const newActor = async ({
   firstName,
   secondName,
   mainPhoto,
+  smallPhoto,
   title,
   body,
+  like,
+  dislike,
 }: Actor): Promise<Actor> => {
   const res = await fetch('/actors', {
     method: 'POST',
@@ -95,8 +106,11 @@ export const newActor = async ({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
   });
   return res.json();
@@ -107,8 +121,11 @@ export const currentActor = async ({
   firstName,
   secondName,
   mainPhoto,
+  smallPhoto,
   title,
   body,
+  like,
+  dislike,
 }: Actor): Promise<Actor> => {
   const res = await fetch(`/actors/${id}`, {
     method: 'PUT',
@@ -120,8 +137,11 @@ export const currentActor = async ({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
   });
   return res.json();
@@ -195,5 +215,3 @@ export const getUsers = async (): Promise<User[]> => {
   const res = await fetch('/main');
   return res.json();
 };
-
-

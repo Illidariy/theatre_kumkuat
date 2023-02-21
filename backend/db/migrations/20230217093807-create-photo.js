@@ -26,6 +26,13 @@ module.exports = {
           key: 'id',
         },
       },
+      productId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Products',
+          key: 'id',
+        },
+      },
       spectacleId: {
         type: Sequelize.INTEGER,
         references: {

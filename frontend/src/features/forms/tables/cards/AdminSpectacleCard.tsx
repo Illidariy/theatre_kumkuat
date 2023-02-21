@@ -33,7 +33,7 @@ function AdminSpectacleCard({
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getSpectacles());
-  }, [updateFormSpectacle, refreshDelete]);
+  }, [dispatch, updateFormSpectacle, refreshDelete]);
 
   return (
     <div className="spectacle_card" key={spectacle.id}>

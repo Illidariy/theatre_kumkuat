@@ -13,8 +13,11 @@ function UpdateActorForm({
   const [firstName, setFirstName] = useState(actor.firstName);
   const [secondName, setSecondName] = useState(actor.secondName);
   const [mainPhoto, setMainPhoto] = useState(actor.mainPhoto);
+  const [smallPhoto, setSmallPhoto] = useState(actor.smallPhoto);
   const [title, setTitle] = useState(actor.title);
   const [body, setBody] = useState(actor.body);
+  const [like, setLike] = useState(actor.like);
+  const [dislike, setDislike] = useState(actor.dislike);
 
   const dispatch = useAppDispatch();
 
@@ -26,8 +29,11 @@ function UpdateActorForm({
         firstName,
         secondName,
         mainPhoto,
+        smallPhoto,
         title,
         body,
+        like,
+        dislike,
       }),
     );
     res.then((data) => {
@@ -63,6 +69,14 @@ function UpdateActorForm({
           defaultValue={actor.mainPhoto}
           onChange={(e) => setMainPhoto(e.target.value)}
         />
+        <label htmlFor="smallPhoto">SmallPhoto</label>
+        <input
+          id="smallPhoto"
+          name="smallPhoto"
+          type="text"
+          defaultValue={actor.smallPhoto}
+          onChange={(e) => setSmallPhoto(e.target.value)}
+        />
         <label htmlFor="title">Title</label>
         <input
           id="title"
@@ -78,6 +92,22 @@ function UpdateActorForm({
           type="text"
           defaultValue={actor.body}
           onChange={(e) => setBody(e.target.value)}
+        />
+        <label htmlFor="like">Like</label>
+        <input
+          id="like"
+          name="like"
+          type="text"
+          defaultValue={actor.like}
+          onChange={(e) => setLike(e.target.value)}
+        />
+        <label htmlFor="dislike">Dislike</label>
+        <input
+          id="dislike"
+          name="dislike"
+          type="text"
+          defaultValue={actor.dislike}
+          onChange={(e) => setDislike(e.target.value)}
         />
         <button type="submit">SAVE</button>
       </form>

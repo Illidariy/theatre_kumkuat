@@ -7,11 +7,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
   &-slide .swiper-img {
     display: block;
     width: 100%;
-    height: 93vh;
+    height: 100vh;
     object-fit: cover;
   }
   &-button {

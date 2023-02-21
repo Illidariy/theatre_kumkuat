@@ -10,7 +10,10 @@ const initialState: State = {
     secondName: '',
     title: '',
     body: '',
+    like: '',
+    dislike: '',
     mainPhoto: '',
+    smallPhoto: '',
   },
   error: undefined,
 };

@@ -26,7 +26,7 @@ function AdminProductCard({ product }: { product: Product }): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getProducts());
-  }, [updateFormProduct, refreshDelete]);
+  }, [dispatch, updateFormProduct, refreshDelete]);
 
   return (
     <div className="product_card" key={product.id}>
