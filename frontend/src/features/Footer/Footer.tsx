@@ -28,6 +28,8 @@ export default function Footer(): JSX.Element {
             <a href="/">спектакли</a>
           </div>
           <div className="footer__item">
+            <span>контакты</span>
+            <a href="/contacts">как добраться</a>
             <span className="footer__title">контакты</span>
             <a href="">как добраться</a>
             <a href="">политика конфиденциальности</a>
