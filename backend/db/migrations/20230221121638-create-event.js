@@ -8,42 +8,37 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      premiere: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      censor: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      body: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      isActual: {
-        allowNull: false,
-        defaultValue: false,
-        type: Sequelize.BOOLEAN,
-      },
-      mainPhoto: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      smallPhoto: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      directorId: {
+      spectacleId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Directors',
+          model: 'Spectacles',
           key: 'id',
         },
+      },
+      isActual: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+      },
+      date: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      time: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      day: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      adress: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      price: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -54,9 +49,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
     };
-    await queryInterface.createTable('Spectacles', attributes);
+    await queryInterface.createTable('Events', attributes);
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Spectacles');
+    await queryInterface.dropTable('Events');
   },
 };

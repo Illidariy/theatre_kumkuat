@@ -33,11 +33,23 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
+    smallPhoto: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
     title: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
     body: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    like: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    dislike: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
