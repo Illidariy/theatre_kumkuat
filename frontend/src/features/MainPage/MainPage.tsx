@@ -6,6 +6,11 @@ import MainSwiper from '../Swiper/Swiper';
 import './MainPage.scss';
 
 export default function MainPage(): JSX.Element {
+  // const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   dispatch(getTimepad());
+  // }, [dispatch]);
+
   return (
     <>
       <MainSwiper />

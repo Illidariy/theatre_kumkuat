@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useAppDispatch } from '../../store';
 import './Footer.scss';
+import { newSubscriber } from './subscriberSlice';
 
 export default function Footer(): JSX.Element {
+  const [email, setEmail] = useState('');
+
+  const dispatch = useAppDispatch();
+  const createSubscribe = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    dispatch(newSubscriber({ email }));
+  };
   return (
     <div className="footer">
       <div className="container footer__container">
@@ -22,6 +31,18 @@ export default function Footer(): JSX.Element {
             <span className="footer__title">контакты</span>
             <a href="">как добраться</a>
             <a href="">политика конфиденциальности</a>
+          </div>
+          <div className="footer__item">
+            <span>Подписаться на рассылку</span>
+            <form onSubmit={createSubscribe} method="post">
+              <input
+                id="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+              />
+              <button type="submit">Отправить</button>
+            </form>
           </div>
         </div>
       </div>

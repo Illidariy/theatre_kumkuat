@@ -12,10 +12,12 @@ export const loadSpectacles = async (): Promise<Spectacle[]> => {
 
 export const newSpectacle = async ({
   title,
+  premiere,
+  censor,
   body,
   isActual,
   mainPhoto,
-  video,
+  smallPhoto,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
   const res = await fetch('/spectacles', {
@@ -25,10 +27,12 @@ export const newSpectacle = async ({
     },
     body: JSON.stringify({
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
   });
@@ -38,10 +42,12 @@ export const newSpectacle = async ({
 export const currentSpectacle = async ({
   id: spectacleId,
   title,
+  premiere,
+  censor,
   body,
   isActual,
   mainPhoto,
-  video,
+  smallPhoto,
   directorId,
 }: Spectacle): Promise<Spectacle> => {
   const res = await fetch(`/spectacles/${spectacleId}`, {
@@ -52,10 +58,12 @@ export const currentSpectacle = async ({
     body: JSON.stringify({
       id: spectacleId,
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
   });
@@ -195,5 +203,3 @@ export const getUsers = async (): Promise<User[]> => {
   const res = await fetch('/main');
   return res.json();
 };
-
-
