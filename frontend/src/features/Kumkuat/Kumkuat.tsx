@@ -1,19 +1,20 @@
 import React from 'react';
-import './Kymkyat.scss';
+import Footer from '../Footer/Footer';
+import './Kumkuat.scss';
 
-export default function Kymkyat(): JSX.Element {
+export default function Kumkyat(): JSX.Element {
   return (
-    <div className="kymkyat">
-      <div className="kymkyat__block">
+    <div className="kumkuat">
+      <div className="kumkuat__block">
         <img
           src="../../../images/teatr.png"
           alt=""
-          className="kymkyat__img-text"
+          className="kumkuat__img-text"
         />
         <div className="container">
-          <h1 className="kymkyat__title">КУМКУАТ</h1>
-          <div className="kymkyat__flex">
-            <div className="kymkyat__info">
+          <h1 className="kumkuat__title">КУМКУАТ</h1>
+          <div className="kumkuat__flex">
+            <div className="kumkuat__info">
               <p>
                 Театр-студия «Кумкуат» - сообщество молодых людей, объединенных
                 любовью к театру. Руководитель театра - Левицкая Мария
@@ -31,19 +32,20 @@ export default function Kymkyat(): JSX.Element {
                 творчества, поиск, добрый ум и умную доброту, вдохновение…
               </p>
               {/* <a href="/">
-                <div className="kymkyat__info-btn">команда</div>
+                <div className="kumkuat__info-btn">команда</div>
               </a> */}
             </div>
             <div>
               <img
-                src="../../../images/kymkyat.jpg"
+                src="../../../images/kumkuat.jpg"
                 alt=""
-                className="kymkyat__img"
+                className="kumkuat__img"
               />
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -33,21 +33,31 @@ export default function MainSwiper(): JSX.Element {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="../../images/hh.jpg" alt="kymkyat" className="swiper-img" />
+          <a href="/spectacles/6">
+            <img
+              src="../../images/hh.jpeg"
+              alt="kymkyat"
+              className="swiper-img"
+            />
+          </a>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="../../images/hh1.jpg"
-            alt="kymkyat"
-            className="swiper-img"
-          />
+          <a href="/spectacles/1">
+            <img
+              src="../../images/hh1.jpg"
+              alt="kymkyat"
+              className="swiper-img"
+            />
+          </a>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="../../images/hh2.jpg"
-            alt="kymkyat"
-            className="swiper-img"
-          />
+          <a href="/spectacles/4">
+            <img
+              src="../../images/hh2.jpg"
+              alt="kymkyat"
+              className="swiper-img"
+            />
+          </a>
         </SwiperSlide>
       </Swiper>
       <a href="#Affiche" className="arrow">
