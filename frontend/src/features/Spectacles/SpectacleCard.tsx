@@ -10,7 +10,7 @@ export default function SpectacleCard({
     <div className="spectacle__card">
       <h3 className="spectacle__name">{spectacle.title}</h3>
       {/* <h4>{spectacle.body}</h4> */}
-      {/* <p>{spectacle.video}</p> */}
+
       <img
         src={spectacle.mainPhoto}
         className="spectacle__img"

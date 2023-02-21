@@ -6,7 +6,7 @@ import spectacleSlice from './features/Spectacles/spectacleSlice';
 import userSlice from './features/auth/authSlice';
 import directorSlice from './features/Directors/directorSlice';
 import productSlice from './features/products/productSlice';
-import timepadSlice from './features/Timepad/timepadSlice';
+import subscriberSlice from './features/Footer/subscriberSlice';
 
 const store = configureStore({
   reducer: {
@@ -15,7 +15,7 @@ const store = configureStore({
     userState: userSlice,
     directorState: directorSlice,
     productState: productSlice,
-    timepadState: timepadSlice,
+    subscribeState: subscriberSlice,
   },
 });
 export type AppDispatch = typeof store.dispatch;

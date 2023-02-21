@@ -10,7 +10,7 @@ export default function ActorCard(): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getActor(Number(id)));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <div className="actor container">

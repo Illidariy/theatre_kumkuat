@@ -34,7 +34,6 @@ router.get('/login', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  console.log(req.body);
   try {
     const { email, password } = req.body;
     if (email && password) {
@@ -62,9 +61,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/registration', async (req, res) => {
   try {
-    const {
-      email, name, password, password2, isAdmin,
-    } = req.body;
+    const { email, name, password, password2, isAdmin } = req.body;
     if (password !== password2) {
       return res.json({ error: 'Пароли не совпадают' });
     }
@@ -83,14 +80,11 @@ router.post('/registration', async (req, res) => {
           name: newUser.name,
           email: newUser.email,
           isAdmin: false,
-
         };
         req.session.userId = user.id;
         res.status(201).json({ user });
       } else {
-        res
-          .status(403)
-          .json({ error: 'Такой email уже существует' });
+        res.status(403).json({ error: 'Такой email уже существует' });
       }
     } else {
       res.status(403).json({ error: 'Заполните все поля' });
@@ -101,7 +95,9 @@ router.post('/registration', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  req.session.destroy(() => res.clearCookie('user_sid').json({ isAdmin: false }));
+  req.session.destroy(() =>
+    res.clearCookie('user_sid').json({ isAdmin: false }),
+  );
 });
 
 module.exports = router;
