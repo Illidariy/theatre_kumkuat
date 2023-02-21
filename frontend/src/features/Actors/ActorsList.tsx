@@ -13,26 +13,24 @@ export default function ActorsList(): JSX.Element {
   }, [dispatch]);
   return (
     <div>
-      <ul>
-        {actors.map((actor) => (
-          // <ActorCard key={actor.id} actor={actor} />
-          <li key={actor.id}>
-            <div className="actor__main">
-              <NavLink to={`/crew/actors/${actor.id}`}>
-                <img
-                  className="actor__photo"
-                  src={actor.mainPhoto}
-                  alt="actor"
-                />
-              </NavLink>
-              <br />
-              <h3 className="actor__name">
-                {actor.firstName} {actor.secondName}
-              </h3>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {actors.map((actor) => (
+        // <ActorCard key={actor.id} actor={actor} />
+        <div key={actor.id}>
+          <div className="actor__main">
+            <NavLink to={`/crew/actors/${actor.id}`}>
+              <img
+                className="actor__photo"
+                src={actor.smallPhoto}
+                alt="actor"
+              />
+            </NavLink>
+            <br />
+            <h3 className="actor__name">
+              {actor.firstName} {actor.secondName}
+            </h3>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

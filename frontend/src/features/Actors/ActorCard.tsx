@@ -11,12 +11,11 @@ export default function ActorCard(): JSX.Element {
   useEffect(() => {
     dispatch(getActor(Number(id)));
   }, []);
-  // console.log(actor);
 
   return (
     <div className="actor container">
       <div className="actor__main">
-        <img className="actor__photo" src={actor?.mainPhoto} alt="actor" />
+        <img className="actor__photo" src={actor.mainPhoto} alt="actor" />
         <br />
         <h3 className="actor__name">
           {actor.firstName} {actor.secondName}
@@ -26,6 +25,10 @@ export default function ActorCard(): JSX.Element {
         <span className="actor__title">{actor.title}</span>
         <br />
         <span className="actor__body">{actor.body}</span>
+        <br />
+        <span className="actor__like">{actor.like}</span>
+        <br />
+        <span className="actor__dislike">{actor.dislike}</span>
       </div>
     </div>
   );

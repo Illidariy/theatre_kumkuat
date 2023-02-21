@@ -30,10 +30,13 @@ function AdminActorCard({ actor }: { actor: Actor }): JSX.Element {
   return (
     <div className="actor_card" key={actor.id}>
       <img src={actor.mainPhoto} alt="" />
+      <img src={actor.smallPhoto} alt="" />
       <div className="actor_card_info">
         <h2>{`${actor.firstName}\n${actor.secondName}`}</h2>
         <p>{actor.title}</p>
         <p>{actor.body}</p>
+        <p>{actor.like}</p>
+        <p>{actor.dislike}</p>
         <div className="buttons_admin">
           <button onClick={showUpdate} type="button">
             Update

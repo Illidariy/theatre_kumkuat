@@ -1,18 +1,15 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Product extends Model {
+  class Event extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ User, Photo }) {
-      Product.User = Product.belongsTo(User, {
-        foreignKey: 'userId',
-      });
-      Product.Photo = Product.hasMany(Photo, {
-        foreignKey: 'productId',
+    static associate({ Spectacle }) {
+      Event.Spectacle = Event.belongsTo(Spectacle, {
+        foreignKey: 'spectacleId',
       });
     }
   }
@@ -23,29 +20,37 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    title: {
+    spectacleId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Spectacles',
+        key: 'id',
+      },
+    },
+    isActual: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN,
+    },
+    date: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    body: {
+    time: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    photo: {
+    day: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    adress: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
     price: {
       allowNull: false,
       type: DataTypes.INTEGER,
-    },
-    userId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Users',
-        key: 'id',
-      },
     },
     createdAt: {
       allowNull: false,
@@ -58,9 +63,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   const options = {
     sequelize,
-    modelName: 'Product',
-    tableName: 'Products',
+    modelName: 'Event',
+    tableName: 'Events',
   };
-  Product.init(attributes, options);
-  return Product;
+  Event.init(attributes, options);
+  return Event;
 };
