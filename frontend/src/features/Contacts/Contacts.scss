@@ -14,10 +14,21 @@
         align-items: center;
     }
     &__text {
+        padding-bottom: 50px;
+        display: flex;
         color: aliceblue;
+        justify-content:space-between;
+        align-items: center;
+
+        
     }
-    &__way {
-        justify-content: right;
+    &__way-text {
+        display: flex;
+        align-items: center;
+    }
+    &__numbers {
+       
+        
     }
 }
 
