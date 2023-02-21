@@ -7,10 +7,12 @@ const initialState: State = {
   spectacles: [],
   spectacle: {
     title: '',
+    premiere: '',
+    censor: '',
     body: '',
     isActual: false,
     mainPhoto: '',
-    video: '',
+    smallPhoto: '',
     directorId: 1,
   },
   error: undefined,
@@ -22,27 +24,50 @@ export const getSpectacles = createAsyncThunk('spectacles', () =>
 
 export const newSpectacle = createAsyncThunk(
   'spectacles/create',
-  ({ title, body, isActual, mainPhoto, video, directorId }: Spectacle) =>
+  ({
+    title,
+    premiere,
+    censor,
+    body,
+    isActual,
+    mainPhoto,
+    smallPhoto,
+    directorId,
+  }: Spectacle) =>
     api.newSpectacle({
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
 );
 
 export const currentSpectacle = createAsyncThunk(
   'spectacles/update',
-  ({ id, title, body, isActual, mainPhoto, video, directorId }: Spectacle) =>
+  ({
+    id,
+    title,
+    premiere,
+    censor,
+    body,
+    isActual,
+    mainPhoto,
+    smallPhoto,
+    directorId,
+  }: Spectacle) =>
     api.currentSpectacle({
       id,
       title,
+      premiere,
+      censor,
       body,
       isActual,
       mainPhoto,
-      video,
+      smallPhoto,
       directorId,
     }),
 );

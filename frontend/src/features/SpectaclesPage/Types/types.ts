@@ -1,10 +1,12 @@
 export type Spectacle = {
   id?: number;
   title: string;
+  premiere: string;
+  censor: string;
   body: string;
   isActual: boolean;
   mainPhoto: string;
-  video: string;
+  smallPhoto: string;
   directorId?: number;
 };
 
@@ -23,14 +25,13 @@ export type SpectacleInfo = {
   body: string;
   isActual: boolean;
   mainPhoto: string;
-  video: string;
   directorId?: number;
-  'Director.id':number;
+  'Director.id': number;
   'Director.firstName': string;
   'Director.secondName': string;
   'Director.mainPhoto': string;
   'Director.title': string;
-  'Director.body':string;
+  'Director.body': string;
   'actors.id': number;
   'actors.firstName': string;
   'actors.secondName': string;
