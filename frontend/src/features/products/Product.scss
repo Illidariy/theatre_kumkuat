@@ -2,19 +2,20 @@
 &__flex {
   display: flex;
   justify-content:space-around;
-  // flex-direction:row;
+  flex-direction:column;
   flex-wrap: wrap;
-  color:white;
+  color:rgb(6, 6, 6);
   align-items: center;
   left: 123px;
 
 }
-&__pageName {
+&__page-name {
+  padding-top: 60px;
 width: 176px;
 
 height: 82px;
 
-color:white;
+color:rgb(3, 3, 3);
 font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
@@ -55,5 +56,9 @@ font-style: normal;
 font-weight: 400;
 font-size: 18px;
 line-height: 21px;
+}
+&__text {
+  display: flex;
+  align-items: center;
 }
 }
