@@ -10,8 +10,10 @@ export default function SpectacleShortCard({
 }): JSX.Element {
   return (
     <div className="spectacles__container">
+      <NavLink className="spectacles__color" to={`/spectacles/${spectacle.id}`}>
       <img className="spectacles__img" src={spectacle.mainPhoto} alt="spectacle" />
-      <NavLink className="spectacles__color" to={`/spectacles/${spectacle.id}`}>{spectacle.title}  </NavLink>
+        {spectacle.title}
+      </NavLink>
     </div>
   );
 }
