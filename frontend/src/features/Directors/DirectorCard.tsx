@@ -29,6 +29,10 @@ export default function DirectorCard(): JSX.Element {
         <span className="director__title">{director.title}</span>
         <br />
         <span className="director__body">{director.body}</span>
+        <br />
+        <span className="director__like">{director.like}</span>
+        <br />
+        <span className="director__dislike">{director.dislike}</span>
       </div>
     </div>
   );

@@ -24,14 +24,26 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { firstName, secondName, mainPhoto, title, body } = req.body;
+  const {
+    firstName,
+    secondName,
+    mainPhoto,
+    smallPhoto,
+    title,
+    body,
+    like,
+    dislike,
+  } = req.body;
   try {
     const actor = await Actor.create({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     });
     res.status(200).json({ actor });
   } catch ({ message }) {
@@ -41,7 +53,16 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { firstName, secondName, mainPhoto, title, body } = req.body;
+  const {
+    firstName,
+    secondName,
+    mainPhoto,
+    smallPhoto,
+    title,
+    body,
+    like,
+    dislike,
+  } = req.body;
   try {
     const currentActor = await Actor.findOne({
       where: { id: Number(id) },
@@ -50,8 +71,11 @@ router.put('/:id', async (req, res) => {
       currentActor.firstName = firstName;
       currentActor.secondName = secondName;
       currentActor.mainPhoto = mainPhoto;
+      currentActor.smallPhoto = smallPhoto;
       currentActor.title = title;
       currentActor.body = body;
+      currentActor.like = like;
+      currentActor.dislike = dislike;
       const newActor = await currentActor.save();
       return res.status(200).json({ actor: newActor });
     }

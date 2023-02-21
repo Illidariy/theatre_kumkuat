@@ -83,8 +83,11 @@ export const newActor = async ({
   firstName,
   secondName,
   mainPhoto,
+  smallPhoto,
   title,
   body,
+  like,
+  dislike,
 }: Actor): Promise<Actor> => {
   const res = await fetch('/actors', {
     method: 'POST',
@@ -95,8 +98,11 @@ export const newActor = async ({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
   });
   return res.json();
@@ -107,8 +113,11 @@ export const currentActor = async ({
   firstName,
   secondName,
   mainPhoto,
+  smallPhoto,
   title,
   body,
+  like,
+  dislike,
 }: Actor): Promise<Actor> => {
   const res = await fetch(`/actors/${id}`, {
     method: 'PUT',
@@ -120,8 +129,11 @@ export const currentActor = async ({
       firstName,
       secondName,
       mainPhoto,
+      smallPhoto,
       title,
       body,
+      like,
+      dislike,
     }),
   });
   return res.json();
@@ -195,5 +207,3 @@ export const getUsers = async (): Promise<User[]> => {
   const res = await fetch('/main');
   return res.json();
 };
-
-
