@@ -1,31 +1,34 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { RootState, useAppDispatch } from '../../store';
-import { getActor } from './actorsSlice';
+import { ActorInfoState } from './Types/types';
 
 export default function ActorCard(): JSX.Element {
   const { id } = useParams();
-  const { actor } = useSelector((store: RootState) => store.actorState);
-  const dispatch = useAppDispatch();
+  const [actor, setActor] = useState<ActorInfoState>([]);
   useEffect(() => {
-    dispatch(getActor(Number(id)));
+    fetch(`/actors/${id}`)
+      .then((res) => res.json())
+      .then((data) => setActor(data));
   }, []);
-  // console.log(actor);
 
   return (
     <div className="actor container">
       <div className="actor__main">
-        <img className="actor__photo" src={actor?.mainPhoto} alt="actor" />
+        <img className="actor__photo" src={actor[0].mainPhoto} alt="actor" />
         <br />
         <h3 className="actor__name">
-          {actor.firstName} {actor.secondName}
+          {actor[0].firstName} {actor[0].secondName}
         </h3>
       </div>
       <div className="actor__info">
-        <span className="actor__title">{actor.title}</span>
+        <span className="actor__title">{actor[0].title}</span>
         <br />
-        <span className="actor__body">{actor.body}</span>
+        <span className="actor__body">{actor[0].body}</span>
+        <br />
+        <span className="actor__like">{actor[0].like}</span>
+        <br />
+        <span className="actor__dislike">{actor[0].dislike}</span>
+
       </div>
     </div>
   );

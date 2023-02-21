@@ -15,8 +15,8 @@ export default function SpectaclesPageList(): JSX.Element {
   }, [dispatch]);
   return (
     <div>
-      <div className="spectacles__pageName"> Репертуар </div>
-      <div className="spectacles__flex">
+      <div className="spectacles-page__pageName"> Репертуар </div>
+      <div className="spectacles-page__flex">
         {spectacles.map((spectacle) => (
           <SpectacleShortCard key={spectacle.id} spectacle={spectacle} />
         ))}

@@ -11,7 +11,7 @@ export default function SpectaclesList(): JSX.Element {
   );
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(getSpectacles());
+    // dispatch(getSpectacles());
   }, [dispatch]);
   return (
     <div className="spectacle">

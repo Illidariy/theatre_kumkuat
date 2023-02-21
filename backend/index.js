@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(auth);
 // app.use(cors(corsOptions));
 
-app.use('/actors', actorsRouter);
+app.use('actors', actorsRouter);
 app.use('/spectacles', spectaclesRouter);
 app.use('/auth', authRouter);
 app.use('/directors', directorsRouter);

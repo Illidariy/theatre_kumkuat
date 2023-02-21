@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Actor } = require('../db/models');
+const { Actor, Spectacle } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
@@ -16,15 +16,25 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const actor = await Actor.findOne({ where: { id } });
-    res.status(200).json(actor);
+    console.log(id);
+    const actorOne = await Actor.findAll({
+      raw: true,
+      where: { id },
+      include: [
+        Actor.Spectacle,
+      ],
+    });
+    console.log(actorOne);
+    res.status(200).json(actorOne);
   } catch ({ message }) {
     res.status(500).json(message);
   }
 });
 
 router.post('/', async (req, res) => {
-  const { firstName, secondName, mainPhoto, title, body } = req.body;
+  const {
+    firstName, secondName, mainPhoto, title, body,
+  } = req.body;
   try {
     const actor = await Actor.create({
       firstName,
@@ -41,7 +51,9 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { firstName, secondName, mainPhoto, title, body } = req.body;
+  const {
+    firstName, secondName, mainPhoto, title, body,
+  } = req.body;
   try {
     const currentActor = await Actor.findOne({
       where: { id: Number(id) },
