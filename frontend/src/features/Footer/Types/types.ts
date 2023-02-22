@@ -3,6 +3,11 @@ export type Subscriber = {
   email: string;
 };
 
+export type PayloadSubscriber = {
+  message?: string;
+  subscriber?: Subscriber;
+};
+
 export type State = {
   subscribers: Subscriber[];
   error: undefined | string;

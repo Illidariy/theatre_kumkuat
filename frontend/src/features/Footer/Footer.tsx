@@ -7,25 +7,27 @@ import { getSubscribers, newSubscriber } from './subscriberSlice';
 export default function Footer(): JSX.Element {
   const [email, setEmail] = useState('');
   const [errorState, setErrorState] = useState(false);
-
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getSubscribers());
-  }, [dispatch]);
 
   const {
     subscribeState: { subscribers },
   } = useSelector((store: RootState) => store);
 
+  useEffect(() => {
+    dispatch(getSubscribers());
+  }, [dispatch]);
+
   const createSubscribe = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    if (!subscribers.includes({ email })) {
+      dispatch(newSubscriber({ email }));
+      setEmail('');
+      getSubscribers();
 
-    subscribers.map((subscriber) =>
-      subscriber.email === email
-        ? setErrorState(true)
-        : dispatch(newSubscriber({ email })),
-    );
+      setErrorState(true);
+    } else {
+      setErrorState(true);
+    }
   };
 
   return (
@@ -50,11 +52,9 @@ export default function Footer(): JSX.Element {
             <a href="">политика конфиденциальности</a>
           </div>
           <div className="footer__item">
-            {!errorState ? (
-              <span>Подписаться на рассылку</span>
-            ) : (
-              <span>Вы уже подписаны</span>
-            )}
+            <span>
+              {!errorState ? 'Подписаться на рассылку' : 'Вы подписались'}
+            </span>
             <form onSubmit={createSubscribe} method="post">
               <input
                 id="email"
