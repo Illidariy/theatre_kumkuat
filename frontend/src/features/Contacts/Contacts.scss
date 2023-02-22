@@ -1,6 +1,7 @@
 .contacts {
   background-color: black;
   position: relative;
+  padding-top: 60px;
   min-height: 100vh;
   &__items {
     display: flex;
@@ -15,8 +16,10 @@
     align-items: center;
   }
   &__text {
-    padding-bottom: 50px;
     display: flex;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    font-size: 18px;
     color: aliceblue;
     justify-content: space-between;
     align-items: center;
@@ -27,5 +30,18 @@
   }
   &__map {
     padding-bottom: 250px;
+  }
+  &__img-text {
+    position: absolute;
+    top: 90px;
+    right: 0;
+  }
+
+  &__page-name {
+    color: #ff5001;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 85px;
+    padding: 90px 0 40px 30px;
   }
 }
