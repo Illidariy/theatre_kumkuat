@@ -16,7 +16,7 @@ export default function SpectacleShortCard({
           src={spectacle.mainPhoto}
           alt="spectacle"
         />
-        {spectacle.title}
+       <h3>{spectacle.title}</h3>
       </NavLink>
     </div>
   );
