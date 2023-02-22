@@ -2,7 +2,7 @@
   background-color: black;
   color: white;
   min-height: 100vh;
-  padding-top: 60px;
+  padding-top: 90px;
   position: relative;
 
   &__card {
@@ -14,7 +14,7 @@
     font-weight: 400;
     font-size: 70px;
     line-height: 85px;
-    padding: 60px 0 0 30px;
+    padding: 60px 0 20px 30px;
   }
 
   &__title {
@@ -25,8 +25,19 @@
     padding: 20px 0 40px 30px;
   }
 
+  &__card-title {
+    font-weight: 600;
+  }
+
   &__img {
     height: 200px;
+    width: 350px;
+    object-fit: cover;
+  }
+  &__img-text {
+    position: absolute;
+    top: 90px;
+    right: 0;
   }
 
   &__flex {
@@ -36,6 +47,7 @@
     justify-content: space-around;
     align-items: center;
     padding-bottom: 250px;
+    gap: 30px;
   }
 }
 .actor__container__list {

@@ -16,8 +16,9 @@ export default function SpectaclesPageList(): JSX.Element {
   }, [dispatch]);
   return (
     <div className="spectacles">
+      <img src="../../images/repa.png" alt="" className="spectacles__img-text" />
       <div className="container">
-        <div className="spectacles__page-name"> Репертуар </div>
+        <div className="spectacles__page-name">Репертуар</div>
         <div className="spectacles__flex">
           {spectacles.map((spectacle) => (
             <SpectacleShortCard key={spectacle.id} spectacle={spectacle} />

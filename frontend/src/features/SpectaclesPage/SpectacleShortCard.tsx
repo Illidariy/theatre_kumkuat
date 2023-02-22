@@ -16,7 +16,11 @@ export default function SpectacleShortCard({
           src={spectacle.mainPhoto}
           alt="spectacle"
         />
-        {spectacle.title}
+        <span className="spectacles__card-title">{spectacle.title}</span>
+        <div>
+          <span>подробнее</span>
+          <img src="../../../images/arrowOrange.png" alt="" />
+        </div>
       </NavLink>
     </div>
   );

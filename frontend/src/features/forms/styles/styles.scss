@@ -90,7 +90,7 @@ button:hover {
 input {
   background-color: transparent;
   border: transparent;
-  border-bottom: 2px solid rgb(255, 229, 127);
+  border-bottom: 2px solid #ff5001;
   width: 15rem;
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
@@ -100,11 +100,6 @@ input {
   width: 20rem;
   height: 5rem;
 }
-
-/* img {
-  object-fit: contain;
-  width: 500px;
-} */
 
 .actually {
   color: rgb(0, 86, 0);

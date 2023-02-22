@@ -15,7 +15,7 @@ export default function SpectacleInfo(): JSX.Element {
   return (
     <div>
       {spectacle.length > 0 && (
-        <div className="spectacleInfo__">
+        <div className="spectacles__info">
           <h3>{spectacle[0].title}</h3>
           <img src={spectacle[0].mainPhoto} alt="spectacle" />
           <span>{spectacle[0].body}</span>

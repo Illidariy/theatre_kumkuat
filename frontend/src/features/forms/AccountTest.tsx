@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ActorForm from './ActorForm';
 import ProductForm from './ProductForm';
 import SpectacleForm from './SpectacleForm';
-import './styles/styles.css';
+import './styles/styles.scss';
 import ActorTable from './tables/ActorTable';
 import ProductTable from './tables/ProductTable';
 import SpectacleTable from './tables/SpectacleTable';
