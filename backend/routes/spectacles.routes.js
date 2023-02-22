@@ -69,10 +69,6 @@ router.put('/:spectacleId', async (req, res) => {
       currentSpectacle.video = video;
       currentSpectacle.directorId = directorId;
       const newSpectacle = await currentSpectacle.save();
-      // const newSpectacle = await Spectacle.findOne({
-      //   where: { id: spectacleId },
-      // });
-      // console.log(newSpectacle);
       return res.status(200).json({ spectacle: newSpectacle });
     }
     return res.json({ message: 'Spectacle undefined' });

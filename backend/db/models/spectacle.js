@@ -2,7 +2,7 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Spectacle extends Model {
-    static associate({ Actor, Director, Event, Photo, Review }) {
+    static associate({ Actor, Director, Photo, Review }) {
       Spectacle.Actor = Spectacle.belongsToMany(Actor, {
         through: 'SpectaclesActors',
         foreignKey: 'spectacleId',
@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       });
       Spectacle.Director = Spectacle.belongsTo(Director, {
         foreignKey: 'directorId',
-      });
-      Spectacle.Event = Spectacle.hasMany(Event, {
-        foreignKey: 'spectacleId',
       });
       Spectacle.Review = Spectacle.hasMany(Review, {
         foreignKey: 'spectacleId',

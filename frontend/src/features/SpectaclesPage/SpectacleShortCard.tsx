@@ -21,6 +21,7 @@ export default function SpectacleShortCard({
           <span>подробнее</span>
           <img src="../../../images/arrowOrange.png" alt="" />
         </div>
+       <h3>{spectacle.title}</h3>
       </NavLink>
     </div>
   );

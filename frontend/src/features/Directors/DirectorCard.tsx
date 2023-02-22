@@ -10,7 +10,7 @@ export default function DirectorCard(): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getDirector(Number(id)));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <div className="director container">

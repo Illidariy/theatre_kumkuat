@@ -38,4 +38,6 @@ export type SpectacleInfo = {
   'actors.mainPhoto': string;
   'actors.title': string;
   'actors.body': string;
+  'Director.smallPhoto':string;
+  'actors.smallPhoto':string;
 };

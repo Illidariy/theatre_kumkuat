@@ -29,8 +29,11 @@ function AdminActorCard({ actor }: { actor: Actor }): JSX.Element {
   }, [dispatch, updateFormActor, refreshDelete]);
   return (
     <div className="actor_card" key={actor.id}>
-      <img src={actor.mainPhoto} alt="" />
-      <img src={actor.smallPhoto} alt="" />
+      <div className="photo_actor_card">
+        <img className="actor_main_photo" src={actor.mainPhoto} alt="" />
+        <img className="actor_small_photo" src={actor.smallPhoto} alt="" />
+      </div>
+
       <div className="actor_card_info">
         <h2>{`${actor.firstName}\n${actor.secondName}`}</h2>
         <p>{actor.title}</p>

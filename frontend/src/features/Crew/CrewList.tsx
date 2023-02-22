@@ -4,16 +4,6 @@ import DirectorsList from '../Directors/DirectorsList';
 import './CrewList.scss';
 
 function CrewList(): JSX.Element {
-  // const [viewActors, setViewActors] = useState(false);
-  // const [viewDirectors, setViewDirectors] = useState(false);
-
-  // const toggleViewActors = (): void => {
-  //   setViewActors((prev) => !prev);
-  // };
-  // const toggleViewDirectors = (): void => {
-  //   setViewDirectors((prev) => !prev);
-  // };
-
   return (
     <div className="crew container">
       <h3 className="crew__name">Театр-студия «Кумкуат»</h3>

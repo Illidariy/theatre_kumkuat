@@ -11,6 +11,9 @@ function AccountTest(): JSX.Element {
   const [actorForm, setActorForm] = useState(false);
   const [productForm, setProductForm] = useState(false);
   const [spectacleForm, setSpectacleForm] = useState(false);
+  const [actorContent, setActorContent] = useState(false);
+  const [productContent, setProductContent] = useState(false);
+  const [spectacleContent, setSpectacleContent] = useState(false);
 
   function actorHandler(): void {
     setActorForm((prev) => !prev);
@@ -22,22 +25,49 @@ function AccountTest(): JSX.Element {
     setSpectacleForm((prev) => !prev);
   }
 
+  function actorContentHandler(): void {
+    setActorContent((prev) => !prev);
+  }
+  function productContentHandler(): void {
+    setProductContent((prev) => !prev);
+  }
+  function spectacleContentHandler(): void {
+    setSpectacleContent((prev) => !prev);
+  }
+
   return (
     <div className="admin_content">
       <div className="buttons_main">
         {!productForm && !spectacleForm && (
           <button onClick={actorHandler} type="button">
-            {!actorForm ? 'ACTOR FORM' : 'Back'}
+            {!actorForm ? 'ACTOR FORM' : 'ANOTHER FORM'}
           </button>
         )}
         {!spectacleForm && !actorForm && (
           <button onClick={productHandler} type="button">
-            {!productForm ? 'PRODUCT FORM' : 'Back'}
+            {!productForm ? 'PRODUCT FORM' : 'ANOTHER FORM'}
           </button>
         )}
         {!actorForm && !productForm && (
           <button onClick={spectacleHandler} type="button">
-            {!spectacleForm ? 'SPECTACLE FORM' : 'Back'}
+            {!spectacleForm ? 'SPECTACLE FORM' : 'ANOTHER FORM'}
+          </button>
+        )}
+      </div>
+      <div className="buttons_main">
+        {!productContent && !spectacleContent && (
+          <button onClick={actorContentHandler} type="button">
+            {!actorContent ? 'ACTORS CONTENT' : 'ANOTHER CONTENT'}
+          </button>
+        )}
+        {!actorContent && !spectacleContent && (
+          <button onClick={productContentHandler} type="button">
+            {!productContent ? 'PRODUCTS CONTENT' : 'ANOTHER CONTENT'}
+          </button>
+        )}
+        {!actorContent && !productContent && (
+          <button onClick={spectacleContentHandler} type="button">
+            {!spectacleContent ? 'SPECTACLES CONTENT' : 'ANOTHER CONTENT'}
           </button>
         )}
       </div>
@@ -62,15 +92,23 @@ function AccountTest(): JSX.Element {
         )}
       </div>
       <div className="tables">
-        <div className="actors_table">
-          <ActorTable />
-        </div>
-        <div className="products_table">
-          <ProductTable />
-        </div>
-        <div className="spectacles_table">
-          <SpectacleTable />
-        </div>
+        {actorContent && (
+          <div className="actors_table">
+            <ActorTable />
+          </div>
+        )}
+
+        {productContent && (
+          <div className="products_table">
+            <ProductTable />
+          </div>
+        )}
+
+        {spectacleContent && (
+          <div className="spectacles_table">
+            <SpectacleTable />
+          </div>
+        )}
       </div>
     </div>
   );

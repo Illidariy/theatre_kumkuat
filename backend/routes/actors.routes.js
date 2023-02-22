@@ -16,7 +16,15 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const actor = await Actor.findOne({ where: { id } });
+    console.log(id);
+    const actor = await Actor.findAll({
+      raw: true,
+      where: { id },
+      include: [
+        Actor.Spectacle,
+      ],
+    });
+    console.log(actor);
     res.status(200).json(actor);
   } catch ({ message }) {
     res.status(500).json(message);
