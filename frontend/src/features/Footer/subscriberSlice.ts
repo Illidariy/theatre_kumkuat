@@ -5,6 +5,7 @@ import { Subscriber, State } from './Types/types';
 
 const initialState: State = {
   subscribers: [],
+
   error: undefined,
 };
 

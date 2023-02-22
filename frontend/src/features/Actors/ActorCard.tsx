@@ -11,40 +11,46 @@ export default function ActorCard(): JSX.Element {
       .then((data) => setActor(data));
   }, [id]);
 
-return (
-<div className="actor container">
- {actor.length > 0 && (
-    <>
-    <div className="actor__main">
-      <img className="actor__photo" src={actor[0].mainPhoto} alt="actor" />
-      <br />
-      <h3 className="actor__name">
-        {actor[0].firstName} {actor[0].secondName}
-      </h3>
+  return (
+    <div className="actor container">
+      {actor.length > 0 && (
+        <>
+          <div className="actor__main">
+            <img
+              className="actor__photo"
+              src={actor[0].mainPhoto}
+              alt="actor"
+            />
+            <br />
+            <h3 className="actor__name">
+              {actor[0].firstName} {actor[0].secondName}
+            </h3>
+          </div>
+          <div className="actor__info">
+            <span className="actor__title">{actor[0].title}</span>
+            <br />
+            <span className="actor__body">{actor[0].body}</span>
+            <br />
+            <span className="actor__like">{actor[0].like}</span>
+            <br />
+            <span className="actor__dislike">{actor[0].dislike}</span>
+          </div>
+        </>
+      )}
+      <h4> Играет в спектаклях: </h4>
+      <div>
+        {actor.map((el) => (
+          <div key={el.id}>
+            <NavLink
+              className="spectacles"
+              to={`/spectacles/${el['spectacles.id']}`}
+            >
+              <img src={el['spectacles.smallPhoto']} alt="actor" />
+              <p>{el['spectacles.title']}</p>
+            </NavLink>
+          </div>
+        ))}
+      </div>
     </div>
-    <div className="actor__info">
-      <span className="actor__title">{actor[0].title}</span>
-      <br />
-      <span className="actor__body">{actor[0].body}</span>
-      <br />
-      <span className="actor__like">{actor[0].like}</span>
-      <br />
-      <span className="actor__dislike">{actor[0].dislike}</span>
-
-    </div>
-    </>
- ) }
- <h4> Играет в спектаклях: </h4>
- <div>
-  {actor.map((el) => (
-    <div key={el.id}>
-       <NavLink className="spectacles" to={`/spectacles/${el['spectacles.id']}`}>
-       <img src={el['spectacles.smallPhoto']} alt="actor" />
-      <p>{el['spectacles.title']}</p>
-       </NavLink>
-    </div>
-  ))}
- </div>
-</div>
   );
 }

@@ -26,7 +26,7 @@ function App(): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(checkUser());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="main__container">
