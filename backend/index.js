@@ -15,6 +15,7 @@ const authRouter = require('./routes/auth.routes');
 const directorsRouter = require('./routes/directors.routes');
 const productsRouter = require('./routes/products.routes');
 const subscribersRouter = require('./routes/subscribers.routes');
+const eventsRouter = require('./routes/events.routes');
 // const indexRouter = require('./routes/index.routes');
 // const usersRouter = require('./routes/users.routes');
 // const studentsRouter = require('./routes/students.routes');
@@ -43,6 +44,7 @@ app.use('/auth', authRouter);
 app.use('/directors', directorsRouter);
 app.use('/products', productsRouter);
 app.use('/subscribers', subscribersRouter);
+app.use('/events', eventsRouter);
 
 app
   .listen(PORT)
