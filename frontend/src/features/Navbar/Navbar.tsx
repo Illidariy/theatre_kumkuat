@@ -40,20 +40,21 @@ export default function Navbar(): JSX.Element {
                 <NavLink to="/products">мерч</NavLink>
               </li>
               <li className="nav__list-item">
-                <NavLink to="/">контакты</NavLink>
+                <NavLink to="/contacts">контакты</NavLink>
               </li>
               <li className="nav__list-social">
-                <a href="/">
+                <a href="https://vk.com/teatr_kumkuat">
+                
                   <img
-                    src="../../images/vk.png"
+                    src="../../images/vkontacte.png"
                     alt="vk"
                     className="nav__a-size"
                   />
                 </a>
-                <a href="/">
+                <a href="https://t.me/teatr_kumkuat">
                   <img
-                    src="../../images/inst.png"
-                    alt="vk"
+                    src="../../images/telegram.png"
+                    alt="telegram"
                     className="nav__a-size"
                   />
                 </a>

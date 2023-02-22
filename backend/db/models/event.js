@@ -7,11 +7,6 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Spectacle }) {
-      Event.Spectacle = Event.belongsTo(Spectacle, {
-        foreignKey: 'spectacleId',
-      });
-    }
   }
   const attributes = {
     id: {
@@ -20,13 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    spectacleId: {
+    title: {
       allowNull: false,
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Spectacles',
-        key: 'id',
-      },
+      type: DataTypes.TEXT,
     },
     isActual: {
       allowNull: false,

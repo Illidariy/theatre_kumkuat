@@ -13,6 +13,7 @@ export default function ActorsList(): JSX.Element {
   }, [dispatch]);
   return (
     <div>
+
       {actors.map((actor) => (
         // <ActorCard key={actor.id} actor={actor} />
         <div key={actor.id}>

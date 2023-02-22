@@ -7,6 +7,7 @@ import userSlice from './features/auth/authSlice';
 import directorSlice from './features/Directors/directorSlice';
 import productSlice from './features/products/productSlice';
 import subscriberSlice from './features/Footer/subscriberSlice';
+import afficheSlice from './features/Affiche/afficheSlice';
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     directorState: directorSlice,
     productState: productSlice,
     subscribeState: subscriberSlice,
+    afficheState: afficheSlice,
   },
 });
 export type AppDispatch = typeof store.dispatch;

@@ -8,13 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      spectacleId: {
+      title: {
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Spectacles',
-          key: 'id',
-        },
+        type: Sequelize.TEXT,
       },
       isActual: {
         allowNull: false,
