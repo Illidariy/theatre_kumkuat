@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import * as api from '../../App/api';
+import * as api from '../../App/api/api.actor';
 
 import { Actor, ActorId, State } from './Types/types';
 
