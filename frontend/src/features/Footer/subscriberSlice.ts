@@ -22,7 +22,7 @@ export const newSubscriber = createAsyncThunk(
 );
 
 const subscriberSlice = createSlice({
-  name: 'subscriber',
+  name: 'subscribers',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -34,7 +34,9 @@ const subscriberSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(newSubscriber.fulfilled, (state, action) => {
-        state.subscribers.push(action.payload);
+        if (action.payload.subscriber) {
+          state.subscribers.push(action.payload.subscriber);
+        }
       })
       .addCase(newSubscriber.rejected, (state, action) => {
         state.error = action.error.message;
