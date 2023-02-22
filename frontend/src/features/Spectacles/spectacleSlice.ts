@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import * as api from '../../App/api';
+import * as api from '../../App/api/api.spectacle';
 
 import { Spectacle, SpectacleId, State } from './Types/types';
 
