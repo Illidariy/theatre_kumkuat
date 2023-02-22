@@ -23,6 +23,7 @@ font-size: 70px;
 line-height: 82px;
 }
 &__container {
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
 }
@@ -57,8 +58,5 @@ font-weight: 400;
 font-size: 18px;
 line-height: 21px;
 }
-&__text {
-  display: flex;
-  align-items: center;
-}
+
 }
