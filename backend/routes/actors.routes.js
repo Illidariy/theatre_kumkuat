@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Actor, Spectacle } = require('../db/models');
+const { Actor } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
@@ -17,15 +17,15 @@ router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     console.log(id);
-    const actorOne = await Actor.findAll({
+    const actor = await Actor.findAll({
       raw: true,
       where: { id },
       include: [
         Actor.Spectacle,
       ],
     });
-    console.log(actorOne);
-    res.status(200).json(actorOne);
+    console.log(actor);
+    res.status(200).json(actor);
   } catch ({ message }) {
     res.status(500).json(message);
   }
