@@ -3,7 +3,7 @@ module.exports = {
   async up(queryInterface) {
     const data = [
       {
-        spectacleId: 6,
+        title: 'ХРМСА',
         isActual: true,
         date: '26.02',
         time: '19:30',
@@ -14,7 +14,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        spectacleId: 4,
+        title: 'Самоубийца 1928 г.',
         isActual: true,
         date: '04.03',
         time: '20:00',
@@ -25,7 +25,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        spectacleId: 1,
+        title: 'Кысь',
         isActual: false,
         date: '',
         time: '',
