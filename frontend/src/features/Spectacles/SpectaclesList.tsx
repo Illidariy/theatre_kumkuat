@@ -11,7 +11,7 @@ export default function SpectaclesList(): JSX.Element {
   );
   const dispatch = useAppDispatch();
   useEffect(() => {
-    // dispatch(getSpectacles());
+    dispatch(getSpectacles());
   }, [dispatch]);
   return (
     <div className="spectacle">
@@ -24,8 +24,7 @@ export default function SpectaclesList(): JSX.Element {
                 spectacle.isActual && (
                   <SpectacleCard key={spectacle.id} spectacle={spectacle} />
                 ),
-            )
-            .filter((el, i) => i < 3)}
+            )}
         </div>
       </div>
     </div>

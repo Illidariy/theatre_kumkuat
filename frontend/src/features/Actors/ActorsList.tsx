@@ -24,11 +24,11 @@ export default function ActorsList(): JSX.Element {
                 src={actor.smallPhoto}
                 alt="actor"
               />
-            </NavLink>
             <br />
             <h3 className="actor__name">
               {actor.firstName} {actor.secondName}
             </h3>
+            </NavLink>
           </div>
         </div>
       ))}
