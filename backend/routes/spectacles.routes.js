@@ -27,7 +27,6 @@ router.get('/:id', async (req, res) => {
         Spectacle.Actor,
       ],
     });
-
     res.status(200).json(spectacle);
   } catch ({ message }) {
     res.status(500).json(message);
@@ -35,7 +34,9 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { title, body, isActual, mainPhoto, video, directorId } = req.body;
+  const {
+    title, body, isActual, mainPhoto, video, directorId,
+  } = req.body;
   try {
     const spectacle = await Spectacle.create({
       title,
@@ -53,7 +54,9 @@ router.post('/', async (req, res) => {
 
 router.put('/:spectacleId', async (req, res) => {
   const { spectacleId } = req.params;
-  const { title, body, isActual, mainPhoto, video, directorId } = req.body;
+  const {
+    title, body, isActual, mainPhoto, video, directorId,
+  } = req.body;
   try {
     const currentSpectacle = await Spectacle.findOne({
       where: { id: Number(spectacleId) },

@@ -35,6 +35,11 @@ dd {
   cursor: default;
 }
 
+input {
+  color: white;
+  outline: 0;
+}
+
 /* Выставляем основные настройки по-умолчанию для body */
 body {
   min-height: 100vh;
