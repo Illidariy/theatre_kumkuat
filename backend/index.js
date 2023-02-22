@@ -44,7 +44,7 @@ app.use('/auth', authRouter);
 app.use('/directors', directorsRouter);
 app.use('/products', productsRouter);
 app.use('/subscribers', subscribersRouter);
-app.use('/events', eventsRouter);
+app.use('/affiches', eventsRouter);
 
 app
   .listen(PORT)

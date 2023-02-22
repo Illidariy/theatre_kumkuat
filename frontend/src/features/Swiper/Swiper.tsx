@@ -40,6 +40,8 @@ export default function MainSwiper(): JSX.Element {
               className="swiper-img"
             />
           </a>
+          <span className="news__title">26 февраля 19:30</span>
+          <span className="news__text">«ХРМСА»</span>
         </SwiperSlide>
         <SwiperSlide>
           <a href="/spectacles/1">
@@ -49,6 +51,8 @@ export default function MainSwiper(): JSX.Element {
               className="swiper-img"
             />
           </a>
+          <span className="news__title">18 марта 19:30</span>
+          <span className="news__text">«КЫСЬ»</span>
         </SwiperSlide>
         <SwiperSlide>
           <a href="/spectacles/4">
@@ -58,13 +62,13 @@ export default function MainSwiper(): JSX.Element {
               className="swiper-img"
             />
           </a>
+          <span className="news__title">4 марта 20:00</span>
+          <span className="news__text">«Самоубийца 1928 г.»</span>
         </SwiperSlide>
       </Swiper>
       <a href="#Affiche" className="arrow">
         <div className="arrow-down" />
       </a>
-      <span className="news__title">26 февраля 19:30</span>
-      <span className="news__text">«ХРМСА»</span>
     </div>
   );
 }

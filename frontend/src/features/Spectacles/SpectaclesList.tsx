@@ -11,21 +11,19 @@ export default function SpectaclesList(): JSX.Element {
   );
   const dispatch = useAppDispatch();
   useEffect(() => {
-    // dispatch(getSpectacles());
+    dispatch(getSpectacles());
   }, [dispatch]);
   return (
     <div className="spectacle">
       <div className="container">
         <h1 className="spectacle__title">СПЕКТАКЛИ</h1>
         <div className="spectacle__flex">
-          {spectacles
-            .map(
-              (spectacle) =>
-                spectacle.isActual && (
-                  <SpectacleCard key={spectacle.id} spectacle={spectacle} />
-                ),
-            )
-            .filter((el, i) => i < 3)}
+          {spectacles.map(
+            (spectacle) =>
+              spectacle.isActual && (
+                <SpectacleCard key={spectacle.id} spectacle={spectacle} />
+              ),
+          )}
         </div>
       </div>
     </div>

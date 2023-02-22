@@ -9,7 +9,7 @@ export default function AfficheEventList(): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getAffiches());
-  }, [dispatch]);
+  }, []);
   return (
     <div>
       {affiches.map(
