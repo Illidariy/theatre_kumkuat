@@ -2,34 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
 import './Footer.scss';
-import { newSubscriber } from './subscriberSlice';
+import { getSubscribers, newSubscriber } from './subscriberSlice';
 
 export default function Footer(): JSX.Element {
   const [email, setEmail] = useState('');
   const [errorState, setErrorState] = useState(false);
 
   const dispatch = useAppDispatch();
-  const createSubscribe = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    // dispatch(getSubscribers());
-    dispatch(newSubscriber({ email }));
-    // setEmail('');
-  };
+
+  useEffect(() => {
+    dispatch(getSubscribers());
+  }, [dispatch]);
 
   const {
     subscribeState: { subscribers },
   } = useSelector((store: RootState) => store);
 
-  const errorMessage = subscribers.filter(
-    (sub) => sub.subscriber.email === email,
-  );
-  const err = errorMessage.filter((errMess) => errMess.email === email);
+  const createSubscribe = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
 
-  useEffect(() => {
-    if (errorMessage && err) {
-      setErrorState(true);
-    }
-  }, [errorMessage, err]);
+    subscribers.map((subscriber) =>
+      subscriber.email === email
+        ? setErrorState(true)
+        : dispatch(newSubscriber({ email })),
+    );
+  };
 
   return (
     <div className="footer">
@@ -53,11 +50,16 @@ export default function Footer(): JSX.Element {
             <a href="">политика конфиденциальности</a>
           </div>
           <div className="footer__item">
-            {errorState && <span>Подписаться на рассылку</span>}
+            {!errorState ? (
+              <span>Подписаться на рассылку</span>
+            ) : (
+              <span>Вы уже подписаны</span>
+            )}
             <form onSubmit={createSubscribe} method="post">
               <input
                 id="email"
                 name="email"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
               />

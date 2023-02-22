@@ -1,6 +1,15 @@
 const router = require('express').Router();
 const { Subscribe } = require('../db/models');
 
+router.get('/', async (req, res) => {
+  try {
+    const subscribers = await Subscribe.findAll();
+    res.status(200).json({ subscribers });
+  } catch ({ message }) {
+    res.status(500).json({ message });
+  }
+});
+
 router.post('/', async (req, res) => {
   const { email } = req.body;
   try {
