@@ -7,7 +7,13 @@ import Footer from '../Footer/Footer';
 function ContactsPage(): JSX.Element {
   return (
     <div className="contacts">
+      <img
+        src="../../images/contact.png"
+        alt="text"
+        className="contacts__img-text"
+      />
       <div className="container">
+        <h1 className="contacts__page-name">КОНТАКТЫ</h1>
         <div className="contacts__text">
           <div className="contacts__numbers">
             <h4>По всем вопросам</h4>

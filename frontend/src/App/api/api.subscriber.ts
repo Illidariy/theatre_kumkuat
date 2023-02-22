@@ -1,4 +1,7 @@
-import { Subscriber } from '../../features/Footer/Types/types';
+import {
+  PayloadSubscriber,
+  Subscriber,
+} from '../../features/Footer/Types/types';
 
 export const getSubscribers = async (): Promise<Subscriber[]> => {
   const res = await fetch('/subscribers');
@@ -7,7 +10,7 @@ export const getSubscribers = async (): Promise<Subscriber[]> => {
 
 export const newSubscriber = async ({
   email,
-}: Subscriber): Promise<Subscriber> => {
+}: Subscriber): Promise<PayloadSubscriber> => {
   const res = await fetch('/subscribers', {
     method: 'POST',
     headers: {
