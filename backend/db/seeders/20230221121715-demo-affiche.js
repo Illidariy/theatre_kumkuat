@@ -8,7 +8,7 @@ module.exports = {
         date: '26.02',
         time: '19:30',
         day: 'Воскресение',
-        adress: 'Курляндская ул., 49',
+        address: 'Курляндская ул., 49',
         price: 750,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -19,7 +19,7 @@ module.exports = {
         date: '04.03',
         time: '20:00',
         day: 'Суббота',
-        adress: 'Николая Рубцова ул., 5',
+        address: 'Николая Рубцова ул., 5',
         price: 750,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -30,16 +30,16 @@ module.exports = {
         date: '',
         time: '',
         day: '',
-        adress: 'Курляндская ул., 49',
+        address: 'Курляндская ул., 49',
         price: 750,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
     ];
-    await queryInterface.bulkInsert('Events', data, {});
+    await queryInterface.bulkInsert('Affiches', data, {});
   },
 
   async down(queryInterface) {
-    await queryInterface.bulkDelete('Events', null, {});
+    await queryInterface.bulkDelete('Affiches', null, {});
   },
 };

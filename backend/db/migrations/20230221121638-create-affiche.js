@@ -28,7 +28,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      adress: {
+      address: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
@@ -45,9 +45,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
     };
-    await queryInterface.createTable('Events', attributes);
+    await queryInterface.createTable('Affiches', attributes);
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Events');
+    await queryInterface.dropTable('Affiches');
   },
 };

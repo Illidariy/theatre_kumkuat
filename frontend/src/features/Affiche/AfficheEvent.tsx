@@ -17,7 +17,7 @@ export default function AfficheEvent({
       <span>
         {affiche.title}
         <br />
-        {affiche.adress}
+        {affiche.address}
       </span>
       <span>{affiche.price} рублей</span>
       <span>

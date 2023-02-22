@@ -11,7 +11,7 @@ const initialState: State = {
     date: '',
     time: '',
     day: '',
-    adress: '',
+    address: '',
     price: 0,
   },
   error: undefined,

@@ -5,7 +5,7 @@ export type Affiche = {
   date: string;
   time: string;
   day: string;
-  adress: string;
+  address: string;
   price: number;
 };
 
