@@ -12,6 +12,9 @@ export default function MainPage(): JSX.Element {
       <Affiche />
       <SpectaclesList />
       <Kumkuat />
+      {/* <a href="#Navbar" className="arrow_up">
+        NNNNN
+      </a> */}
     </>
   );
 }

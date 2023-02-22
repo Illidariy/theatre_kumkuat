@@ -13,6 +13,7 @@ export default function SpectacleInfo(): JSX.Element {
   }, [id]);
 
   return (
+
     <div className="container">
   {spectacle.length > 0 && (
     <div className="spectacleInfo">
@@ -20,7 +21,6 @@ export default function SpectacleInfo(): JSX.Element {
         <img className="spectacleInfo__mainPhoto" src={spectacle[0].mainPhoto} alt="spectacle" />
         <span className="spectacleInfo__body">{spectacle[0].body}</span>
         <div className="spectacleInfo__director">
-
         <h4 className="spectacleInfo__nameDirector"> Режиссер </h4>
 
         <NavLink className="spectacles__color" to={`/crew/directors/${spectacle[0]['Director.id']}`}>

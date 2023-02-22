@@ -1,6 +1,8 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import './Contacts.scss';
+import Footer from '../Footer/Footer';
 
 function ContactsPage(): JSX.Element {
   return (
@@ -117,7 +119,7 @@ function ContactsPage(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className="map">
+      <div className="contacts__map">
         <YMaps>
           <Map
             defaultState={{
@@ -131,6 +133,7 @@ function ContactsPage(): JSX.Element {
           </Map>
         </YMaps>
       </div>
+      <Footer />
     </div>
   );
 }
